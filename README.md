@@ -15,3 +15,5 @@ Please do only contribute to the "Wiki"-section, except for fixing typos / gramm
 If you find any mistakes, missing information or typos in the Wiki that you would like to correct or add, you can just fork the repository, correct / add it and then create a pull request.
 
 Please keep it plain HTML / CSS and follow the scheme used on the sites. Please do not change anything regarding CSS.
+
+NOTE: When cloning this repository, most of the CSS and media assets are not working, since their paths are specified for use on the server.
