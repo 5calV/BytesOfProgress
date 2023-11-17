@@ -1,0 +1,201 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ --> 
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title> BytesOfProgress </title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+</head>
+
+   
+<br>
+<hr>
+<br>
+<center>
+    <a href="/index.html">
+        <br>
+    <a href="/index.html"> <img src="logo.png" class="homelogo"></a> 
+    <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+<hr>
+
+
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">FileBrowser installation script</h1>
+</span>
+<p style="color:#ffff; font-size: 15px">16th November 2023 / 04:30 PM</p>
+<p style="color:#ffff; font-size: 20px">
+I wrote a bash script which performs an automated installation of FileBrowser, which makes 
+it possible to access files on a machine through a webbrowser. My script simplifies the process of 
+installing filebrowser. The user only has to change one thing in a config file and then 
+execute install.sh.
+</p>
+
+<br>
+
+<a href="https://filebrowser.org" button class="button1" role="button">FileBrowser-Website</a>
+<br><br>
+<a href="https://github.com/filebrowser/filebrowser" button class="button1" role="button">FileBrowser on GitHub</a>
+<br><br>
+<a href="https://github.com/5calV/filebrowser-install-script" button class="button1" role="button">Script on GitHub</a>
+
+<style>
+    .code-box {
+        background-color: #353541;
+        padding: 5px;
+        border-radius: 5px;
+        /* WIDTH EINSTELLEN FÜR BREITE! */
+        width: 70%;
+        /*--------------------------------------------------------------------------------------*/
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .code-box pre {
+        position: relative;
+        margin: 0;
+        padding: 0; /* Reset padding */
+        margin-top: 0; /* Reset margin-top */
+        color: #ffffff;
+        white-space: pre-wrap;
+        text-align: left;
+    }
+</style>
+
+<p style="color:#ffff; font-size: 20px">
+First I created a config file named filebrowser.json. This is where the user needs to change 
+one thing: The IP-Address.
+</p>
+<div class="code-box">
+    <pre><code>
+        {
+            "port": 8080,
+            "baseURL": "",
+            "address": "000.000.000.000",
+            "log": "stdout",
+            "database": "/etc/filebrowser.db",
+            "root": "/var/www"
+          }
+    </code></pre>
+</div>
+
+<p style="color:#ffff; font-size: 20px">
+    After that, I created a system service file named filebrowser.service. 
+    This file is responsable for systemd starting the Filebrowser instance when the server it is running on is being 
+    turned on, or rebooted. The system service file looks like this:
+</p>
+
+<div class="code-box">
+    <pre><code>
+        [Unit]
+        Description=File Browser
+        After=network.target
+        [Service]
+        ExecStart=/usr/local/bin/filebrowser -c /etc/filebrowser.json
+        [Install]
+        WantedBy=multi-user.target
+    </code></pre>
+</div>
+
+<p style="color:#ffff; font-size: 20px">
+    Finally, I  wrote the bash script: 
+    It has to install FileBrowser, copy the system service and config files to the right direction, 
+    start FileBrowser for the first time and enable the system service. I also added some "sleep" 
+    instructions, so that the user can read what is happening.
+    The script looks like this:
+</p>
+
+<div class="code-box">
+    <pre><code>
+        #!/bin/bash
+
+        echo "This script will perform an automatic installation of FileBrowser!"
+        sleep 1
+        echo "Updating repositories..."
+        sleep 0.5
+        
+        apt update && apt full-upgrade -y && apt install curl -y
+        sleep 1
+        
+        echo "Updates done."
+        sleep 0.5
+        echo "Downloading and installing FileBrowser..."
+        sleep 0.5
+        
+        curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
+        
+        sleep 0.5
+        echo "Copying config file to /etc/filebrowser.json ..."
+        sleep 0.5
+        
+        cp filebrowser.json /etc/filebrowser.json
+        
+        echo "Copying system service file to /etc/systemd/system/filebrowser.service ..."
+        sleep 0.5
+        
+        cp filebrowser.service /etc/systemd/system/filebrowser.service
+        
+        echo "Enabling and starting the filebrowser system service..."
+        sleep 0.5
+        
+        systemctl enable filebrowser.service
+        systemctl start filebrowser.service
+        
+        sleep 0.5
+        
+        echo "DONE! Congratulations, you now have a running FileBrowser instance!"
+        
+        sleep 0.5
+        echo "After updating any settings in /etc/filebrowser.json make sure to run "systemmctl restart filebrowser.service""
+        
+        echo "Default Login:"
+        echo "User: admin"
+        echo "Pass: admin"
+        echo "Please make sure to change the password on your first login!"
+    </code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><hr><br>
+
+<a href="/blog/blog_posts.html" button class="button1" role="button">back</a>
+
+</center>
+
+<br>
+<hr>
+<br>
