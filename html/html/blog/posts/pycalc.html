@@ -1,0 +1,156 @@
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ --> 
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<center>
+<br>
+<hr>
+<br>
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title> BytesOfProgress </title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="stylesheet.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-sca>
+
+
+</head>
+
+<a href="/index.html">
+    <br>
+<a href="/index.html"> <img src="logo.png" class="homelogo"></a> 
+    <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+<hr>
+
+
+
+
+
+
+
+
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">Simple Python Calculator</h1>
+</span>
+<p style="color:#ffff; font-size: 15px">16th December 2022 / 11:00 PM</p>
+<p style="color:#ffff; font-size: 20px">I wrote a simple Terminal-Based Calculator in Python, which can be used for Addition, Subtraction, Muliplication and Division of 2 Numbers. Also, when the user tries to divide by zero, the program will tell him or her that it's not possible.</p>
+
+<img style="max-width:95%; width: 750px;" id="img_DocPreview" src="calculator.png" />
+
+<br>
+
+<p style="color:#ffff; font-size: 20px">
+This is what the code looks like:
+</p>
+
+<style>
+    .code-box {
+        background-color: #353541;
+        padding: 5px;
+        border-radius: 5px;
+        /* WIDTH EINSTELLEN FÜR BREITE! */
+        width: 70%;
+        /*--------------------------------------------------------------------------------------*/
+        margin: 0 auto;
+        overflow: hidden; /* Add this to handle potential overflow */
+    }
+
+    .code-box pre {
+        position: relative;
+        margin: 0;
+        padding: 0; /* Reset padding */
+        margin-top: 0; /* Reset margin-top */
+        color: #ffffff;
+        white-space: pre-wrap;
+        text-align: left;
+
+
+    }
+</style>
+
+<div class="code-box">
+    <pre><code>
+# Loop Start
+while True:
+
+# Global Variables
+
+# Addition, Subtraction, Multiplication or Division?
+    calculation = input("Which Type of Calculation do you want to use?\nAddition ( 1 )\nSubtraction ( 2 )\nMultiplication ( 3 )\nDivision ( 4 )\n")
+
+# User gives number 1, number 2.
+    a = float(input('Enter Number 1: '))
+    b = float(input('Enter Number 2: '))
+
+# Result
+    addition = (a+b)
+    subtraction = (a-b)
+    multiplication = (a*b)
+    division = (a/b)
+
+#--------------------------------------------------------------------------------------------------------------------------------------------
+
+# Addition
+
+    if (calculation) == "1":
+        print (('Your Result:'), addition)
+
+# Subtraction
+
+    if (calculation) == "2":
+        print (('Your Result:'), subtraction)
+
+# Multiplication
+
+    if (calculation) == "3":
+        print (('Your Result:'), multiplication)
+
+# Division
+
+    if calculation == "4":
+        try:
+            division = a / b
+            print("Your Result:", division)
+        except ZeroDivisionError:
+            print("Numbers can not be zero!")
+
+#---------------------------------------------------------------------------------------------------------------------------------------------
+
+# Restart?
+
+    restart = input("Would you like to do another Calculation? ( y / n )\n")
+
+    if (restart) == ("y"):
+        continue
+    else:
+        break
+    </code></pre>
+</div>
+
+
+<br><hr><br>
+
+
+
+
+
+
+<a href="/blog/blog_posts.html" button class="button1" role="button">back</a>
+
+</center>
+
+<br>
+<hr>
+<br>

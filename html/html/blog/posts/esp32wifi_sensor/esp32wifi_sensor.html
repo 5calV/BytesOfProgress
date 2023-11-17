@@ -1,0 +1,175 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ --> 
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title> BytesOfProgress </title>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" href="/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+</head>
+
+   
+<br>
+<hr>
+<br>
+<center>
+    <a href="/index.html">
+        <br>
+    <a href="/index.html"> <img src="/logo.png" class="homelogo"></a> 
+    <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+<hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">ESP32 Sensors & WiFi</h1>
+</span>
+<p style="color:#ffff; font-size: 15px">09th October 2023 / 02:30 PM </p>
+
+<p style="color:#ffff; font-size: 20px">
+    Today I tried out the ESP32 for the first time.
+    I managed to attach a PIR Sensor-Module and an LED to the ESP32. The LED lights up as soon as the PIR Sensor-Module recognizes something is moving.
+    I also got the ESP32 to connect to a WiFi Network.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    First, I started with the obligatory "Hello World"
+</p>
+
+<style>
+    .code-box {
+        background-color: #353541;
+        padding: 5px;
+        border-radius: 5px;
+        /* WIDTH EINSTELLEN FÜR BREITE! */
+        width: 70%;
+        /*--------------------------------------------------------------------------------------*/
+        margin: 0 auto;
+        overflow: hidden; /* Add this to handle potential overflow */
+    }
+
+    .code-box pre {
+        position: relative;
+        margin: 0;
+        padding: 0; /* Reset padding */
+        margin-top: 0; /* Reset margin-top */
+        color: #ffffff;
+        white-space: pre-wrap;
+        text-align: left;
+    }
+    
+</style>
+
+<div class="code-box">
+    <pre><code>
+void setup() {
+  // Set the Serial Monitor to 115200!
+  Serial.begin(115200);
+}
+ 
+void loop() {
+  Serial.println("Hello from ESP32");
+  delay(1000);
+}
+    </code></pre>
+</div>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">PIR Sensor-Module</h1>
+</span>
+
+<p style="color:#ffff; font-size: 20px">
+    After that I attached the PIR Sensor-Module and the LED:
+</p>
+
+<img style="max-width:95%; width: 750px;" id="img_DocPreview" src="esp_led_sensor.jpg" />
+
+<p style="color:#ffff; font-size: 20px">
+Then I programmed it to turn on the LED when the PIR Sensor Module recognizes something moving:
+</p>
+
+<div class="code-box">
+    <pre><code>
+int ledPin = 14;
+int sensorPin = 27;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(sensorPin, INPUT);
+}
+
+void loop() {
+  int sensorValue = digitalRead(sensorPin);
+
+  if (sensorValue == HIGH) {
+    digitalWrite(ledPin, HIGH); // Turning on LED if the Sensor is "HIGH"
+  }
+  else {
+    digitalWrite(ledPin, LOW); // Turning off LED if the Sensor is "LOW"
+  }
+}
+    </code></pre>
+</div>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Connecting to WiFi</h1>
+</span>
+
+<p style="color:#ffff; font-size: 20px">
+    I also managed to connect the ESP32 to a Wifi-Network:
+</p>
+
+<div class="code-box">
+    <pre><code>
+// Connecting an ESP32 to a WiFi Network 
+#include < WiFi.h> // Without the space between "<" and "WiFi"
+ 
+// Entering network credentials
+const char* ssid = "SSID";
+const char* password = "PASS";
+ 
+void setup(){
+ 
+    Serial.begin(115200); // You need this Value to find out ESP32's Local IP-Address.
+ 
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(ssid, password);
+    Serial.println("\nConnecting to WiFi Network ..");
+ 
+    while(WiFi.status() != WL_CONNECTED){
+        Serial.print(".");
+        delay(100);
+    }
+ 
+    Serial.println("\nConnected to the WiFi network");
+    Serial.print("Local IP: ");
+    Serial.println(WiFi.localIP());
+}
+ 
+void loop(){
+    // Nothing yet...
+}
+    </code></pre>
+</div>
+
+<br><hr><br>
+
+<a href="/blog/blog_posts.html" button class="button1" role="button">back</a>
+
+</center>
+
+<br>
+<hr>
+<br>

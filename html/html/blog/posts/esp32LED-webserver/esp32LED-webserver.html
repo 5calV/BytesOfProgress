@@ -1,0 +1,180 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ --> 
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title> BytesOfProgress </title>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" href="/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+</head>
+
+   
+<br>
+<hr>
+<br>
+<center>
+    <a href="/index.html">
+        <br>
+    <a href="/index.html"> <img src="/logo.png" class="homelogo"></a> 
+    <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+<hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">ESP32 LED Control via Webserver</h1>
+</span>
+<p style="color:#ffff; font-size: 15px">11th October 2023 / 02:00 PM </p>
+
+
+
+<p style="color:#ffff; font-size: 20px">
+    I managed to set up a webserver on the ESP32. The site running on it has 2 buttons: One to turn the attached LED on, one to turn it off. The local IP is printed to the serial monitor.
+    You can also read if the LED is currently on or off in the serial monitor.
+</p>
+
+<br>
+
+<a href="https://github.com/5calV/ESP32-LED-WebServer" button class="button1" role="button">View project on GitHub</a>
+
+<br><br><br>
+
+
+<style>
+
+.videodiv {
+  width: 100%;
+}
+video {
+  height: auto;
+  width: 1000px;
+  max-width: 95%;
+}
+</style>
+
+<div class="videodiv">
+<video width="540px" controls muted src="ESPwebserverLED.mp4"></video>
+</div>
+</video>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="color:#ffff; font-size: 20px">
+    Here is the code used for this project:
+</p>
+
+<style>
+
+    .code-box {
+        background-color: #353541;
+        padding: 5px;
+        border-radius: 5px;
+        /* WIDTH EINSTELLEN FÜR BREITE! */
+        width: 70%;
+        /*--------------------------------------------------------------------------------------*/
+        margin: 0 auto;
+        overflow: hidden; /* Add this to handle potential overflow */
+    }
+
+    .code-box pre {
+        position: relative;
+        margin: 0;
+        padding: 0; /* Reset padding */
+        margin-top: 0; /* Reset margin-top */
+        color: #ffffff;
+        white-space: pre-wrap;
+        text-align: left;
+    }
+    
+</style>
+
+<div class="code-box">
+    <pre><code>
+#include < WiFi.h>   // Including ESP32's WiFi Library. Without the space between "<" and "WiFi.h"
+
+const char* ssid = "SSID";  // Entering WiFi SSID
+const char* pass = "PASSWORD";  // Entering WiFi Password
+
+WiFiServer server(80);  // Creating a webserver on Port 80
+const int ledPin = 14;  // LED-PIN
+bool ledStatus = LOW;   // The initial state of the LED (OFF)
+
+void setup() {
+  pinMode(ledPin, OUTPUT);  // Setting the LED-PIN to output
+  Serial.begin(115200);     // Starting the serial communication
+  WiFi.begin(ssid, pass);  // Starting to establish a connection to the WiFi network
+  while (WiFi.status() != WL_CONNECTED) delay(500);  // Waiting until the connection is established
+
+  // Print the IP address in the requested format
+  Serial.print("The ESP32's local IP-Address is: ");
+  Serial.println(WiFi.localIP());
+
+  server.begin();  // Starting up the webserver on Port 80
+}
+
+void loop() {
+  WiFiClient client = server.available();  // Checking if a Client is connected
+
+  if (client) {
+    String req = client.readStringUntil('\r');  // Reading the client's HTTP request up to the line break ('\r')
+
+    // Checking whether the request contains "/on" to turn on the LED or "/off" to turn it off
+    ledStatus = req.indexOf("GET /on") >= 0 ? HIGH : req.indexOf("GET /off") >= 0 ? LOW : ledStatus;
+
+    // Sending an HTTP response to the client (containing HTML)
+    client.println("HTTP/1.1 200 OK\nContent-Type: text/html\nConnection: close\n");
+    // HTML contents
+    client.print("HTML HERE");
+
+    client.stop();  // Quitting the Client-connection
+    digitalWrite(ledPin, ledStatus);  // Executing the command based on the client's request (controlling the LED / LED-PIN)
+
+    // Reporting the LED status in the Serial Monitor
+    Serial.println("LED is now " + String(ledStatus == HIGH ? "ON" : "OFF"));
+  }
+}
+    </code></pre>
+</div>
+
+<p style="color:#ffff; font-size: 20px">
+    The HTML looks like this:
+</p>
+
+<br>
+
+<a href="esphtml.html" button class="button1" role="button">ESP32 HTML</a>
+
+<br>
+<br><hr><br>
+
+<a href="/blog/blog_posts.html" button class="button1" role="button">back</a>
+
+</center>
+
+<br>
+<hr>
+<br>
