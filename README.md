@@ -12,7 +12,7 @@ I also try to provide as much information as possible for other people who want 
 ## Contribute
 
 Please do only contribute to the "Wiki"-section, except for fixing typos / grammar.
-If you find any mistakes, missing information or typos in the Wiki that you would like to correct or add, you can just fork the repository, correct / add it and then create a pull request.
+If you find any mistakes, missing information or typos in the Wiki that you would like to correct or add, you can just fork the repository, correct / add it and then create a pull request. If you find a typo or incorrect / missing information, you can also create an issue.
 
 Please keep it plain HTML / CSS and follow the scheme used on the sites. Please do not change anything regarding CSS.
 
