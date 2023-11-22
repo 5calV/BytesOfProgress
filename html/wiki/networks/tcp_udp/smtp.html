@@ -46,37 +46,28 @@
 <p style="color:#ffff; font-size: 20px">
     SMTP, or Simple Mail Transfer Protocol, is a communication protocol used for 
     the transmission of electronic mail (email) on the internet. It operates on Port 25 
-    on the application layer of the TCP/IP protocol suite. Here is a technical breakdown:
+    or, for secure connections, port 587. 
+    of the TCP/IP protocol. Here is a technical breakdown:
 </p>
 
+<p style="color:#ffff; font-size: 20px">
+    When you initiate the sending of an email, your email client engages 
+    in a dialogue with an SMTP server. This server is then verifying 
+    your credentials to confirm your authority to send emails and cross-checking 
+    the accuracy of the recipient's email address.
+</p>
 
+<p style="color:#ffff; font-size: 20px">
+    Once authenticated, the SMTP server takes on the role of a digital courier, 
+    mapping out the most efficient route to the recipient's email server. 
+    DNS queries may be involved to fetch the Mail Exchange (MX) records.
+</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p style="color:#ffff; font-size: 20px">
+    SMTP relies on status codes to convey the outcome of each step. 
+    A "250" status code signifies a successful mail delivery, while a "550" 
+    code indicates that a mailbox cannot accept further messages.
+</p>
 
 
 
