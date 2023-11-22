@@ -69,20 +69,12 @@
         With the help of a bash-script, this site is much easier to update.
         The script automatically clones the GitHub-Repository of BytesOfProgress and replaces the 
         old files with the updated ones.
-        I set an alias in the .bashrc of the server, called "merge" which executes the script.
-        The alias looks like this:
     </p>
-
-    <div class="code-box">
-        <pre><code>
-            alias merge='/var/www/merge.sh'
-        </code></pre>
-    </div>
 
     <p style="color:#ffff; font-size: 20px">  
         Now, all I have to do in order to make changes on the site, is make the changes, commit to
         the repository on GitHub, log into the FileBrowser instance on the server, open a shell 
-        and type "merge". The script looks like this, as you can see, it is fairly simple:
+        and type "bash merge.sh". The script looks like this, as you can see, it is fairly simple:
     </p>
     
     <div class="code-box">
