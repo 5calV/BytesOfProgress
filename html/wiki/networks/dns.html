@@ -49,8 +49,12 @@
     <p style="color:#ffff; font-size: 20px">A DNS (Domain Name System) server is a critical component of the internet that translates human-friendly domain names into IP (Internet Protocol) addresses, which computers and networked devices use to identify each other on the internet. DNS servers play a crucial role in making the internet accessible by providing a human-readable way to access websites and services. Without DNS, users would need to remember and enter complex IP addresses to access online resources, which would be impractical. But how does this work?</p>
 
     <p style="color:#ffff; font-size: 20px">
-When you enter a domain name in a web browser, your device needs to know the corresponding IP address to establish a connection. This is where DNS servers come into play.
-Your device sends a DNS query to a DNS server, typically provided by your internet service provider ( ISP ) or a public DNS service like Google DNS or Cloudflare DNS.
+When you enter a domain name in a web browser, your device needs to know the 
+corresponding IP address to establish a connection. 
+This is where DNS servers come into play.
+Your device sends a DNS query to a DNS server, 
+typically provided by your internet service provider 
+( ISP ) or a public DNS service like Google DNS or Cloudflare DNS.
 </p>
 
     <span style="color:#ff6600">
@@ -58,11 +62,20 @@ Your device sends a DNS query to a DNS server, typically provided by your intern
     </span>
 
     <p style="color:#ffff; font-size: 20px">
-    The local DNS server (usually operated by your ISP) first checks its local cache to see if it already knows the IP address for the requested domain name. If it does, it provides the IP address immediately.
-    If the IP address is not found in the local cache, the local DNS server forwards the query to higher-level DNS servers.
-    These higher-level DNS servers follow a hierarchical structure and may include root DNS servers, top-level domain ( TLD ) servers ( .com, .org ), and authoritative DNS servers that manage specific domain names.
-    The authoritative DNS server for the requested domain name provides the IP address to the higher-level DNS server, which then passes it back down to the local DNS server.
-    Finally, the local DNS server returns the IP address to your device, allowing it to connect to the desired website or service.
+    The local DNS server (usually operated by your ISP) first 
+    checks its local cache to see if it already knows the IP 
+    address for the requested domain name. If it does, it provides 
+    the IP address immediately.
+    If the IP address is not found in the local cache, 
+    the local DNS server forwards the query to higher-level DNS servers.
+    These higher-level DNS servers follow a hierarchical structure and may 
+    include root DNS servers, top-level domain ( TLD ) servers ( .com, .org ), 
+    and authoritative DNS servers that manage specific domain names.
+    The authoritative DNS server for the requested domain name provides 
+    the IP address to the higher-level DNS server, which then passes it 
+    back down to the local DNS server.
+    Finally, the local DNS server returns the IP address to your 
+    device, allowing it to connect to the desired website or service.
 </p>
 
 <img style="max-width:95%;" src="dns.jpg" height="280" width="380"></img>
@@ -71,7 +84,10 @@ Your device sends a DNS query to a DNS server, typically provided by your intern
         <h1 style="font-size:25px">DNS-Caching</h1>
     </span>
     <p style="color:#ffff; font-size: 20px">
-To improve performance and reduce the load on DNS servers, DNS records are typically cached at various levels. This means that frequently accessed domain names are resolved more quickly because their IP addresses are already known and stored in DNS caches.
+To improve performance and reduce the load on DNS servers, 
+DNS records are typically cached at various levels. This means 
+that frequently accessed domain names are resolved more quickly 
+because their IP addresses are already known and stored in DNS caches.
 </p>
 
     <span style="color:#ff6600">
@@ -83,7 +99,9 @@ To improve performance and reduce the load on DNS servers, DNS records are typic
     </span>
 
     <p style="color:#ffff; font-size: 20px">
-    An A record maps a domain name to an IPv4 address. It's used to resolve hostnames to IP addresses. For example, an A record for "example.com" might point to "192.168.1.1."
+    An A record maps a domain name to an IPv4 address. It's used 
+    to resolve hostnames to IP addresses. For example, an A record 
+    for "example.com" might point to "192.168.1.1."
     </p>
     
     <span style="color:#ff6600">
@@ -91,7 +109,8 @@ To improve performance and reduce the load on DNS servers, DNS records are typic
     </span>
     
     <p style="color:#ffff; font-size: 20px">
-An AAAA record performs the same function as an A record but is used for IPv6 addresses. It maps a domain name to an IPv6 address.
+An AAAA record performs the same function as an A record but is used 
+for IPv6 addresses. It maps a domain name to an IPv6 address.
 </p>    
     
     <span style="color:#ff6600">
@@ -99,7 +118,9 @@ An AAAA record performs the same function as an A record but is used for IPv6 ad
     </span>
     
     <p style="color:#ffff; font-size: 20px">
- A CNAME record is used to create an alias for a domain name. It allows one domain name to be mapped to another domain's A or AAAA record. For example, you could use a CNAME to point "www.example.com" to "example.com."
+ A CNAME record is used to create an alias for a domain name. It allows 
+ one domain name to be mapped to another domain's A or AAAA record. For example, 
+ you could use a CNAME to point "www.example.com" to "example.com."
 </p>
     
     <span style="color:#ff6600">
@@ -107,7 +128,9 @@ An AAAA record performs the same function as an A record but is used for IPv6 ad
     </span>
     
     <p style="color:#ffff; font-size: 20px">
-    MX records specify the mail servers responsible for receiving email messages sent to a domain. They include a priority value to determine the order in which mail servers should be used. Multiple MX records can exist for redundancy.
+    MX records specify the mail servers responsible for receiving email 
+    messages sent to a domain. They include a priority value to determine 
+    the order in which mail servers should be used. Multiple MX records can exist for redundancy.
     </p>
     
     <span style="color:#ff6600">
@@ -115,7 +138,9 @@ An AAAA record performs the same function as an A record but is used for IPv6 ad
     </span>
     
     <p style="color:#ffff; font-size: 20px">
-    TXT records can store arbitrary text data associated with a domain name. They are commonly used for adding verification or authentication information to a domain, such as SPF (Sender Policy Framework) records for email authentication.
+    TXT records can store arbitrary text data associated with a domain name. 
+    They are commonly used for adding verification or authentication information 
+    to a domain, such as SPF (Sender Policy Framework) records for email authentication.
     </p>
     
     <span style="color:#ff6600">
@@ -123,7 +148,9 @@ An AAAA record performs the same function as an A record but is used for IPv6 ad
     </span>
 
     <p style="color:#ffff; font-size: 20px">
-    NS records specify which name servers are authoritative for a particular domain. These records are used to delegate control of subdomains to other name servers.
+    NS records specify which name servers are authoritative for a particular 
+    domain. These records are used to delegate control of subdomains to 
+    other name servers.
     </p>
     
     <span style="color:#ff6600">
@@ -131,7 +158,8 @@ An AAAA record performs the same function as an A record but is used for IPv6 ad
     </span>
     
     <p style="color:#ffff; font-size: 20px">
-    PTR records are used in reverse DNS lookups to map an IP address back to a domain name. They are often used by email servers and for logging purposes.
+    PTR records are used in reverse DNS lookups to map an IP address 
+    back to a domain name. They are often used by email servers and for logging purposes.
     </p>
     
     <span style="color:#ff6600">
@@ -139,7 +167,8 @@ An AAAA record performs the same function as an A record but is used for IPv6 ad
     </span>
     
     <p style="color:#ffff; font-size: 20px">
-    SRV records define the location of specific services within a domain. They include information about the service type, protocol, and port number.
+    SRV records define the location of specific services within a domain. 
+    They include information about the service type, protocol, and port number.
     </p>
     
     <span style="color:#ff6600">
@@ -147,7 +176,9 @@ An AAAA record performs the same function as an A record but is used for IPv6 ad
     </span>
 
     <p style="color:#ffff; font-size: 20px">
-    The SOA record contains administrative information about a DNS zone, including details about the primary authoritative name server, contact information, and various timing parameters.
+    The SOA record contains administrative information about a DNS zone, 
+    including details about the primary authoritative name server, contact 
+    information, and various timing parameters.
     </p>
     
     <span style="color:#ff6600">
@@ -155,11 +186,17 @@ An AAAA record performs the same function as an A record but is used for IPv6 ad
     </span>
     
     <p style="color:#ffff; font-size: 20px">
-    DNSSEC records are used to enhance DNS security by providing digital signatures and cryptographic authentication of DNS data to prevent DNS spoofing and cache poisoning attacks.
+    DNSSEC records are used to enhance DNS security by providing digital 
+    signatures and cryptographic authentication of DNS data to prevent 
+    DNS spoofing and cache poisoning attacks.
     </p>
     
     <p style="color:#ffff; font-size: 20px">
-    These are some of the most common DNS record types, but there are other specialized records used for various purposes. DNS records are managed by domain registrars, hosting providers, or DNS hosting services, and they are crucial for ensuring the proper functioning of domain names and internet services.
+    These are some of the most common DNS record types, but there 
+    are other specialized records used for various purposes. DNS 
+    records are managed by domain registrars, hosting providers, 
+    or DNS hosting services, and they are crucial for ensuring the 
+    proper functioning of domain names and internet services.
     </p>
 
 
