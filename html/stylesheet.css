@@ -775,7 +775,7 @@ body{
       display: flex;
       align-items: center;
       border-radius: 20px;
-      border: #07182E 5px;
+      border: #07182E 10px;
       overflow: hidden;
       display: flex;
       flex-wrap: wrap;
