@@ -766,7 +766,6 @@ body{
   
   
 
-
     .card {
       width: 250px;
       height: 300px;
@@ -785,11 +784,8 @@ body{
   .card img {
     width: 64px; /* Adjust the width as needed */
     height: auto;
-    margin-bottom: 10px; /* Adjust the margin as needed */
     display: block;
-  
-    margin: 6px;
-  
+    margin: 0
     z-index: 2; /* Ensure a higher z-index */
   }
   
@@ -798,20 +794,9 @@ body{
     height: auto;
     margin-bottom: 10px; /* Adjust the margin as needed */
     display: block;
-  
-    margin: 6px;
-  
+    margin: 9px;
     z-index: 2; /* Ensure a higher z-index */
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   .card h2 {
       z-index: 1;
@@ -855,11 +840,5 @@ body{
   
       z-index: 1; /* Adjust as needed */
     }  
-    /* .card:hover:before {
-      background-image: linear-gradient(180deg, rgb(81, 255, 0), purple);
-      animation: rotBGimg 3.5s linear infinite;
-    } */
-    
-    
   
   
