@@ -87,14 +87,91 @@
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-    First, we have to find out the interface name. We do that with
+    First, we have to find out the interface name.
 </p>
 
     <div class="code-box">
     <pre><code>
-$ cat /etc/resolv.conf
+# ip -c link show
     </code></pre>
-</div>
+    </div>
+
+<p style="color:#ffff; font-size: 20px">
+    The Output should look something like this:
+</p>
+
+<div class="code-box">
+    <pre><code>
+1: lo: LOOPBACK,UP,LOWER_UP mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: ens192: BROADCAST,MULTICAST,UP,LOWER_UP mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:0d:d5:a2 brd ff:ff:ff:ff:ff:ff
+    altname enp11s0
+    </code></pre>
+    </div>
+
+<p style="color:#ffff; font-size: 20px">
+    The device we want to edit the config for is named "ens192" in this example.
+    Now we can go ahead and make some changes the config file using a text editor like e.g. nano.
+    In Debian, the config file's path is "/etc/network/interfaces"
+</p>
+
+
+
+<p style="color:#ffff; font-size: 20px">
+    The content of the file should look something like this:
+</p>
+
+<div class="code-box">
+    <pre><code>
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+        
+source /etc/network/interfaces.d/*
+        
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+#allow-hotplug ens192
+#iface ens192 inet dhcp
+auto ens192
+iface ens192 inet static
+address YOUR_STATIC_IP
+netmask YOUR_NETMASK
+gateway YOUR_GATEWAY
+dns-nameservers DNS_YOU_WANT_TO_USE
+    </code></pre>
+    </div>
+
+<p style="color:#ffff; font-size: 20px">
+        As you can see, we commented out the line containing things like 
+        "dhcp" and "allow-hotplug", and then added our own configuration.
+        The only thing left to do now, is restarting the networking systemd service:
+</p>
+
+<div class="code-box">
+    <pre><code>
+# systemctl restart networking
+    </code></pre>
+    </div>
+
+<p style="color:#ffff; font-size: 20px">
+    Congratulations! Your server has now a static local IP-Address. 
+    To double-check whether it has worked, you can loop up your IP with:
+</p>
+
+<div class="code-box">
+    <pre><code>
+# ip a
+    </code></pre>
+    </div>
+
+
+
+
+
 
 
 
