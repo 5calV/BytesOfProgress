@@ -66,9 +66,48 @@
     </span>
     <p style="color:#ffff; font-size: 15px">13th January 2024 / 10:30 PM</p>
     <p style="color:#ffff; font-size: 20px">     
-
+        To keep track if my servers are turned on and connected to my network, I needed a device 
+        with a small display, which pings the local IPv4 addresses, and shows the state 
+        on the display.
     </p>
     
+    <p style="color:#ffff; font-size: 20px">     
+        For that, I decided to go with an ESP32 and an 4 / 16 I2C display. 
+        I started by connecting the ESP32 to my network with WiFi. After 
+        that, I connected the I2C display to the ESP32 and ran the first 
+        obligatory "Hello, World!"
+    </p>
+
+    <p style="color:#ffff; font-size: 20px">     
+        
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="code-box">
         <pre><code>
             code here
