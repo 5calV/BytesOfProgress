@@ -72,15 +72,30 @@
     </p>
     
     <p style="color:#ffff; font-size: 20px">     
-        For that, I decided to go with an ESP32 and an 4 / 16 I2C display. 
+        For that, I decided to go with an ESP32 and a 4 / 20 I2C display. 
         I started by connecting the ESP32 to my network with WiFi. After 
         that, I connected the I2C display to the ESP32 and ran the first 
-        obligatory "Hello, World!"
+        obligatory "Hello, World!".
     </p>
 
-    <p style="color:#ffff; font-size: 20px">     
-        
+
+    <img style="max-width:95%; width: 500px;" id="img_DocPreview" src="helloworld.jpg"/>
+
+
+    <p style="color:#ffff; font-size: 20px">
+        Then I needed the ESP32 to ping all my servers once within a certain time. 
+        I decided that I want it to be every 30 seconds. For that I used the ESP32Ping library. 
+        Now the display needed to show the result of the ping.
     </p>
+
+    <p style="color:#ffff; font-size: 20px">
+        Since I run multiple servers, the display needs to switch back and forth 
+        between the servers. It will display the state of the next server 
+        every 5 seconds.
+    </p>
+
+
+
 
 
 
