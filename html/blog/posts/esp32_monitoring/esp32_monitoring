@@ -83,8 +83,8 @@
 
 
     <p style="color:#ffff; font-size: 20px">
-        Then I needed the ESP32 to ping all my servers once within a certain time. 
-        I decided that I want it to be every 30 seconds. For that I used the ESP32Ping library. 
+        Then I needed the ESP32 to ping all my servers once within every time it 
+        runs through the loop. For that I used the ESP32Ping library. 
         Now the display needed to show the result of the ping.
     </p>
 
@@ -94,7 +94,12 @@
         every 5 seconds.
     </p>
 
-
+    <p style="color:#ffff; font-size: 20px">
+        I also wanted another indicator: LEDs. 
+        Whenever a server is offline, a red LED will turn on. 
+        To achieve this, I went ahead and soldered a small LED to 
+        wires and a 220 Ω (Ohm) resistor. 
+    </p>
 
 
 
