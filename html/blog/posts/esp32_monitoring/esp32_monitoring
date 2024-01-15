@@ -97,8 +97,7 @@
     <p style="color:#ffff; font-size: 20px">
         I also wanted another indicator: LEDs. 
         Whenever a server is offline, a red LED will turn on. 
-        To achieve this, I went ahead and soldered a small LED to 
-        wires and a 220 Ω (Ohm) resistor. 
+        To achieve this, 
     </p>
 
 
