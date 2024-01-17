@@ -97,21 +97,8 @@
     <p style="color:#ffff; font-size: 20px">
         I also wanted another indicator: LEDs. 
         Whenever a server is offline, a red LED will turn on. 
-        To achieve this, 
+        To achieve this, I soldered
     </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -129,9 +116,130 @@
 
     <div class="code-box">
         <pre><code>
-            code here
+    // Libraries
+    #include < WiFi.h>
+    #include < Wire.h>
+    #include < LiquidCrystal_I2C.h>
+    #include < ESP32Ping.h>
+
+    // WiFi access
+    const char* ssid = "SSID";
+    const char* password = "WPA2_PASS";
+
+    // Setting LED pin
+    const int ledPin = 18;
+
+    // Display data
+    LiquidCrystal_I2C lcd(0x27,20,4);
+
+    void setup()
+    {
+
+    // Setting pinMode
+    pinMode(ledPin, OUTPUT);
+
+    lcd.init();
+    lcd.backlight();
+
+    Serial.begin(115200);
+ 
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(ssid, password);
+    Serial.println("\nConnecting to WiFi Network ..");
+ 
+    while(WiFi.status() != WL_CONNECTED){
+        Serial.print(".");
+        lcd.setCursor(1, 1);
+        lcd.print("CONNECTION FAILED!");
+        digitalWrite(ledPin, HIGH);
+        delay(100);
+    }
+        lcd.clear();
+        Serial.println("\nConnected to the WiFi network");
+        Serial.print("Local IP: ");
+        Serial.println(WiFi.localIP());
+
+        digitalWrite(ledPin, HIGH);
+        delay(500);
+        digitalWrite(ledPin, LOW);
+    }
+
+    void loop()
+    {
+
+    //-------------------------------------------------------------------
+    // HomeLab Panel
+
+    bool panel = Ping.ping("IP", 1);
+ 
+    lcd.setCursor(4, 1);
+    lcd.print("HomeLab Panel");
+
+    if(!panel){
+        lcd.setCursor(6, 2);
+        lcd.print("OFFLINE!");
+        digitalWrite(ledPin, HIGH);
+        delay(5000);
+        digitalWrite(ledPin, LOW);
+        lcd.clear();
+    }
+    else{
+    lcd.setCursor(7, 2);
+    lcd.print("ONLINE");
+    delay(5000);
+    lcd.clear();
+    }
+
+    //-------------------------------------------------------------------
+    // BytesOfProgress
+
+    bool BOP = Ping.ping("IP", 1);
+ 
+    lcd.setCursor(3, 1);
+    lcd.print("BytesOfProgress");
+
+    if(!BOP){
+        lcd.setCursor(6, 2);
+        lcd.print("OFFLINE!");
+        digitalWrite(ledPin, HIGH);
+        delay(5000);
+        digitalWrite(ledPin, LOW);
+        lcd.clear();
+    }
+    else{
+    lcd.setCursor(7, 2);
+    lcd.print("ONLINE");
+    delay(5000);
+    lcd.clear();
+    }
+
+    //-------------------------------------------------------------------
+    // WebProx
+
+    bool webprox = Ping.ping("IP", 1);
+ 
+    lcd.setCursor(8, 1);
+    lcd.print("WebProx");
+
+    if(!webprox){
+        lcd.setCursor(8, 2);
+        lcd.print("OFFLINE!");
+        digitalWrite(ledPin, HIGH);
+        delay(5000);
+        digitalWrite(ledPin, LOW);
+        lcd.clear();
+    }
+    else{
+    lcd.setCursor(7, 2);
+    lcd.print("ONLINE");
+    delay(5000);
+    lcd.clear();
+    }
+}
         </code></pre>
     </div>
+
+
     <br><br>
     <hr><br>
     <a href="/blog/blog_posts.html" button class="button1" role="button">back</a>
