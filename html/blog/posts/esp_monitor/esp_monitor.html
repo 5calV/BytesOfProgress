@@ -199,30 +199,6 @@
     delay(5000);
     lcd.clear();
     }
-
-    //-------------------------------------------------------------------
-    // WebProx
-
-    bool webprox = Ping.ping("IP", 1);
- 
-    lcd.setCursor(8, 1);
-    lcd.print("WebProx");
-
-    if(!webprox){
-        lcd.setCursor(8, 2);
-        lcd.print("OFFLINE!");
-        digitalWrite(ledPin, HIGH);
-        delay(5000);
-        digitalWrite(ledPin, LOW);
-        lcd.clear();
-    }
-    else{
-    lcd.setCursor(7, 2);
-    lcd.print("ONLINE");
-    delay(5000);
-    lcd.clear();
-    }
-}
         </code></pre>
     </div>
 
