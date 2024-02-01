@@ -1,0 +1,162 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BytesOfProgress</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+    <br>
+    <hr>
+
+    <center>
+    <br>
+        <a href="/index.html"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+    <style>
+        .code-box {
+            background-color: #353541;
+            padding: 5px;
+            border-radius: 5px;
+            /* WIDTH EINSTELLEN FÜR BREITE! */
+            width: 70%;
+            /*--------------------------------------------------------------------------------------*/
+            margin: 0 auto;
+            overflow: hidden; /* Add this to handle potential overflow */
+        }
+    
+        .code-box pre {
+            position: relative;
+            margin: 0;
+            padding: 0; /* Reset padding */
+            margin-top: 0; /* Reset margin-top */
+            color: #ffffff;
+            white-space: pre-wrap;
+            text-align: left;
+    
+    
+        }
+    </style>
+
+    <hr>
+    
+    
+        <span style="color:#ff6600">
+            <h1 style="font-size:30px">Adding a shared folder in VirtualBox VM</h1>
+        </span>
+
+
+
+<p style="color:#ffff; font-size: 20px">
+    This method is tested in Debian 11, but will probably work in everything Debian-based.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    The official way of doing this is rather complicated and requires mounting a virtual CD-ROM 
+    to the guest system, which can be tricky.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    On debian.org, they showcase another way of doing it, which is much simpler in my opinion.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    On the guest system, run:
+</p>
+
+
+<div class="code-box">
+    <pre><code>
+        # apt install lsb-release -y
+    </code></pre>
+</div>
+
+<br>
+
+<div class="code-box">
+    <pre><code>
+        echo "deb http://deb.debian.org/debian $(lsb_release -cs)-backports main contrib" | tee /etc/apt/sources.list.d/backports.list
+    </code></pre>
+</div>
+
+<br>
+
+<div class="code-box">
+    <pre><code>
+        # apt install fasttrack-archive-keyring -y
+    </code></pre>
+</div>
+
+<br>
+
+<div class="code-box">
+    <pre><code>
+        # apt update
+    </code></pre>
+</div>
+
+<p style="color:#ffff; font-size: 20px">
+    With a Desktop Environment which uses X11:
+</p>
+
+<div class="code-box">
+    <pre><code>
+        # apt install virtualbox-guest-x11 -y
+    </code></pre>
+</div>
+
+<p style="color:#ffff; font-size: 20px">
+    If you don't need X11 (e.g. you have a headless installation), you can install only the CLI utils with: 
+</p>
+
+<div class="code-box">
+    <pre><code>
+        # apt install virtualbox-guest-utils -y
+    </code></pre>
+</div>
+
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+    <br>
+    <br>
+    <hr>
+    <br>
+    
+    <a href="/wiki/hypervisor/virtualbox/virtualbox.html" button class="button1" role="button">back</a>
+    
+    </center>
+    
+    <br>
+    <hr>
+    <br>
+    
