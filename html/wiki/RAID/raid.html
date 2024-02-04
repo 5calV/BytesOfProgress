@@ -55,6 +55,9 @@
     drives into a single logical unit for the purpose of data 
     redundancy, performance improvement, or both. There are several 
     RAID levels, each with its own configuration and benefits.
+    It was invented by David A. Patterson, Garth A. 
+    Gibson and Randy H. Katz, in 1987.
+
 </p>
 
 <p style="color:#ffff; font-size: 20px">
@@ -122,96 +125,174 @@
     a more budget-friendly solution.
 </p>
 
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
 <span style="color:#ff6600">
     <h1 style="font-size:25px">RAID Levels</h1>
 </span>
 
 <p style="color:#ffff; font-size: 20px">
     Each RAID level serves different purposes in terms of performance, 
-    redundancy, and capacity. Here are some common RAID levels:
+    redundancy, and capacity. Here are the most common RAID levels:
 </p>
 
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+<hr>
 <span style="color:#ff6600">
     <h1 style="font-size:20px">RAID 0 (Striping)</h1>
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    RAID 0 provides improved performance by striping data across 
-    two or more drives. However, it offers no redundancy. If one 
-    drive fails, all data is lost. RAID 0 is suitable for applications 
-    where performance is a priority, and data redundancy is not critical.
+    Pro: High performance, no overhead.
 </p>
 
+<p style="color:#ffff; font-size: 20px">
+    Contra: No redundancy.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    A minimum of 2 physical disks needed.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Usable capacity: n-0
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Failed drives without data-loss: 0
+</p>
+
+<img style="max-width:95%; width: 500px;" id="img_DocPreview" src="RAID0.jpg"/>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+<hr>
 <span style="color:#ff6600">
     <h1 style="font-size:20px">RAID 1 (Mirroring)</h1>
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    RAID 1 involves mirroring data across two drives. Both drives 
-    contain the same information, providing redundancy. If one 
-    drive fails, the data is still available on the mirrored 
-    drive. RAID 1 is primarily used for data protection rather 
-    than performance improvement.
+    Pro: Instant failover: If the primary drive fails, the secondary 
+    can be accessed directly, preventing data loss.
 </p>
 
+<p style="color:#ffff; font-size: 20px">
+    Contra: Twice as much storage capacity required. Write speed is 
+    slow as data is written to two hard drives at the same time.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    A minimum of 2 physical disks needed.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Usable capacity: n-1
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Failed drives without data-loss: 1
+</p>
+
+<img style="max-width:95%; width: 500px;" id="img_DocPreview" src="RAID1.jpg"/>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+<hr>
 <span style="color:#ff6600">
     <h1 style="font-size:20px">RAID 5 (Striping with Distributed Parity)</h1>
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    RAID 5 combines striping with distributed parity, meaning 
-    that parity information is distributed across all drives. 
-    If one drive fails, the parity information can be used 
-    to reconstruct the data on a replacement drive. RAID 5 
-    offers a balance between performance and redundancy.
+    Pro: High security through distribution of parity data across 
+    all hard drives: Hard drives can be replaced 
+    during operation (aka. are hotswappable).
 </p>
 
+<p style="color:#ffff; font-size: 20px">
+    Contra: Write speed is slow.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    A minimum of 3 physical disks needed.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Usable capacity: n-1
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Failed drives without data-loss: 1
+</p>
+
+<img style="max-width:95%; width: 500px;" id="img_DocPreview" src="RAID5.jpg"/>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+<hr>
 <span style="color:#ff6600">
     <h1 style="font-size:20px">RAID 6 (Striping with Dual Parity)</h1>
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    RAID 6 is an extension of RAID 5, featuring dual distributed 
-    parity. This allows the array to tolerate the failure of two 
-    drives simultaneously. RAID 6 provides increased fault tolerance 
-    but may have a higher write overhead compared to RAID 5.
+    Pro: Double parity protects against data loss. 
+    The percentage of usable data storage increases 
+    as more hard drives are added.
 </p>
 
+<p style="color:#ffff; font-size: 20px">
+    Contra: Lower performance than RAID 5.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    A minimum of 4 physical disks needed.
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Usable capacity: n-2
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Failed drives without data-loss: 2
+</p>
+
+<img style="max-width:95%; width: 500px;" id="img_DocPreview" src="RAID6.jpg"/>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+<hr>
 <span style="color:#ff6600">
     <h1 style="font-size:20px">RAID 10 (Striping and Mirroring)</h1>
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    RAID 10 combines the features of RAID 0 and RAID 1. It 
-    involves both striping and mirroring, providing both 
-    improved performance and redundancy. Data is striped across 
-    mirrored pairs of drives. RAID 10 offers high fault tolerance 
-    but requires a larger number of drives compared to other RAID levels.
+    Pro: Good performance and fault tolerance. It combines striping and 
+    mirroring to provide both speed and redundancy.
 </p>
-
-<span style="color:#ff6600">
-    <h1 style="font-size:20px">RAID 50 (Combination of RAID 5 Arrays)</h1>
-</span>
 
 <p style="color:#ffff; font-size: 20px">
-    RAID 50 combines multiple RAID 5 arrays into a single RAID 0 array. 
-    This provides the performance benefits of striping in RAID 0 along 
-    with the distributed parity of RAID 5. RAID 50 is suitable for 
-    applications that require both performance and redundancy.
+    Contra: Twice as much storage capacity required.
 </p>
-
-<span style="color:#ff6600">
-    <h1 style="font-size:20px">RAID 60 (Combination of RAID 6 Arrays)</h1>
-</span>
 
 <p style="color:#ffff; font-size: 20px">
-    RAID 60 is similar to RAID 50 but uses RAID 6 arrays 
-    instead of RAID 5. This enhances fault tolerance by incorporating 
-    dual distributed parity. RAID 60 is suitable for environments that 
-    demand high reliability and performance.
+    A minimum of 4 physical disks needed.
 </p>
 
+<p style="color:#ffff; font-size: 20px">
+    Usable capacity: n-2
+</p>
+
+<p style="color:#ffff; font-size: 20px">
+    Failed drives without data loss: Half of the total drives can fail without data loss.
+</p>
+
+<img style="max-width:95%; width: 500px;" id="img_DocPreview" src="RAID10.jpg"/>
+
+
+
+
+
+
+
+<hr>
 <br>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
 <p style="color:#ffff; font-size: 20px">
     Each RAID level has its own advantages and trade-offs, 
