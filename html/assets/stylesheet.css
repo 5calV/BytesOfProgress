@@ -31,7 +31,8 @@ body{
 
 p {
   text-align: left;
-  padding-left: 10%; /* Passe den Wert nach Bedarf an */
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 
