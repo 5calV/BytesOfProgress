@@ -29,9 +29,14 @@ body{
 
 
 
-
-
+p {
+  text-align: left;
+  padding-left: 10%; /* Passe den Wert nach Bedarf an */
 }
+
+
+
+
 #background{
   position:absolute;
   z-index:-1;
