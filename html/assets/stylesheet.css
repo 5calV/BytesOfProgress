@@ -19,7 +19,6 @@ body{
 
 
 
-  /* Linien ( hr ) orange und 5px breit */
 
   hr {
     height: 6px;
@@ -34,6 +33,25 @@ p {
   padding-left: 5%;
   padding-right: 5%;
 }
+
+
+
+
+img {
+    max-width: 95%;
+    width: 500px;
+}
+
+
+video {
+    max-width: 95%;
+    width: 540px;
+}
+
+
+
+
+
 
 
 
