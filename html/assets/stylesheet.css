@@ -43,11 +43,16 @@ img {
 }
 
 
-video {
-    max-width: 95%;
-    width: 750px;
-}
 
+
+.videodiv {
+  width: 100%;
+}
+video {
+  height: auto;
+  width: 1000px;
+  max-width: 95%;
+}
 
 
 
