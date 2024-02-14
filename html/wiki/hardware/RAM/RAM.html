@@ -243,32 +243,116 @@
 
 <br>
 <span style="color:#ff6600">
-    <h1 style="font-size:25px">ECC RAM</h1>
+    <h1 style="font-size:20px">ECC RAM</h1>
 </span>
 
+<p>
+    ECC stands for Error-Correcting Code, and ECC RAM 
+    is a specialized type of computer memory that has 
+    additional error-checking functionality, including parity. 
+</p>
 
+<p>
+    The primary purpose of ECC RAM is to detect and correct errors 
+    that may occur in the stored data due to various factors such 
+    as cosmic radiation, electrical interference, or other sources 
+    of memory corruption.
+</p>
 
+<p>
+    The term "parity" refers to an additional bit added to each byte 
+    of data stored in ECC RAM. This parity bit allows the memory 
+    to detect single-bit errors in the stored data. In the event 
+    of a detected error, ECC RAM can automatically 
+    correct the error, ensuring the integrity of the data.
+</p>
 
+<p>
+    In ECC RAM, each byte (8 bit) of data is accompanied by an extra bit called a parity bit.
+    The parity bit is calculated based on the number of set (1) bits in 
+    the data byte, and its purpose is to ensure that the 
+    total number of set bits (including the parity bit) is either even or odd.
+</p>
 
+<p>
+    There are two types of parity: even parity and odd parity.
+    In even parity, the parity bit is set to make the total number of set bits (including the parity bit) even.
+    In odd parity, the parity bit is set to make the total number of set bits odd.
+</p>
 
+<p>
+    But how does it detect an error?
+</p>
 
+<p>
+    During the writing of data to memory, the parity bit 
+    is calculated and stored along with the data. When the 
+    data is read, the memory controller recalculates 
+    the parity based on the received data.
+</p>
 
+<p>
+    If the calculated parity does not match the stored 
+    parity, it indicates a single-bit error in the data.
+</p>
 
+<p>
+    The memory controller can determine which bit is in error by 
+    comparing the calculated parity with the stored parity. 
+    The faulty bit is then corrected, restoring the accurate data.
+</p>
 
+<br>
 
+<p>
+    Benefits of ECC:
+</p>
 
+<p>
+    ECC RAM provides a higher level of data integrity by not 
+    only detecting but also correcting single-bit errors. This 
+    automatic error correction capability is particularly 
+    crucial in mission-critical applications where data accuracy is of great importance.
+</p>
 
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
+<br>
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">The famous N64 bit-flip incident</h1>
+</span>
 
+<p>
+    In 2012, a speedrunner named Pannenkoek2012 was attempting to complete 
+    a mission in Super Mario 64 with certain constraints. 
+    During this attempt, a phenomenon occurred where a single 
+    bit in the game's memory, specifically in the console's non-ECC 
+    RAM, flipped unexpectedly.
+</p>
 
+<p>
+    This event was attributed to a cosmic ray-induced single-bit 
+    flip, a rare occurrence but theoretically possible due to 
+    the vulnerability of electronic devices to high-energy 
+    particles from space. Cosmic rays can interfere with 
+    the normal operation of electronic components, 
+    leading to errors like bit flips.
+</p>
 
+<p>
+    Pannenkoek2012 documented and analyzed this incident in a 
+    series of videos, and the community found it fascinating. 
+    While it wasn't an intentional manipulation or cheat, it showcased 
+    the vulnerability of electronic systems to external factors 
+    like cosmic rays. The incident became well-known in the 
+    speedrunning community and among fans of Super Mario 64.
+</p>
 
-
-
-
-
-
-
+<p>
+    ECC RAM's error-detection and correction features could have potentially 
+    prevent the impact of a cosmic-ray-induced bit flip, preventing or 
+    minimizing glitches and errors in the context of the N64 or similar systems.
+</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
     
