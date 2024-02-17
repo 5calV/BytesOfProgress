@@ -12,7 +12,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>BOP Wiki: C# / .NET Documentation</title>
+    <title>BOP Wiki: Run a console app</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link rel="stylesheet" href="/assets/stylesheet.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
@@ -45,49 +45,60 @@
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
     
         <span style="color:#ff6600">
-            <h1 style="font-size:30px">C# / .NET Documentation</h1>
+            <h1 style="font-size:30px">Run a console app</h1>
         </span>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
     <p>
-        C# is a programming language developed by Microsoft. It is used in conjunction with the .NET framework 
-        for building various applications. .NET Core is a lightweight, open-source 
-        version of .NET, designed for cross-platform development.
+        To execute a C# project using the console, you can simply use these commands:
     </p>
 
     <p>
-        Here you can read documentation about C# / .NET / .NET Core development.
-        You will find specific documentation about the usage with VScode and on Linux.
+        If you are currently in the project folder, you can just execute this:
     </p>
 
+    <div class="code-box">
+        <pre><code>
+        $ dotnet run
+        </code></pre>
+    </div>
+    
+    <br>
+    <hr>
     <br>
 
-<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+    <p>
+        If you are not, you can use the "--project" flag.
+    </p>
 
-<a class="btncontainer" href="/wiki/coding/C-Sharp/create-project/create-project.html">
-    <input class="input-btn" type="radio" id="valueIs-2" name="valueIs-radio" value="valueIs-2">
-    <div class="neon-btn">
-        <div class="span"></div>
-        <div class="txt">dotnet new console</div>
+    <div class="code-box">
+        <pre><code>
+        dotnet run --project "PATH"
+        </code></pre>
     </div>
-</a>
-<br>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
-<a class="btncontainer" href="/wiki/coding/C-Sharp/run-project/run-project.html">
-    <input class="input-btn" type="radio" id="valueIs-2" name="valueIs-radio" value="valueIs-2">
-    <div class="neon-btn">
-        <div class="span"></div>
-        <div class="txt">Run a console app</div>
+    <p>
+        There are many other flags for "dotnet run", 
+        <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-run">here is a quick overview:</a>
+    </p>
+
+    <div class="code-box">
+        <pre><code>
+        dotnet run [-a|--arch <ARCHITECTURE>] [-c|--configuration <CONFIGURATION>]
+            [-f|--framework <FRAMEWORK>] [--force] [--interactive]
+            [--launch-profile <NAME>] [--no-build]
+            [--no-dependencies] [--no-launch-profile] [--no-restore]
+            [--os <OS>] [--project <PATH>] [-r|--runtime <RUNTIME_IDENTIFIER>]
+            [--tl:[auto|on|off]] [-v|--verbosity <LEVEL>]
+            [[--] [application arguments]]
+            
+            
+        dotnet run -h|--help
+        </code></pre>
     </div>
-</a>
-<br>
-
-<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
-
-
 
 
 
@@ -104,9 +115,9 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
     
-    <br><hr><br>
+    <br><br><hr><br>
     
-    <a href="/wiki/coding/coding.html" button class="button1" role="button">back</a>
+    <a href="/wiki/coding/C-Sharp/C-Sharp.html" button class="button1" role="button">back</a>
     
     </center>
     
