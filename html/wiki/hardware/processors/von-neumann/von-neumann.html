@@ -86,27 +86,60 @@
     <h1 style="font-size:25px">Different kinds of caches</h1>
 </span>
 
+<p>
+    The trade-off between speed and size is a common consideration in cache 
+    design, and the hierarchy of L1, L2, and L3 caches is optimized to 
+    balance these factors for efficient overall system performance.
+</p>
+
 <span style="color:#ff6600">
     <h1 style="font-size:20px">L1 Cache</h1>
 </span>
 
+<p>
+    The L1d (Data Cache) is typically the fastest but also the 
+    smallest among the different cache levels. It's designed to 
+    provide extremely fast access to frequently used data 
+    directly associated with a specific CPU core. Due to 
+    its proximity to the core, the L1d cache can deliver 
+    data at speeds that are crucial for minimizing 
+    latency in program execution.
 
+</p>
 
+<p>
+    Per-core: Each CPU core typically has its own dedicated L1 cache.
+</p>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">L2 Cache</h1>
+</span>
 
+<p>
+    The L2 Cache is faster than the L3 cache but slower than the L1 cache. 
+    It falls in between in terms of both speed and size. Like the L1 
+    cache, each CPU core usually has its own dedicated L2 cache, 
+    providing a larger storage capacity compared to L1. This 
+    cache serves as a middle ground, offering faster access 
+    than the L3 cache while still maintaining a reasonable size.
+</p>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">L3 Cache</h1>
+</span>
 
+<p>
+    The L3 Cache is larger than both L1 and L2 caches but is slower in 
+    terms of access speed. Unlike the per-core L1 and L2 caches, the 
+    L3 cache is shared among all CPU cores. It acts as a common pool 
+    of cached data for communication between different cores. 
+    While not as fast as the L1 and L2 caches, the L3 cache 
+    provides a larger storage capacity for frequently 
+    accessed data that can be shared among multiple 
+    cores, contributing to overall system efficiency.
+</p>
 
-
-
-
-
-
-
-
-
-
-
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
 
 
