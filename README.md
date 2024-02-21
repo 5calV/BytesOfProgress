@@ -20,5 +20,5 @@ NOTE: When cloning this repository, most of the CSS and media assets are not wor
 
 ## Updates
 
-The changes made in this repository get published automatically at midnight (MEZ, German Time).
+The changes made in this repository get published automatically at midnight (CET, German Time).
 This works due to https://github.com/5calV/BOP-updates
