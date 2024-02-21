@@ -51,7 +51,7 @@
 <p>
     I automated this further by using a cron-job. 
     The server now gets updates from the git-repo automatically 
-    every daily at midnight (MEZ)
+    daily at midnight (CET, german time).
 </p>
 
 <br>
@@ -60,6 +60,15 @@
 
 <br><br>
 
+<p>
+    This is the cronjob:
+</p>
+
+<div class="code-box">
+    <pre><code>
+    0 0 * * * /bin/bash /var/www/merge.sh
+    </code></pre>
+</div>
 
 
 
