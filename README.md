@@ -17,3 +17,8 @@ If you find any mistakes formatting / HTML / CSS issues, missing information or 
 Please keep it plain HTML / CSS and follow the scheme used on the sites. Please do not change anything regarding CSS.
 
 NOTE: When cloning this repository, most of the CSS and media assets are not working, since their paths are specified for use on the server. To prevent this, you can put the files on to a local webserver (BOP is being hosted on Apache2) on your working machine.
+
+## Updates
+
+The changes made in this repository get published automatically at midnight (MEZ, German Time).
+This works due to https://github.com/5calV/BOP-updates
