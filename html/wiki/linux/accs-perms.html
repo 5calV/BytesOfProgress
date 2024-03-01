@@ -51,20 +51,20 @@
     </span>
 
 <p style="color:#ffff; font-size: 20px">
-    For many Commands you need access to the administrator 
-    account of the machine. You can put "sudo" at the beginning 
-    of a command to execute it with admin rights, as long as 
-    your user account has been added to the sudo group. 
-    If that does not work, you can log in to the administrator 
-    account called "root". You can check whether you are logged 
-    in as root or not by simply looking at your Terminal: If 
-    there is a "#" sign just before the prompt, you are logged 
-    in as root, if there is a "$" sign, you are logged in as a 
+    For many Commands you need access to the administrator
+    account of the machine. You can put "sudo" at the beginning
+    of a command to execute it with admin rights, as long as
+    your user account has been added to the sudo group.
+    If that does not work, you can log in to the administrator
+    account called "root". You can check whether you are logged
+    in as root or not by simply looking at your Terminal: If
+    there is a "#" sign just before the prompt, you are logged
+    in as root, if there is a "$" sign, you are logged in as a
     regular user. Here are some examples:
 </p>
 
     <span style="color:#ff6600">
-        <h1 style="font-size:20px">Executing commands without logging in as root</h1>
+        <h1 style="font-size:20px">Using "admin" commands without logging in as root</h1>
     </span>
 
 <div class="code-box">
@@ -84,10 +84,10 @@
 </div>
 
 <p style="color:#ffff; font-size: 20px">
-Often, the regular "su" is enough, but sometimes you will need to not only 
-switch to the root user, but simulate a whole login from the root account. 
-This means that the "root's" environment variables, working directory, and 
-other settings are fully loaded, just as if they had logged in directly. 
+Often, the regular "su" is enough, but sometimes you will need to not only
+switch to the root user, but simulate a whole login from the root account.
+This means that the "root's" environment variables, working directory, and
+other settings are fully loaded, just as if they had logged in directly.
 You can do this by executing the following command:
 </p>
 <div class="code-box">
@@ -137,29 +137,29 @@ You can do this by executing the following command:
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-In Linux, user groups serve as a foundational element for managing 
-user permissions and access control within the system. Groups are essentially collections 
-of user accounts, organized to simplify the administration of file permissions, 
+In Linux, user groups serve as a foundational element for managing
+user permissions and access control within the system. Groups are essentially collections
+of user accounts, organized to simplify the administration of file permissions,
 system resources, and collaborative tasks.
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-Each group is identified by a unique 
+Each group is identified by a unique
 Group ID (GID), a numeric value that is used internally by the system.
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-A user in Linux can be associated with one or more groups, 
-consisting of a primary group and supplementary groups. 
-The primary group is specified in the "/etc/passwd" file, while supplementary 
-groups grant additional permissions to the user. This group-based approach 
-is particularly valuable for scenarios where multiple users require shared access 
+A user in Linux can be associated with one or more groups,
+consisting of a primary group and supplementary groups.
+The primary group is specified in the "/etc/passwd" file, while supplementary
+groups grant additional permissions to the user. This group-based approach
+is particularly valuable for scenarios where multiple users require shared access
 to files, directories, or system resources.
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-The "/etc/group" file contains information about groups on the system, such as 
-group names, GIDs, and the list of users belonging to each group. 
+The "/etc/group" file contains information about groups on the system, such as
+group names, GIDs, and the list of users belonging to each group.
 Administrators can use various commands to manage groups and users effectively:
 </p>
 
@@ -262,14 +262,14 @@ Or, to create a new user and also create a home directory for them:
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-File and directory permissions are a crucial aspect of access control, 
-determining who can read, write, or execute a file or directory. 
-These permissions are organized into three categories: user (owner), group, and others. 
+File and directory permissions are a crucial aspect of access control,
+determining who can read, write, or execute a file or directory.
+These permissions are organized into three categories: user (owner), group, and others.
 Each category has three basic permission types: read (r), write (w), and execute (x).
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-Permissions are assigned based on the octal number system (0-7), 
+Permissions are assigned based on the octal number system (0-7),
 which represents each permission type as a digit. In this system:
 </p>
 <p style="color:#ffff; font-size: 20px">
@@ -283,7 +283,7 @@ which represents each permission type as a digit. In this system:
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-To express multiple permissions, these values are added. 
+To express multiple permissions, these values are added.
 For example, read and write permissions (rw) would be represented by 6 (4 + 2).
 </p>
 
@@ -329,7 +329,7 @@ Similarly, you can give read-write permissions to a group by executing this:
             # chmod g-rx filename
         </code></pre>
     </div>
-    
+
 
 
 
@@ -347,4 +347,3 @@ Similarly, you can give read-write permissions to a group by executing this:
 
 </body>
 </html>
-
