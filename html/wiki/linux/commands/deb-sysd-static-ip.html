@@ -53,8 +53,8 @@
 
 <p style="color:#ffff; font-size: 20px">
     This method was tested on Debian 12.
-    Although the config file might be in a different location, 
-    it may work on any other distribution that has Systemd 
+    Although the config file might be in a different location,
+    it may work on any other distribution that has Systemd
     as their init-system.
 </p>
 
@@ -98,9 +98,9 @@
     <pre><code>
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
-        
+
 source /etc/network/interfaces.d/*
-        
+
 # The loopback network interface
 auto lo
 iface lo inet loopback
@@ -118,7 +118,7 @@ dns-nameservers DNS_YOU_WANT_TO_USE
     </div>
 
 <p style="color:#ffff; font-size: 20px">
-        As you can see, we commented out the line containing things like 
+        As you can see, we commented out the line containing things like
         "dhcp" and "allow-hotplug", and then added our own configuration.
         The only thing left to do now, is restarting the networking systemd service:
 </p>
@@ -130,7 +130,7 @@ dns-nameservers DNS_YOU_WANT_TO_USE
     </div>
 
 <p style="color:#ffff; font-size: 20px">
-    Congratulations! Your server has now a static local IP-Address. 
+    Congratulations! Your server has now a static local IP-Address.
     To double-check whether it has worked, you can loop up your IP with:
 </p>
 
@@ -154,7 +154,7 @@ dns-nameservers DNS_YOU_WANT_TO_USE
 <br>
 <hr>
 <br>
-<a href="/wiki/linux/commands/commands.html" button class="button1" role="button">back</a>
+<a href="/wiki/linux/commands/A1commands.html" button class="button1" role="button">back</a>
 <br>
 <br>
 </center>
@@ -164,4 +164,3 @@ dns-nameservers DNS_YOU_WANT_TO_USE
 
 </body>
 </html>
-
