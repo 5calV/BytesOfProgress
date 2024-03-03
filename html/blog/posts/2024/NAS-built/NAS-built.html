@@ -1,7 +1,7 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
-<!-- ╭∩╮     ╭∩╮ --> 
+<!-- ╭∩╮     ╭∩╮ -->
 <!--  \(͡⚈ᴗ͡⚈)/  - -->
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
@@ -11,49 +11,49 @@
     <hr>
     <br>
     <!DOCTYPE html>
-    
-    
+
+
     <head>
-    
+
         <meta charset="UTF-8">
         <title>BOP Blog: Building a NAS</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
         <link rel="stylesheet" href="/assets/stylesheet.css"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-sca>
-    
-    
+
+
     </head>
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
     <a href="/index.html">
         <br>
-    <a href="/index.html"> <img src="/assets/logo.png" class="homelogo"></a> 
+    <a href="/index.html"> <img src="/assets/logo.png" class="homelogo"></a>
         <span style="color:#ff6600">
                 <h1 style="font-size:50px">BytesOfProgress</h1>
             </span>
     <hr>
-    
+
     <span style="color:#ff6600">
         <h1 style="font-size:30px">Building a NAS</h1>
     </span>
     <p style="color:#ffff; font-size: 15px">10th February 2024 / 02:30 PM</p>
 
     <p style="color:#ffff; font-size: 20px">
-        I decided, that I want to build a NAS solution inside a 19" ATX case. 
-        I choose the mainboard from the <a href="/wiki/specific_hardware/HP-Z400/HP-Z400.html">HP Z400</a> Workstation for that Job. 
+        I decided, that I want to build a NAS solution inside a 19" ATX case.
+        I choose the mainboard from the <a href="/wiki/specific_hardware/HP-Z400/HP-Z400.html">HP Z400</a> Workstation for that Job.
         It has 6 DDR3-RAM-Slots and an Intel Xeon CPU.
     </p>
 
     <img style="max-width:95%; width: 500px;" id="img_DocPreview" src="mainboard.jpg"/>
 
     <p style="color:#ffff; font-size: 20px">
-        To be able to use this mainboard with a regular ATX Power Supply Unit, 
-        I needed to get an adapter for the 24-Pin plug, because the Pinout 
+        To be able to use this mainboard with a regular ATX Power Supply Unit,
+        I needed to get an adapter for the 24-Pin plug, because the Pinout
         on the HP Z400 is different from the regular PSUs:
     </p>
 
@@ -62,10 +62,10 @@
     <br><br><br><br>
 
     <p style="color:#ffff; font-size: 20px">
-        The Z400 mainboard does not have onboard graphics, which means I had to attach a 
-        GPU to it to get a display output. I went ahead with an 
-        Nvidia / Asus GeForce 1050 TI, which I already had from 
-        a previous built. I just had to open it up and clean it, before 
+        The Z400 mainboard does not have onboard graphics, which means I had to attach a
+        GPU to it to get a display output. I went ahead with an
+        Nvidia / Asus GeForce 1050 TI, which I already had from
+        a previous built. I just had to open it up and clean it, before
         attaching it to the mainboard.
     </p>
 
@@ -76,20 +76,20 @@
     <img style="max-width:95%; width: 500px;" id="img_DocPreview" src="1050TI_attached.jpg"/>
 
     <p style="color:#ffff; font-size: 20px">
-        I decided to put it into this specific PCIe-Slot, to ensure that 
-        I have enough physical space, if I wanted to put an expansion card in the 
+        I decided to put it into this specific PCIe-Slot, to ensure that
+        I have enough physical space, if I wanted to put an expansion card in the
         other slot later.
     </p>
 
     <br>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
-    
+
     <p style="color:#ffff; font-size: 15px">13th February 2024 / 05:00 PM</p>
 
     <p style="color:#ffff; font-size: 20px">
-        Then I had to figure out cooling the CPU, so I researched the CPU 
-        to find out about the socket. 
+        Then I had to figure out cooling the CPU, so I researched the CPU
+        to find out about the socket.
         <a href="https://www.intel.com/content/www/us/en/products/sku/39721/intel-xeon-processor-w3565-8m-cache-3-20-ghz-4-80-gts-intel-qpi/specifications.html">This</a>
         is Intel's official documentation about the CPU / socket.
     </p>
@@ -102,8 +102,8 @@
     <br><br>
 
     <p>
-        Because I did not have the backplate for the socket, I had to do some research. 
-        I found <a href="https://www.thingiverse.com/thing:3299442">this</a> model on Thingiverse, 
+        Because I did not have the backplate for the socket, I had to do some research.
+        I found <a href="https://www.thingiverse.com/thing:3299442">this</a> model on Thingiverse,
         but had to modify it, to use it.
     </p>
 
@@ -115,22 +115,27 @@
 
     <img src="backplate.png"/>
 
+    <br>
+
+    A small entry from March, 3rd, 2024: Even if it seems a
+    little sketchy, the backplate still holds up great!
+
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
     <p style="color:#ffff; font-size: 20px">
-        Now I had to figure out where and how to plug in the front panel 
+        Now I had to figure out where and how to plug in the front panel
         LEDs and buttons.
     </p>
 
     <p style="color:#ffff; font-size: 20px">
-        This is how the Power-LED and Power-button need to 
+        This is how the Power-LED and Power-button need to
         be attached:
     </p>
 
     <img style="max-width:95%; width: 500px;" id="img_DocPreview" src="pinOut.jpg"/>
 
     <p style="color:#ffff; font-size: 20px">
-        The HDD-LED is plugged into a different place, which is right next 
+        The HDD-LED is plugged into a different place, which is right next
         to the other pins:
     </p>
 
@@ -138,32 +143,32 @@
 
     <br><br><br>
 
-    
+
     <p style="font-size: 15px">26th February 2024 / 05:00 PM</p>
 
     <p>
-        Now that the hardware works and is all wired properly, it 
+        Now that the hardware works and is all wired properly, it
         is time for software!
     </p>
 
     <p>
-        The first thing I wanted to do, was installing Ubuntu or 
-        Debian on it, to test out if everything is detected and 
+        The first thing I wanted to do, was installing Ubuntu or
+        Debian on it, to test out if everything is detected and
         properly working.
     </p>
 
     <p>
-        Well. Every time I tried to boot ANY Linux distribution, 
+        Well. Every time I tried to boot ANY Linux distribution,
         I got a kernel panic. Time to do some research.
     </p>
 
     <p>
-        Apparently, this has something to do with the BIOS, 
+        Apparently, this has something to do with the BIOS,
         which needs to be updated to at least 3.61 Rev.A.
     </p>
 
     <p>
-        To update the BIOS, I tried installing Windows on it, 
+        To update the BIOS, I tried installing Windows on it,
         because <a href="https://support.hp.com/us-en/drivers/hp-z400-workstation/3718668">
         HP provides a Windows executable</a> for the BIOS update.
     </p>
@@ -187,10 +192,9 @@
     <br><br>
     <hr><br>
     <a href="/blog/posts/2024/A1_posts-2024.html" button class="button1" role="button">back</a>
-    
+
     </center>
-    
+
     <br>
     <hr>
     <br>
-    
