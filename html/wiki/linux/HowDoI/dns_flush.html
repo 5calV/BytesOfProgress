@@ -14,7 +14,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>BOP Wiki: Enable SSH root-login</title>
+    <title>BOP Wiki: DNS-Flush</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link rel="stylesheet" href="/assets/stylesheet.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -44,61 +44,47 @@
     <hr>
 
 <span style="color:#ff6600">
-    <h1 style="font-size:30px">SSH permit root login</h1>
+    <h1 style="font-size:30px">DNS-Flush</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
-    Read about SSH <a href="/wiki/networks/tcp_udp/ssh_sftp.html">here</a>.
-</p>
-
-
-
-
-
 
 
 
 
 <p style="color:#ffff; font-size: 20px">
-    To be able to login as root via SSH, we need to change
-    one line in this config file:
+    If your router is your DNS, you may not want to do this,
+    but reboot the router or edit its DNS settings instead.
+    You can find this out with:
 </p>
 
-<p style="color:#ffff; font-size: 20px">
-    /etc/ssh/sshd_config
-</p>
-
-<p style="color:#ffff; font-size: 20px">
-In the file, you will find following line:
-</p>
-
-<div class="code-box">
+    <div class="code-box">
     <pre><code>
-        #PermitRootLogin prohibit-password
+$ cat /etc/resolv.conf
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
-    To allow logging in as root, we will uncomment the line
-    and change "prohibit-password" to "yes". Like this:
-</p>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:20px">Systemd / Networkd DNS-Flush</h1>
+    </span>
 
 <div class="code-box">
     <pre><code>
-        PermitRootLogin yes
+# resolvectl flush-caches
     </code></pre>
 </div>
-
-<p style="color:#ffff; font-size: 20px">
-    Save the file and exit your editor.
-    The last thing left to do: Restarting the SSH system service.
-</p>
+    <span style="color:#ff6600">
+        <h1 style="font-size:20px">Network-Manager DNS-Flush</h1>
+    </span>
 
 <div class="code-box">
     <pre><code>
-        # systemctl restart ssh
+# nmcli general reload dns-full
     </code></pre>
 </div>
+
+
 
 
 
@@ -107,7 +93,7 @@ In the file, you will find following line:
 <br>
 <hr>
 <br>
-<a href="/wiki/linux/commands/A1commands.html" button class="button1" role="button">back</a>
+<a href="/wiki/linux/HowDoI/A1HowDoI.html" button class="button1" role="button">back</a>
 <br>
 <br>
 </center>
