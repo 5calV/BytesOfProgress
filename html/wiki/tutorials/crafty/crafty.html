@@ -52,12 +52,14 @@
 <p>
   We are going to set up a simple Minecraft server with a web interface
   for administration. After that we will make it accessable for other
-  players.
+  players WITHOUT forwarding ANY port. This also works if you do not have
+  a static public IPv4 or a public IPv4 at all.
 </p>
 
 <p>
   We will have an unlimited amount of player slots and the ability to install plugins.
-  The only restrictions to this would be the used hardware.
+  The only restrictions to this would be the used hardware. I run this on
+  a machine with 8 GiB RAM, with 6 GiB dedicated to the Minecraft server itself.
 </p>
 
 
@@ -103,53 +105,95 @@
   Step 4: Paste this contents inside your docker-compose.yml.
 </p>
 
+<p>
+  Note: yml is indentation sensitive!
+</p>
+
 <div class="code-box">
     <pre><code>
-  version: '3'
+version: '3'
 
-  services:
-    crafty:
-      container_name: crafty_container
-      image: registry.gitlab.com/crafty-controller/crafty-4:latest
-      restart: always
-      environment:
-        - TZ=Etc/UTC
-      ports:
-        - "8000:8000" # HTTP
-        - "8443:8443" # HTTPS
-        - "8123:8123" # DYNMAP
-        - "19132:19132/udp" # BEDROCK
-        - "25500-25600:25500-25600" # MC SERV PORT RANGE
-      volumes:
-        - ./docker/backups:/crafty/backups
-        - ./docker/logs:/crafty/logs
-        - ./docker/servers:/crafty/servers
-        - ./docker/config:/crafty/app/config
-        - ./docker/import:/crafty/import
+services:
+  crafty:
+    container_name: crafty_container
+    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    restart: always
+    environment:
+      - TZ=Etc/UTC
+    ports:
+      - "8000:8000" # HTTP
+      - "8443:8443" # HTTPS
+      - "8123:8123" # DYNMAP
+      - "19132:19132/udp" # BEDROCK
+      - "25500-25600:25500-25600" # MC SERV PORT RANGE
+    volumes:
+      - ./docker/backups:/crafty/backups
+      - ./docker/logs:/crafty/logs
+      - ./docker/servers:/crafty/servers
+      - ./docker/config:/crafty/app/config
+      - ./docker/import:/crafty/import
     </code></pre>
 </div>
 
+<p>
+  Step 5: First test run.
+</p>
 
+<div class="code-box">
+    <pre><code>
+    # docker-compose up
+    </code></pre>
+</div>
 
+<p>
+  Test if you can access the webinterface on https://x.x.x.x:8443
+</p>
 
+<p>
+  Step 6: First login.
+</p>
 
+<p>
+  I was not able to find the working default login password for "Admin",
+  but there is another way:
+</p>
 
+<p>
+  Click on "Forgot Password". Now you will get temporary login details
+  displayed in the docker-output in your command-line or terminal.
+</p>
 
+<p>
+  Use this to log in, go to settings, change the password for user "Admin".
+</p>
 
+<p>
+  Step 7: Restart in "daemon" mode. First, press CTRL+C, while being
+  in your terminal. Then restart it with the "-d" flag:
+</p>
 
+<div class="code-box">
+    <pre><code>
+    # docker-compose up -d
+    </code></pre>
+</div>
 
+<p>
+  Step 8: Access webinterface, log in, create a minecraft server and start it.
+  This works just like in the typical mc-server cloud providers.
+</p>
 
+<p>
+  Note: If you want to use plugins, create a purpur or paper server.
+  I recommend purpur.
+</p>
 
+<br>
 
-
-
-
-
-
-
-
-
-
+<p>
+  If you only want to use this server locally, when all other players are in
+  your network, you finished this! You should be able to connect to it already!
+</p>
 
 
 
