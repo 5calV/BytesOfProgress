@@ -63,12 +63,106 @@
     <h1 style="font-size:25px">Installation</h1>
 </span>
 
+<p>
+  Step 1: <a href="https://firmware-selector.openwrt.org/">Download the factory image</a>
+  for your Raspberry Pi.
+</p>
 
+<p>
+  Step 2: Flash the downloaded image on your Micro-SD Card using the Raspberry Pi Imager.
+</p>
 
+<p>
+  Step 3: Insert the Micro-SD into your Raspberry Pi and power it on.
+</p>
 
+<p>
+  Step 4: Attach the Raspberry Pi to your computer via Ethernet.
+</p>
 
+<p>
+  Step 5: Change your computer's network settings to the following:
+</p>
 
+<div class="code-box">
+    <pre><code>
+      IPv4: 192.168.1.102
+      Netmask: 255.255.255.0
+      Gateway: 192.168.1.1
+    </code></pre>
+</div>
 
+<p>
+  Step 6: Access the WebInterface of your OpenWRT installation with your browser.
+</p>
+
+<p>
+  It will be on http://192.168.1.1
+</p>
+
+<p>
+  Step 7: Perform your first login. Password is empty.
+</p>
+
+<p>
+  User: "root"
+</p>
+
+<p>
+  Pass: "   "
+</p>
+
+<p>
+  Change the password as soon as possible!
+</p>
+
+<p>
+  Step 8: Navigate to "Network ---> Interfaces" and edit the LAN interface.
+</p>
+
+<p>
+  Here you can change the IPv4 address of your WiFi AP. Make sure it is in
+  the same IP-Range as your main router. Set the IPv4 of
+  your main router as gateway.
+</p>
+
+<p>
+  Step 9: Disable DHCP in "Network ---> Interfaces". Enable the "Ignore Interface"
+  option in the DHCP settings.
+</p>
+
+<p>
+  Now, click on "Save and apply" or "Apply unchecked".
+</p>
+
+<p>
+  Step 10: Attach the Raspberry Pi to your your router or switch via Ethernet.
+</p>
+
+<p>
+  After you reverted the network setting you applied in step 5, the
+  OpenWRT WebInterface will now be available on the address
+  you gave it in step 8.
+</p>
+
+<p>
+  Step 11: Access the new IPv4 of the Raspberry Pi in your browser and log in.
+</p>
+
+<p>
+  Step 12: Navigate to "Network ---> Wireless" and enable, or edit and enable the ESSID.
+  Here you can also change the WiFi name that will show up on clients, aswell as the
+  WiFi Encryption/Password.
+</p>
+
+<p>
+  Please make sure to do this, otherwise no one will require a password,
+  to connect to your network.
+</p>
+
+<p>
+  Step 13: Connect to the WiFi!
+</p>
 
 
 
