@@ -57,7 +57,7 @@
 
 <p>
   We will have an unlimited amount of player slots and the ability to install plugins.
-  The only restrictions would be the used hardware.
+  The only restrictions to this would be the used hardware.
 </p>
 
 
@@ -67,7 +67,7 @@
 </span>
 
 <p>
-  Step 1: Set up a debian server with a static local IPv4.
+  Step 1: Set up a debian server with a <a href="/wiki/linux/HowDoI/deb-sysd-static-ip.html">static local IPv4</a>.
 </p>
 
 <p>
@@ -80,6 +80,69 @@
     # apt install docker-compose docker.io -y
     </code></pre>
 </div>
+
+<p>
+  Step 3: Create a docker-compose file in a new folder.
+</p>
+
+<div class="code-box">
+    <pre><code>
+    # mkdir crafty && cd crafty
+    </code></pre>
+</div>
+
+<br>
+
+<div class="code-box">
+    <pre><code>
+    # touch docker-compose.yml
+    </code></pre>
+</div>
+
+<p>
+  Step 4: Paste this contents inside your docker-compose.yml.
+</p>
+
+<div class="code-box">
+    <pre><code>
+  version: '3'
+
+  services:
+    crafty:
+      container_name: crafty_container
+      image: registry.gitlab.com/crafty-controller/crafty-4:latest
+      restart: always
+      environment:
+        - TZ=Etc/UTC
+      ports:
+        - "8000:8000" # HTTP
+        - "8443:8443" # HTTPS
+        - "8123:8123" # DYNMAP
+        - "19132:19132/udp" # BEDROCK
+        - "25500-25600:25500-25600" # MC SERV PORT RANGE
+      volumes:
+        - ./docker/backups:/crafty/backups
+        - ./docker/logs:/crafty/logs
+        - ./docker/servers:/crafty/servers
+        - ./docker/config:/crafty/app/config
+        - ./docker/import:/crafty/import
+    </code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
