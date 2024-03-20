@@ -28,7 +28,7 @@
 
     <center>
     <br>
-        <a href="/index.html"><img src="/assets/logo.png" class="homelogo"></img></a>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
 
         <span style="color:#ff6600">
             <h1 style="font-size:50px">BytesOfProgress</h1>
@@ -41,29 +41,29 @@
 
 
     <hr>
-    
-    
+
+
 <span style="color:#ff6600">
     <h1 style="font-size:30px">RAID - Redundant Array of Independent Disks</h1>
 </span>
 
 <br><br>
 <p style="color:#ffff; font-size: 20px">
-    RAID, or Redundant Array of Independent Disks (previously called 
-    "redundant array of inexpensive disks"), is a 
-    storage technology that combines multiple physical disk 
-    drives into a single logical unit for the purpose of data 
-    redundancy, performance improvement, or both. There are several 
+    RAID, or Redundant Array of Independent Disks (previously called
+    "redundant array of inexpensive disks"), is a
+    storage technology that combines multiple physical disk
+    drives into a single logical unit for the purpose of data
+    redundancy, performance improvement, or both. There are several
     RAID levels, each with its own configuration and benefits.
-    It was invented by David A. Patterson, Garth A. 
+    It was invented by David A. Patterson, Garth A.
     Gibson and Randy H. Katz, in 1987.
 
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-    In a RAID array, data is distributed or replicated across 
-    the member drives according to the chosen RAID level. The 
-    two primary categories of RAID configurations are 
+    In a RAID array, data is distributed or replicated across
+    the member drives according to the chosen RAID level. The
+    two primary categories of RAID configurations are
     mirroring and striping.
 </p>
 
@@ -76,21 +76,21 @@
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    In hardware RAID, a special controller 
-    takes care of the RAID tasks, and it's often 
-    part of the storage system. This controller has 
-    its own processing power, which can make it faster, 
-    but it can also be more expensive. This is what 
+    In hardware RAID, a special controller
+    takes care of the RAID tasks, and it's often
+    part of the storage system. This controller has
+    its own processing power, which can make it faster,
+    but it can also be more expensive. This is what
     a hardware RAID controller looks like:
 </p>
 
 <img style="max-width:95%; width: 500px;" id="img_DocPreview" src="raidcontroller.jpg"/>
 
 <p style="color:#ffff; font-size: 20px">
-    Setting up hardware RAID is done through a dedicated interface 
-    or tool from the RAID controller, similar to accessing the BIOS. 
-    When it comes to moving RAID configurations to a different system, 
-    hardware RAID can be trickier because it depends on a specific 
+    Setting up hardware RAID is done through a dedicated interface
+    or tool from the RAID controller, similar to accessing the BIOS.
+    When it comes to moving RAID configurations to a different system,
+    hardware RAID can be trickier because it depends on a specific
     RAID controller.
 </p>
 
@@ -99,29 +99,29 @@
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    Software RAID is generally more flexible and can be 
-    moved between systems with compatible software support. 
+    Software RAID is generally more flexible and can be
+    moved between systems with compatible software support.
     Software RAID is managed directly through the operating system.
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-    Unlike hardware RAID, which has its dedicated processor, 
-    software RAID uses the computer's CPU and RAM for RAID calculations. While this 
-    may cause a slight overhead, modern CPUs are 
+    Unlike hardware RAID, which has its dedicated processor,
+    software RAID uses the computer's CPU and RAM for RAID calculations. While this
+    may cause a slight overhead, modern CPUs are
     mostly powerful enough to handle these tasks efficiently.
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-    Software RAID configurations can be easily adjusted and managed 
-    through the operating system's tools. This flexibility allows 
-    users to create, modify, or delete RAID arrays without the 
+    Software RAID configurations can be easily adjusted and managed
+    through the operating system's tools. This flexibility allows
+    users to create, modify, or delete RAID arrays without the
     need for specialized hardware or additional components.
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-    One of the primary advantages of software RAID is its cost-effectiveness. 
-    Since it relies on the existing resources of the host system, there is 
-    no need for a separate RAID controller, making it 
+    One of the primary advantages of software RAID is its cost-effectiveness.
+    Since it relies on the existing resources of the host system, there is
+    no need for a separate RAID controller, making it
     a more budget-friendly solution.
 </p>
 
@@ -132,7 +132,7 @@
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    Each RAID level serves different purposes in terms of performance, 
+    Each RAID level serves different purposes in terms of performance,
     redundancy, and capacity. Here are the most common RAID levels:
 </p>
 
@@ -171,12 +171,12 @@
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    Pro: Instant failover: If the primary drive fails, the secondary 
+    Pro: Instant failover: If the primary drive fails, the secondary
     can be accessed directly, preventing data loss.
 </p>
 
 <p style="color:#ffff; font-size: 20px">
-    Contra: Twice as much storage capacity required. Write speed is 
+    Contra: Twice as much storage capacity required. Write speed is
     slow as data is written to two hard drives at the same time.
 </p>
 
@@ -201,8 +201,8 @@
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    Pro: High security through distribution of parity data across 
-    all hard drives: Hard drives can be replaced 
+    Pro: High security through distribution of parity data across
+    all hard drives: Hard drives can be replaced
     during operation (aka. are hotswappable).
 </p>
 
@@ -231,8 +231,8 @@
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    Pro: Double parity protects against data loss. 
-    The percentage of usable data storage increases 
+    Pro: Double parity protects against data loss.
+    The percentage of usable data storage increases
     as more hard drives are added.
 </p>
 
@@ -261,7 +261,7 @@
 </span>
 
 <p style="color:#ffff; font-size: 20px">
-    Pro: Good performance and fault tolerance. It combines striping and 
+    Pro: Good performance and fault tolerance. It combines striping and
     mirroring to provide both speed and redundancy.
 </p>
 
@@ -295,19 +295,19 @@
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
 <p style="color:#ffff; font-size: 20px">
-    Each RAID level has its own advantages and trade-offs, 
-    and the choice depends on the specific requirements 
-    of the application, including considerations for 
-    performance, data protection, and available 
+    Each RAID level has its own advantages and trade-offs,
+    and the choice depends on the specific requirements
+    of the application, including considerations for
+    performance, data protection, and available
     storage capacity.
 </p>
-    
+
     <br><hr><br>
-    
+
     <a href="/wiki/index.html" button class="button1" role="button">back</a>
-    
+
     </center>
-    
+
     <br>
     <hr>
     <br>
