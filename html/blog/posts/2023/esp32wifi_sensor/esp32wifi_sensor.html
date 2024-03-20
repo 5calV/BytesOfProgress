@@ -1,7 +1,7 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
-<!-- ╭∩╮     ╭∩╮ --> 
+<!-- ╭∩╮     ╭∩╮ -->
 <!--  \(͡⚈ᴗ͡⚈)/  - -->
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
@@ -20,14 +20,14 @@
 
 </head>
 
-   
+
 <br>
 <hr>
 <br>
 <center>
-    <a href="/index.html">
+    <a href="/">
         <br>
-    <a href="/index.html"> <img src="/assets/logo.png" class="homelogo"></a> 
+    <a href="/"> <img src="/assets/logo.png" class="homelogo"></a> 
     <span style="color:#ff6600">
             <h1 style="font-size:50px">BytesOfProgress</h1>
         </span>
@@ -54,7 +54,7 @@ void setup() {
   // Set the Serial Monitor to 115200!
   Serial.begin(115200);
 }
- 
+
 void loop() {
   Serial.println("Hello from ESP32");
   delay(1000);
@@ -109,31 +109,31 @@ void loop() {
 
 <div class="code-box">
     <pre><code>
-// Connecting an ESP32 to a WiFi Network 
+// Connecting an ESP32 to a WiFi Network
 #include < WiFi.h> // Without the space between "<" and "WiFi"
- 
+
 // Entering network credentials
 const char* ssid = "SSID";
 const char* password = "PASS";
- 
+
 void setup(){
- 
+
     Serial.begin(115200); // You need this Value to find out ESP32's Local IP-Address.
- 
+
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, password);
     Serial.println("\nConnecting to WiFi Network ..");
- 
+
     while(WiFi.status() != WL_CONNECTED){
         Serial.print(".");
         delay(100);
     }
- 
+
     Serial.println("\nConnected to the WiFi network");
     Serial.print("Local IP: ");
     Serial.println(WiFi.localIP());
 }
- 
+
 void loop(){
     // Nothing yet...
 }
