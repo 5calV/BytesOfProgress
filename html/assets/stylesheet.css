@@ -561,8 +561,7 @@ video {
 
 
     .btncontainer {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      font-style: italic;
+      font-family: sans-serif;
       font-weight: bold;
       font-size: 1.2em;
       display: grid;
