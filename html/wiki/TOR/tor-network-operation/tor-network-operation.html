@@ -12,7 +12,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>BOP Wiki: Tor Network Operation</title>
+    <title>BOP Wiki: TOR Network Operation</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link rel="stylesheet" href="/assets/stylesheet.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
@@ -44,19 +44,30 @@
 
 
         <span style="color:#ff6600">
-            <h1 style="font-size:30px">Tor Network Operation</h1>
+            <h1 style="font-size:30px">TOR Network Operation</h1>
         </span>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
 <p>
   The Tor network operates decentralized and aims to provide users with
-  anonymity and privacy while browsing the internet.
+  anonymity and privacy while browsing the internet. In addition to
+  providing anonymity for regular internet browsing, the Tor
+  network also supports hidden services, which are websites a
+  nd services that are only accessible through the Tor network.
+  These hidden services use .onion domain names and are hosted
+  on servers within the Tor network, providing an extra layer
+  of anonymity for both the service provider and the users
+  accessing the service.
 </p>
 
 <p>
   Here's how it works:
 </p>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">TOR relays / nodes</h1>
+</span>
 
 <p>
   When a user connects to the Tor network, their internet traffic is routed
@@ -97,6 +108,67 @@
 <img src="relay-onion-TLD.png"/>
 
 <br>
+
+<p>
+  Because each relay only knows about the relay before and after it in
+  the chain, it is difficult for anyone, including the exit node, to
+  trace the user's activity back to their original IP address. This
+  provides users with a high level of anonymity and privacy.
+</p>
+
+<p>
+  The Tor network routes traffic in a way that is unpredictable
+  and constantly changing, making it difficult for adversaries
+  to monitor or track users' activities.
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">TOR bridges</h1>
+</span>
+
+<p>
+  Bridges in the Tor network are used to help users bypass censorship or
+  restrictions imposed by network authorities. They act as entry points
+  to the Tor network, similar to entry nodes, but they are not publicly
+  listed in the main Tor directory. When using bridges, the number of
+  middle nodes involved in a connection remains the same. The bridge
+  serves as the entry point to the Tor network, and the connection
+  continues to route through one or more middle nodes before
+  reaching the exit node.
+</p>
+
+<p>
+  Bridge addresses are not publicly listed in the main Tor directory
+  to prevent them from being easily blocked by censors. Instead,
+  bridge addresses are distributed through various channels, such
+  as email lists, websites, or directly from trusted individuals.
+</p>
+
+<p>
+  Bridges often use techniques to obfuscate their traffic to make it
+  harder for censors to identify and block them. This can include
+  using protocols like obfs4 (obfuscated TCP) or meek, which disguise
+  Tor traffic as ordinary web traffic. When a user wants to connect
+  to the Tor network using a bridge, they configure their Tor client
+  to use the bridge's address. The Tor client then establishes a
+  connection to the bridge, which acts as an entry point to the Tor network.
+</p>
+
+<p>
+  Once the connection to the bridge is established, the Tor client negotiates
+  a circuit through the Tor network as usual. This circuit typically consists
+  of three nodes: the bridge itself, a middle node, and an exit node.
+</p>
+
+<p>
+   By using bridges, users can access the Tor network without revealing their
+   intention to connect to Tor, making it more difficult for censors to block
+   or recognize their access. Additionally, the use of obfuscation techniques
+   helps to further disguise Tor traffic, enhancing users' privacy and security.
+</p>
+
 
 
 
