@@ -49,15 +49,54 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
+<p>
+  The Tor network operates decentralized and aims to provide users with
+  anonymity and privacy while browsing the internet.
+</p>
 
+<p>
+  Here's how it works:
+</p>
 
+<p>
+  When a user connects to the Tor network, their internet traffic is routed
+  through a series of relays, also known as nodes. These relays
+  are operated by volunteers around the world.
+</p>
 
+<p>
+  Each relay in the Tor network only knows the IP address of the previous
+  relay and the next relay in the chain. This creates layers of encryption,
+  similar to layers of an onion, hence the name "onion routing." As data
+  passes through each relay, a layer of encryption is removed, revealing
+  the routing information for the next hop.
+  This process continues until the data reaches its destination.
+</p>
 
+<p>
+  The final relay in the chain, known as the exit node, decrypts the final
+  layer of encryption and sends the data to its destination on the
+  regular internet. This exit node is the only point in the chain
+  that can see the user's unencrypted data, but it does not know
+  the original source of the data due to the layered encryption.
+</p>
 
+<p>
+  This is the traffic's route when a TOR user accesses
+  a website with a .com, .org, etc. TLD:
+</p>
 
+<img src="relay-non-onion-TLD.png"/>
 
+<p>
+  When a TOR user accesses a .onion site, there are 2 more middle nodes.
+  The rendezvous-point is where the nodes of the client and of the server
+  find together to communicate:
+</p>
 
+<img src="relay-onion-TLD.png"/>
 
+<br>
 
 
 
