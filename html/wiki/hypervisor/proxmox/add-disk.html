@@ -49,15 +49,65 @@
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
 <p>
-  This method was tested on a Proxmox VE 8.0.3 host and a Debian 12 VM.
+  This method was tested with a SATA drive on a Proxmox VE 8.0.3 host and a Debian 12 VM.
 </p>
 
+<p>
+  Required preparations: A Proxmox VE host with a GNU/Linux VM, an unused drive
+  attached to the server (can be USB, SATA, IDE, etc.)
+</p>
 
+<br>
 
+<p>
+  Step 1: Navigate to the host you added the drive to.
+</p>
 
+<p>
+  Step 2: Navigate to "Disks". You should see the newly attached
+  disk in the list.
+</p>
 
+<p>
+  Step 3: Wipe the disk. Please note that this will erase the data on it.
+</p>
 
+<p>
+  Step 4: Navigate to "Disks" ---> "Directory".
+</p>
 
+<p>
+  Step 5: Click on "Create: Directory".
+</p>
+
+<p>
+  Step 6: Step 5 will bring up a menu. There, choose the disk and
+  select "ext4" as the filesystem. Here you can, and should give it
+  a proper name. Also make sure that "Add Storage" is checked.
+  Click "Create".
+</p>
+
+<p>
+  Step 7: Navigate to the "Hardware" tab of the VM you want to add the
+  disk to. There, click on "Add", and on "Hard Disk" in the dropdown menu.
+</p>
+
+<p>
+  Step 8: At "Bus/Device", I chose SATA, because mine is a SATA disk.
+</p>
+
+<p>
+  Step 9: At "Storage", choose the drive you want to add.
+</p>
+
+<p>
+  Step 10: Adjust the disk size. You can check the right disk size at
+  the left menu, where you should see your disk being added.
+</p>
+
+<p>
+  Step 11: Mount the disk in your VM. <a href="/wiki/linux/HowDoI/mount-disk.html">How to mount the disk?</a>
+</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
