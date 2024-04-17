@@ -129,11 +129,25 @@ sdb                                             8:0    0 232.9G  0 disk  /mnt/HD
   We can achieve this by using fstab.
 </p>
 
+<p>
+  Step 1: Find out the UUID of the disk with the command "blkid". Copy it.
+</p>
 
+<p>
+  Step 2: Add following line to the file "/etc/fstab":
+</p>
 
+<p>
+  Make sure to replace "ID" with the actual UUID of the disk. "auto" determines
+  the used filesystem. It tries to find out the right filesystem by itself, but
+  you can specify the filesystem your are using, in this case "ext4".
+</p>
 
-
-
+<div class="code-box">
+    <pre><code>
+/dev/disk/by-uuid/ID /mnt/HDD1 auto
+    </code></pre>
+</div>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
