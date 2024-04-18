@@ -48,25 +48,101 @@
     <h1 style="font-size:30px">Let's Encrypt / Certbot</h1>
 </span>
 
+<p>
+  Let’s Encrypt is an automated and open certificate authority (CA)
+  operated by the Internet Security Research Group (ISRG) and founded
+  by the Electronic Frontier Foundation (EFF), the Mozilla Foundation
+  and others. It offers free SSL/TLS certificates, which are commonly
+  used to encrypt communications for security and privacy purposes,
+  with the most notable use case being HTTPS. Let’s Encrypt relies
+  on the Automatic Certificate Management Environment (ACME)
+  protocol to issue, revoke, and renew certificates.
+</p>
+
+<p>
+  Certbot is a free and open source utility primarily used for managing
+  SSL/TLS certificates from the Let’s Encrypt certification authority.
+</p>
 
 
+<p>
+  Requirements: A registered domain name with an A record pointing to
+  your IPv4 address and root shell access to a Debian based machine.
+</p>
 
+<p>
+  Step 1: Installing Snapd.
+</p>
 
+<div class="code-box">
+    <pre><code>
+# apt install snapd && snap install core
+    </code></pre>
+</div>
 
+<br>
 
+<p>
+  Step 2: Installing Certbot snap package.
+</p>
 
+<div class="code-box">
+    <pre><code>
+# snap install --classic certbot
+    </code></pre>
+</div>
 
+<br>
 
+<p>
+  Step 3: Run following command to verify that the certbot command is executable:
+</p>
 
+<div class="code-box">
+    <pre><code>
+# ln -s /snap/bin/certbot /usr/bin/certbot
+    </code></pre>
+</div>
 
+<br>
 
+<p>
+  Step 4: Run Certbot with the webserver you are using specified:
+</p>
 
+<div class="code-box">
+    <pre><code>
+# FOR NGINX
+# certbot --nginx
 
+# FOR APACHE
+# certbot --apache
+    </code></pre>
+</div>
 
+<br>
 
+<p>
+  The Certbot packages installed on your system include a cron job
+  or systemd timer. These automatically renew your certificates
+  before expiration, eliminating the need for manual intervention
+  unless your configuration changes. To confirm automatic renewal
+  functionality, you can execute the following command:
+</p>
 
+<div class="code-box">
+    <pre><code>
+# certbot renew --dry-run
+    </code></pre>
+</div>
 
+<br>
 
+<p>
+  Step 5: To verify the correct setup of your site, open your browser
+  and navigate to "https://yoursite.tld/", instead of "http://yoursite.tld/".
+  Check for the presence of a lock icon in the URL bar.
+</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
