@@ -47,18 +47,138 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
+<p>
+  Nginx virtual hosts, also known as server blocks, allow you to host multiple
+  websites or applications on a single server by directing traffic
+  based on the ports requested by clients.
+</p>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Setting it up</h1>
+</span>
 
+<p>
+  This method is tested in Debian 12.
+</p>
 
+<p>
+  The config file we need to edit is located at
+  "/etc/nginx/sites-available/default".
+</p>
 
+<p>
+  Alternatively, you can create a new config file to set up your virtual
+  hosts, but make sure to tell Nginx the location and name of the new
+  file by editing ""/etc/nginx/nginx.conf".
+</p>
 
+<p>
+  By default, Nginx has configured 1 virtual host, listening on port 80.
+  Its index directory is /var/www/html. There it will look for files called
+  "index", "index.html", "index.htm", "index.nginx-debian.html". Of course you
+  can change the filenames it it looking for, or the whole path.
+  This is what the default file looks like:
+</p>
 
+<div class="code-box">
+    <pre><code>
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
 
+    server_name _;
 
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+    </code></pre>
+</div>
 
+<br>
 
+<p>
+  We can now add another virtual host to it. In this example it will listen
+  on port 8080 and have "/var/www/html2/vhost1index.html" as its index file.
+</p>
 
+<p>
+  This is what the file would look like with this example added:
+</p>
+
+<div class="code-box">
+    <pre><code>
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index.html;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+server {
+    listen 8080;
+    listen [::]:8080;
+
+    root /var/www/html2;
+    index vhost1index.html;
+
+    server_name vhost1;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  Now it's time to test our configuration by running following
+  command in our terminal:
+</p>
+
+<div class="code-box">
+    <pre><code>
+# nginx -t
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  When no issues were found, restart Nginx by running:
+</p>
+
+<div class="code-box">
+    <pre><code>
+# systemctl restart nginx
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  Now our server hosts 2 different websites on different ports:
+</p>
+
+<p>
+  Port 80: default_server | /var/www/html/index.html
+</p>
+
+<p>
+  Port 8008: vhost1 | /var/www/html2/vhost1index.html
+</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
