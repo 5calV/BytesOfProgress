@@ -74,6 +74,9 @@ video {
   /*--------------------------------------------------------------------------------------*/
   margin: 0 auto;
   overflow: hidden;
+  border-style: solid;
+  border-color: #ff6600;
+  border-width: 2px;
 }
 
 .code-box pre {
