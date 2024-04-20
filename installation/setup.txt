@@ -5,7 +5,7 @@ Clone Repo in /var/www
 
 #------------------------------------------------------------------------------
 
-.bashrc modifications:
+.bashrc modifications (root & user):
 
 alias bop='bash /var/www/maintenance/BOP-system-util.sh'
 
