@@ -14,4 +14,4 @@ rm -rf /var/www/BytesOfProgress
 
 chmod +x /var/www/maintenance/BOP-system-util.sh
 
-echo "DONE! Changes should be applied now!"
+echo "DONE!"
