@@ -5,6 +5,12 @@ Clone Repo in /var/www
 
 #------------------------------------------------------------------------------
 
+.bashrc modifications:
+
+alias bop='bash /var/www/maintenance/BOP-system-util.sh'
+
+#------------------------------------------------------------------------------
+
 /etc/ssh/sshd_config modifications:
 
 ForceCommand /var/www/maintenance/BOP-system-util.sh
