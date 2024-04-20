@@ -9,6 +9,8 @@ Clone Repo in /var/www
 
 alias bop='bash /var/www/maintenance/BOP-system-util.sh'
 
+SOME COMMANDS ONLY WORK AS ROOT!
+
 #------------------------------------------------------------------------------
 
 /etc/ssh/sshd_config modifications:
