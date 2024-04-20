@@ -1,0 +1,197 @@
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<center>
+<br>
+<hr>
+<br>
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title> BOP Blog: Server Maintenance Script</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+<a href="/">
+    <br>
+<a href="/"> <img src="/assets/logo.png" class="homelogo"></a>
+    <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+<hr>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Server Maintenance Script</h1>
+    </span>
+
+    <p style="font-size: 15px">20th April 2024 / 11:45 PM</p>
+
+<p>
+  I wrote a small script to make maintaining the BOP webserver way simpler.
+</p>
+
+<p>
+  It automatically starts up whenever an SSH connection is established to
+  the server. It will then print some statistics like CPU temperature,
+  CPU usage, RAM usage and internet connectivity.
+</p>
+
+<p>
+  This is what is looks like in usage:
+</p>
+
+<img src="output.png"/>
+
+<br><br><br>
+
+<a href="https://github.com/5calV/BytesOfProgress/blob/main/maintenance/BOP-system-util.sh" button class="button1" role="button">View Script on GitHub</a>
+
+<br>
+
+<p>
+  Or take a look at it right here:
+</p>
+
+<br><br>
+
+<div class="code-box">
+    <pre><code>
+  #!/bin/bash
+
+  clear
+
+  echo 'Welcome to BytesOfProgress System Utility!'
+
+  echo
+
+  sleep 1
+
+  #------------------------------------------------------------------------------
+
+  echo 'CPU Temperature:'
+
+  sensors | grep Core
+
+  echo
+
+  #------------------------------------------------------------------------------
+
+  echo 'CPU Usage:'
+
+  grep -E '^cpu[0-9]+ ' /proc/stat | awk 'NR <= 2 {usage=($2+$4)*100/($2+$4+$5+$6)} {print "Core " NR-1 ": " usage "%"}'
+
+  echo
+
+  #------------------------------------------------------------------------------
+
+  echo 'RAM Usage:'
+
+  awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {usage=((total-available)/total)*100; printf "Percent: %.2f%%\n", usage}' /proc/meminfo
+  awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {printf "MiB: %d / %d MB\n", (total-available)/1024, total/1024}' /proc/meminfo
+
+  echo
+
+  #------------------------------------------------------------------------------
+
+  echo 'Internet Access Test:'
+
+  ping -c 1 1.1.1.1 > /dev/null && echo "Successful!" || echo "Failed!"
+
+  echo
+
+  #------------------------------------------------------------------------------
+
+  echo 'DNS Resolving Test:'
+
+  ping -c 1 cloudflare.com > /dev/null && echo "Successful!" || echo "Failed!"
+
+  echo
+
+  #------------------------------------------------------------------------------
+
+  echo '-------------------------------------------------------------------------'
+  echo
+
+  #------------------------------------------------------------------------------
+
+  echo '01: Pull updates from BOP-Repository on GitHub'
+  echo '02: Restart Nginx'
+  echo '03: Restart TOR'
+  echo '04: Restart Cloudflared'
+  echo '05: Reboot'
+  echo '06: Test Internet Connectivity'
+  echo '07: Test DNS Resolving'
+  echo '08: Restart Networking'
+  echo '09: Update OS'
+  echo '10: Exit to Shell'
+
+  echo
+  echo '-------------------------------------------------------------------------'
+  echo
+
+  #------------------------------------------------------------------------------
+
+  echo -e "What would you like to do? \n"
+  read -r action
+
+  #------------------------------------------------------------------------------
+  if [ "$action" = 1 ]; then
+      bash /var/www/updates/merge.sh && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 2 ]; then
+      systemctl restart nginx | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 3 ]; then
+      systemctl restart tor | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 4 ]; then
+      systemctl restart cloudflared | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 5 ]; then
+      reboot
+
+  elif [ "$action" = 6 ]; then
+      ping -c 1 1.1.1.1 > /dev/null && echo "Successful!" || echo -e "Failed!\n" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 7 ]; then
+      ping -c 1 cloudflare.com > /dev/null && echo "Successful!" || echo -e "Failed!\n" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 8 ]; then
+      systemctl restart networking | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 9 ]; then
+      echo 'Starting Update' && apt update && apt full-upgrade -y && apt autoremove -y && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 10 ]; then
+      bash
+
+  else
+      echo "Invalid Input!" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  fi
+    </code></pre>
+</div>
+
+<br>
+
+<br><hr><br>
+
+<a href="/blog/posts/2024/A1_posts-2024.html" button class="button1" role="button">back</a>
+
+</center>
+
+<br>
+<hr>
+<br>
