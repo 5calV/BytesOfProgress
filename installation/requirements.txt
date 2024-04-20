@@ -1,0 +1,16 @@
+
+Platform:
+
+Debian Stable
+Systemd
+
+
+Needed Packages:
+
+bash
+Nginx
+lm-sensors
+cron
+ufw
+tor
+unattended-upgrades
