@@ -48,16 +48,106 @@
 
 <!------------------------------------------------------------------------------------------->
 
+<p>
+  Cronjobs are a time-based scheduler utility in Unix-like operating systems,
+  including Linux and macOS. They allow users to schedule tasks to run
+  automatically at specified intervals, whether it's hourly, daily,
+  weekly, or even minutely. With cronjobs, you can automate
+  repetitive tasks such as backups, system maintenance, or
+  running scripts, freeing up your time and ensuring timely
+  execution of important processes.
+</p>
 
+<br>
 
+<p>
+  You can create a crontab / cronjob by executing following command:
+</p>
 
+<div class="code-box">
+    <pre><code>
+  # crontab -e
+    </code></pre>
+</div>
 
+<br>
 
+<p>
+  It will then ask you what text editor you want to use.
+  I recommend nano, is is the simplest of them.
+</p>
 
+<p>
+  Here is a quick breakdown on how cronjobs are constructed:
+</p>
 
+<div class="code-box">
+    <pre><code>
+  # /etc/crontab: system-wide crontab
+  # Unlike any other crontab you don't have to run the 'crontab'
+  # command to install the new version when you edit this file
+  # and files in /etc/cron.d. These files also have username fields,
+  # that none of the other crontabs do.
 
+  # Set the default shell for the cron jobs
+  SHELL=/bin/bash
 
+  # Set the default path for the cron jobs
+  PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
+  # Specify the email address to which cron job output should be sent
+  MAILTO=root
+
+  # For details see man 4 crontabs
+
+  # Example of job definition:
+  # .---------------- minute (0 - 59)
+  # |  .------------- hour (0 - 23)
+  # |  |  .---------- day of month (1 - 31)
+  # |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+  # |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+  # |  |  |  |  |
+  # *  *  *  *  * user-name command to be executed
+
+  # Run the cron job every hour
+  0 * * * * root /bin/bash /usr/local/bin/hourly_backup.sh
+
+  # Run the cron job every day at 2:30 AM
+  30 2 * * * root /bin/bash /usr/local/bin/daily_cleanup.sh
+
+  # Run the cron job every Sunday at 3:00 AM
+  0 3 * * 0 root /bin/bash /usr/local/bin/weekly_report.sh
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  This is what a cronjob example could look like:
+  It will execute the script "/var/www/merge.sh"
+  every day at 12 AM, with the bash shell.
+</p>
+
+<div class="code-box">
+    <pre><code>
+  0 0 * * * /bin/bash /var/www/merge.sh
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  Note for troubleshooting: If your cronjob does not work as intended,
+  try putting an empty space at the end of it!
+</p>
+
+<p>
+  Cronjobs often don't work if they don't end with a space because this
+  is part of the cron daemon's syntax requirements. The cron daemon expects
+  each line in the crontab file to end with a newline. If a line does
+  not end with a newline character, the cron daemon may not be
+  able to interpret or execute the line correctly.
+</p>
 <!------------------------------------------------------------------------------------------->
 
 <br>
