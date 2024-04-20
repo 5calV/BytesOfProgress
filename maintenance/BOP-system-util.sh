@@ -77,45 +77,42 @@ echo -e "What would you like to do? \n"
 read -r action
 
 #------------------------------------------------------------------------------
-
-
 if [ "$action" = 1 ]; then
     bash /var/www/updates/merge.sh && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-fi
 
-if [ "$action" = 2 ]; then
+elif [ "$action" = 2 ]; then
     systemctl restart nginx | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-fi
 
-if [ "$action" = 3 ]; then
+elif [ "$action" = 3 ]; then
     systemctl restart tor | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-fi
 
-if [ "$action" = 4 ]; then
+elif [ "$action" = 4 ]; then
     systemctl restart cloudflared | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-fi
 
-if [ "$action" = 5 ]; then
+elif [ "$action" = 5 ]; then
     reboot
-fi
 
-if [ "$action" = 6 ]; then
+elif [ "$action" = 6 ]; then
     ping -c 1 1.1.1.1 > /dev/null && echo "Successful!" || echo -e "Failed!\n" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-fi
 
-if [ "$action" = 7 ]; then
+elif [ "$action" = 7 ]; then
     ping -c 1 cloudflare.com > /dev/null && echo "Successful!" || echo -e "Failed!\n" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-fi
 
-if [ "$action" = 8 ]; then
+elif [ "$action" = 8 ]; then
     systemctl restart networking | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-fi
 
-if [ "$action" = 9 ]; then
+elif [ "$action" = 9 ]; then
     echo 'Starting Update' && apt update && apt full-upgrade -y && apt autoremove -y && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-fi
 
-
-if [ "$action" = 10 ]; then
+elif [ "$action" = 10 ]; then
     bash
+
+
+
+
+
+
+
+else
+    echo "Invalid Input!" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 fi
