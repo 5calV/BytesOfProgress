@@ -6,8 +6,10 @@ mv BytesOfProgress /var/www
 
 echo "Replacing the old website files..."
 rm -rf /var/www/html
+rm -rf /var/www/updates
+rm -rf /var/www/maintenance
 
-mv /var/www/BytesOfProgress/html /var/www/
+mv /var/www/BytesOfProgress/* /var/www/
 
 echo "Removing repository"
 rm -rf /var/www/BytesOfProgress
