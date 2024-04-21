@@ -140,7 +140,7 @@ elif [ "$action" = 12 ]; then
 elif [ "$action" = 13 ]; then
   su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
 
-elif [ "$action" = 114 ]; then
+elif [ "$action" = 14 ]; then
     bash
 
 else
