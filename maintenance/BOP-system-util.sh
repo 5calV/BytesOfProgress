@@ -8,6 +8,7 @@ echo
 
 sleep 1
 
+echo 'You can always start this utility by typing "bop"!'
 #------------------------------------------------------------------------------
 
 echo 'CPU Temperature:'
@@ -65,8 +66,12 @@ echo '06: Test Internet Connectivity'
 echo '07: Test DNS Resolving'
 echo '08: Restart Networking'
 echo '09: Update OS ( root only )'
-echo '10: Restart Utility as root'
-echo '11: Exit to Shell'
+echo '10: Start HTOP'
+echo '11: Start IFTOP'
+echo '12: Start NYX'
+
+echo '13: Restart Utility as root'
+echo '14: Exit to Shell'
 
 echo
 echo '-------------------------------------------------------------------------'
@@ -106,16 +111,25 @@ elif [ "$action" = 9 ]; then
     echo 'Starting Update' && apt update && apt full-upgrade -y && apt autoremove -y && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 10 ]; then
-  su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+    htop && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 11 ]; then
+    iftop && bash /var/www/maintenance/BOP-system-util.sh
+
+elif [ "$action" = 12 ]; then
+    nyx && bash /var/www/maintenance/BOP-system-util.sh
+
+
+
+
+
+
+
+elif [ "$action" = 13 ]; then
+  su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+
+elif [ "$action" = 114 ]; then
     bash
-
-
-
-
-
-
 
 else
     echo "Invalid Input!" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
