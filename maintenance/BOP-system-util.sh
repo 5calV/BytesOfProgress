@@ -56,15 +56,15 @@ echo
 
 #------------------------------------------------------------------------------
 
-echo '01: Pull updates from BOP-Repository on GitHub'
-echo '02: Restart Nginx'
-echo '03: Restart TOR'
-echo '04: Restart Cloudflared'
-echo '05: Reboot'
+echo '01: Pull updates from BOP-Repository on GitHub ( root only )'
+echo '02: Restart Nginx ( root only )'
+echo '03: Restart TOR ( root only )'
+echo '04: Restart Cloudflared ( root only )'
+echo '05: Reboot ( root only )'
 echo '06: Test Internet Connectivity'
 echo '07: Test DNS Resolving'
 echo '08: Restart Networking'
-echo '09: Update OS'
+echo '09: Update OS ( root only )'
 echo '10: Restart Utility as root'
 echo '11: Exit to Shell'
 
