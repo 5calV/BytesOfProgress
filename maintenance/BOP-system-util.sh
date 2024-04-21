@@ -83,7 +83,7 @@ echo '08: Restart Networking'
 echo '09: Update OS ( root only )'
 echo '10: Start HTOP'
 echo '11: Start IFTOP'
-echo '12: Start NYX'
+echo '12: Start NYX ( root only )'
 
 echo '13: Restart Utility as root'
 echo '14: Exit to Shell'
