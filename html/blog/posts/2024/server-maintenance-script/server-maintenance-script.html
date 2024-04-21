@@ -77,8 +77,13 @@
 
   echo
 
-  sleep 1
+  sleep 0.5
 
+  echo 'You can always start this utility by typing "bop"!'
+
+  echo
+
+  sleep 1
   #------------------------------------------------------------------------------
 
   echo 'CPU Temperature:'
@@ -122,21 +127,37 @@
 
   #------------------------------------------------------------------------------
 
+  echo "You are logged in as: $(whoami)"
+
+  echo
+
+  #------------------------------------------------------------------------------
+
+  echo "Uptime: $(uptime -p | sed 's/up //')"
+  echo
+
+  #------------------------------------------------------------------------------
+
   echo '-------------------------------------------------------------------------'
   echo
 
   #------------------------------------------------------------------------------
 
-  echo '01: Pull updates from BOP-Repository on GitHub'
-  echo '02: Restart Nginx'
-  echo '03: Restart TOR'
-  echo '04: Restart Cloudflared'
-  echo '05: Reboot'
+  echo '01: Pull updates from BOP-Repository on GitHub ( root only )'
+  echo '02: Restart Nginx ( root only )'
+  echo '03: Restart TOR ( root only )'
+  echo '04: Restart Cloudflared ( root only )'
+  echo '05: Reboot ( root only )'
   echo '06: Test Internet Connectivity'
   echo '07: Test DNS Resolving'
   echo '08: Restart Networking'
-  echo '09: Update OS'
-  echo '10: Exit to Shell'
+  echo '09: Update OS ( root only )'
+  echo '10: Start HTOP'
+  echo '11: Start IFTOP'
+  echo '12: Start NYX'
+
+  echo '13: Restart Utility as root'
+  echo '14: Exit to Shell'
 
   echo
   echo '-------------------------------------------------------------------------'
@@ -176,6 +197,19 @@
       echo 'Starting Update' && apt update && apt full-upgrade -y && apt autoremove -y && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
   elif [ "$action" = 10 ]; then
+      htop && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 11 ]; then
+      iftop && bash /var/www/maintenance/BOP-system-util.sh
+
+  elif [ "$action" = 12 ]; then
+      nyx && bash /var/www/maintenance/BOP-system-util.sh
+
+
+  elif [ "$action" = 13 ]; then
+    su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+
+  elif [ "$action" = 14 ]; then
       bash
 
   else
