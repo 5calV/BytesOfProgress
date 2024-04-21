@@ -6,9 +6,13 @@ echo 'Welcome to BytesOfProgress System Utility!'
 
 echo
 
-sleep 1
+sleep 0.5
 
 echo 'You can always start this utility by typing "bop"!'
+
+echo
+
+sleep 1
 #------------------------------------------------------------------------------
 
 echo 'CPU Temperature:'
