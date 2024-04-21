@@ -1,11 +1,13 @@
 
 echo "Cloning BytesOfProgress repository from GitHub..."
+
+rm -rf /var/www/*
+
 git clone https://github.com/5calV/BytesOfProgress
 
 mv BytesOfProgress /var/www
 
 echo "Replacing the old website files..."
-rm -rf /var/www/*
 
 mv /var/www/BytesOfProgress/* /var/www/
 
