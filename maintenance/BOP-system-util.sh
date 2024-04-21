@@ -65,7 +65,8 @@ echo '06: Test Internet Connectivity'
 echo '07: Test DNS Resolving'
 echo '08: Restart Networking'
 echo '09: Update OS'
-echo '10: Exit to Shell'
+echo '10: Restart Utility as root'
+echo '11: Exit to Shell'
 
 echo
 echo '-------------------------------------------------------------------------'
@@ -105,6 +106,9 @@ elif [ "$action" = 9 ]; then
     echo 'Starting Update' && apt update && apt full-upgrade -y && apt autoremove -y && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 10 ]; then
+  su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+
+elif [ "$action" = 11 ]; then
     bash
 
 
