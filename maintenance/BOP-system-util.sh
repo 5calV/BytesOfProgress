@@ -129,7 +129,7 @@ elif [ "$action" = 11 ]; then
     iftop && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 12 ]; then
-    nyx && bash /var/www/maintenance/BOP-system-util.sh
+    nyx | bash /var/www/maintenance/BOP-system-util.sh
 
 
 
