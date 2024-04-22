@@ -16,6 +16,8 @@ apt install apt-transport-https -y
 
 systemctl enable unattended-upgrades
 
+usermod -aG sudo bop
+
 #------------------------------------------------------------------------------
 
 rm /etc/nginx/sites-available/default
