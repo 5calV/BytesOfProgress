@@ -25,7 +25,8 @@ chmod +x /var/www/maintenance/BOP-system-util.sh
 
 rm /etc/nginx/sites-available/default
 
-mv /var/www/installation/default /etc/nginx/sites-available/default
+cp /var/www/installation/default /etc/nginx/sites-available/default
+cp /var/www/installation/default /etc/nginx/sites-enabled/default
 
 systemctl restart nginx
 
