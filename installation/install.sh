@@ -18,6 +18,8 @@ systemctl enable unattended-upgrades
 
 usermod -aG sudo bop
 
+chmod +x /var/www/maintenance/BOP-system-util.sh
+
 #------------------------------------------------------------------------------
 
 rm /etc/nginx/sites-available/default
