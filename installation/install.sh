@@ -66,6 +66,4 @@ crontab /var/www/updates/cronjob
 
 #------------------------------------------------------------------------------
 
-echo "DONE! Performing a reboot!"
-
-reboot
+echo "DONE!"
