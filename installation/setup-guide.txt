@@ -8,5 +8,6 @@
 5. Execute /var/www/installation/install.sh as root.
 6. Delete contents of /var/lib/tor/hidden_service
 7. Paste HiddenService "host", "public key", "private key" into /var/lib/tor/hidden_service
+8. Setup Cloudflared on port 8080.
 
 #------------------------------------------------------------------------------
