@@ -38,9 +38,16 @@ apt update
 
 apt install tor deb.torproject.org-keyring -y
 
-echo "HiddenserviceDir /var/lib/tor/hidden_service" >> /etc/tor/torrc
+# TODO: Fix this HiddenService Error:
+# 0xF2 — Introduction failed, which means that the descriptor was found
+# but the service is no longer connected to the introduction point. It is
+# likely that the service has changed its descriptor or that it is not running.
+
+echo "HiddenServiceDir /var/lib/tor/hidden_service" >> /etc/tor/torrc
 
 echo "HiddenServicePort 80 127.0.0.1:80" >> /etc/tor/torrc
+
+systemctl enable tor
 
 systemctl restart tor
 
