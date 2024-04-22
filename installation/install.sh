@@ -13,6 +13,7 @@ apt install unattended-upgrades -y
 apt install htop -y
 apt install iftop -y
 apt install apt-transport-https -y
+apt install gpg -y
 
 systemctl enable unattended-upgrades
 
