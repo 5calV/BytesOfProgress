@@ -1,0 +1,9 @@
+
+#------------------------------------------------------------------------------
+
+1. Create sudo user named "bop"
+2. Give the server a static IPv4.
+3. Clone Repo in /var/www
+4. Replace "bookworm" with used distro in "tor.list"
+
+#------------------------------------------------------------------------------
