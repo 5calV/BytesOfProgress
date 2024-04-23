@@ -27,7 +27,7 @@
 <center>
     <a href="/">
         <br>
-    <a href="/"> <img src="/assets/logo.png" class="homelogo"></a> 
+    <a href="/"> <img src="/assets/logo.png" class="homelogo"></a>
     <span style="color:#ff6600">
             <h1 style="font-size:50px">BytesOfProgress</h1>
         </span>
@@ -100,49 +100,49 @@
 
 <div class="code-box">
     <pre><code>
-#include < WiFi.h>   // Including ESP32's WiFi Library. Without the space between "<" and "WiFi.h"
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(0, 43, 54); color: rgb(131, 148, 150);"><span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt; WiFi.h&gt;</span>   <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Including ESP32's WiFi Library. Without the space between "&lt;" and "WiFi.h"</span></span>
 
-const char* ssid = "SSID";  // Entering WiFi SSID
-const char* pass = "PASSWORD";  // Entering WiFi Password
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">char</span>* ssid = <span class="hljs-string" style="color: rgb(42, 161, 152);">"SSID"</span>;  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Entering WiFi SSID</span>
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">char</span>* pass = <span class="hljs-string" style="color: rgb(42, 161, 152);">"PASSWORD"</span>;  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Entering WiFi Password</span>
 
-WiFiServer server(80);  // Creating a webserver on Port 80
-const int ledPin = 14;  // LED-PIN
-bool ledStatus = LOW;   // The initial state of the LED (OFF)
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFiServer</span> server(<span class="hljs-number" style="color: rgb(42, 161, 152);">80</span>);  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Creating a webserver on Port 80</span>
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">int</span> ledPin = <span class="hljs-number" style="color: rgb(42, 161, 152);">14</span>;  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// LED-PIN</span>
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">bool</span> ledStatus = <span class="hljs-literal" style="color: rgb(42, 161, 152);">LOW</span>;   <span class="hljs-comment" style="color: rgb(88, 110, 117);">// The initial state of the LED (OFF)</span>
 
-void setup() {
-  pinMode(ledPin, OUTPUT);  // Setting the LED-PIN to output
-  Serial.begin(115200);     // Starting the serial communication
-  WiFi.begin(ssid, pass);  // Starting to establish a connection to the WiFi network
-  while (WiFi.status() != WL_CONNECTED) delay(500);  // Waiting until the connection is established
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>() {
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">pinMode</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">OUTPUT</span>);  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Setting the LED-PIN to output</span>
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">115200</span>);     <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Starting the serial communication</span>
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(ssid, pass);  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Starting to establish a connection to the WiFi network</span>
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">while</span> (<span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.status() != WL_CONNECTED) <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">500</span>);  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Waiting until the connection is established</span>
 
-  // Print the IP address in the requested format
-  Serial.print("The ESP32's local IP-Address is: ");
-  Serial.println(WiFi.localIP());
+        <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Print the IP address in the requested format</span>
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"The ESP32's local IP-Address is: "</span>);
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">localIP</span>());
 
-  server.begin();  // Starting up the webserver on Port 80
-}
+        server.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>();  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Starting up the webserver on Port 80</span>
+      }
 
-void loop() {
-  WiFiClient client = server.available();  // Checking if a Client is connected
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">loop</span>() {
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFiClient</span> client = server.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">available</span>();  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Checking if a Client is connected</span>
 
-  if (client) {
-    String req = client.readStringUntil('\r');  // Reading the client's HTTP request up to the line break ('\r')
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">if</span> (client) {
+          <span class="hljs-keyword" style="color: rgb(133, 153, 0);">String</span> req = client.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">readStringUntil</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">'\r'</span>);  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Reading the client's HTTP request up to the line break ('\r')</span>
 
-    // Checking whether the request contains "/on" to turn on the LED or "/off" to turn it off
-    ledStatus = req.indexOf("GET /on") >= 0 ? HIGH : req.indexOf("GET /off") >= 0 ? LOW : ledStatus;
+          <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Checking whether the request contains "/on" to turn on the LED or "/off" to turn it off</span>
+          ledStatus = req.indexOf(<span class="hljs-string" style="color: rgb(42, 161, 152);">"GET /on"</span>) &gt;= <span class="hljs-number" style="color: rgb(42, 161, 152);">0</span> ? <span class="hljs-literal" style="color: rgb(42, 161, 152);">HIGH</span> : req.indexOf(<span class="hljs-string" style="color: rgb(42, 161, 152);">"GET /off"</span>) &gt;= <span class="hljs-number" style="color: rgb(42, 161, 152);">0</span> ? <span class="hljs-literal" style="color: rgb(42, 161, 152);">LOW</span> : ledStatus;
 
-    // Sending an HTTP response to the client (containing HTML)
-    client.println("HTTP/1.1 200 OK\nContent-Type: text/html\nConnection: close\n");
-    // HTML contents
-    client.print("HTML HERE");
+          <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Sending an HTTP response to the client (containing HTML)</span>
+          client.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"HTTP/1.1 200 OK\nContent-Type: text/html\nConnection: close\n"</span>);
+          <span class="hljs-comment" style="color: rgb(88, 110, 117);">// HTML contents</span>
+          client.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"HTML HERE"</span>);
 
-    client.stop();  // Quitting the Client-connection
-    digitalWrite(ledPin, ledStatus);  // Executing the command based on the client's request (controlling the LED / LED-PIN)
+          client.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stop</span>();  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Quitting the Client-connection</span>
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, ledStatus);  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Executing the command based on the client's request (controlling the LED / LED-PIN)</span>
 
-    // Reporting the LED status in the Serial Monitor
-    Serial.println("LED is now " + String(ledStatus == HIGH ? "ON" : "OFF"));
-  }
-}
+          <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Reporting the LED status in the Serial Monitor</span>
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"LED is now "</span> + <span class="hljs-keyword" style="color: rgb(133, 153, 0);">String</span>(ledStatus == <span class="hljs-literal" style="color: rgb(42, 161, 152);">HIGH</span> ? <span class="hljs-string" style="color: rgb(42, 161, 152);">"ON"</span> : <span class="hljs-string" style="color: rgb(42, 161, 152);">"OFF"</span>));
+        }
+      }</pre>
     </code></pre>
 </div>
 
