@@ -27,7 +27,7 @@
 <center>
     <a href="/">
         <br>
-    <a href="/"> <img src="/assets/logo.png" class="homelogo"></a> 
+    <a href="/"> <img src="/assets/logo.png" class="homelogo"></a>
     <span style="color:#ff6600">
             <h1 style="font-size:50px">BytesOfProgress</h1>
         </span>
@@ -62,14 +62,14 @@ one thing: The IP-Address.
 </p>
 <div class="code-box">
     <pre><code>
-        {
-            "port": 8080,
-            "baseURL": "",
-            "address": "000.000.000.000",
-            "log": "stdout",
-            "database": "/etc/filebrowser.db",
-            "root": "/var/www"
-          }
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  {
+          <span class="hljs-attr" style="color: rgb(181, 137, 0);">"port"</span>: <span class="hljs-number" style="color: rgb(42, 161, 152);">8080</span>,
+          <span class="hljs-attr" style="color: rgb(181, 137, 0);">"baseURL"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">""</span>,
+          <span class="hljs-attr" style="color: rgb(181, 137, 0);">"address"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"000.000.000.000"</span>,
+          <span class="hljs-attr" style="color: rgb(181, 137, 0);">"log"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"stdout"</span>,
+          <span class="hljs-attr" style="color: rgb(181, 137, 0);">"database"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"/etc/filebrowser.db"</span>,
+          <span class="hljs-attr" style="color: rgb(181, 137, 0);">"root"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"/var/www"</span>
+  }</pre>
     </code></pre>
 </div>
 
@@ -101,51 +101,51 @@ one thing: The IP-Address.
 
 <div class="code-box">
     <pre><code>
-        #!/bin/bash
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  #!/bin/bash
 
-        echo "This script will perform an automatic installation of FileBrowser!"
-        sleep 1
-        echo "Updating repositories..."
-        sleep 0.5
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"This script will perform an automatic installation of FileBrowser!"</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Updating repositories..."</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
 
-        apt update && apt full-upgrade -y && apt install curl -y
-        sleep 1
+        apt <span class="hljs-keyword" style="color: rgb(133, 153, 0);">update</span> &amp;&amp; apt full-upgrade -<span class="hljs-keyword" style="color: rgb(133, 153, 0);">y</span> &amp;&amp; apt install curl -<span class="hljs-keyword" style="color: rgb(133, 153, 0);">y</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>
 
-        echo "Updates done."
-        sleep 0.5
-        echo "Downloading and installing FileBrowser..."
-        sleep 0.5
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Updates done."</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Downloading and installing FileBrowser..."</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
 
-        curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
+        curl -fsSL http<span class="hljs-variable" style="color: rgb(181, 137, 0);">s:</span>//raw.githubusercontent.<span class="hljs-keyword" style="color: rgb(133, 153, 0);">com</span>/filebrowser/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">get</span>/master/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">get</span>.<span class="hljs-keyword" style="color: rgb(133, 153, 0);">sh</span> | bash
 
-        sleep 0.5
-        echo "Copying config file to /etc/filebrowser.json ..."
-        sleep 0.5
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Copying config file to /etc/filebrowser.json ..."</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
 
-        cp filebrowser.json /etc/filebrowser.json
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">cp</span> filebrowser.json /etc/filebrowser.json
 
-        echo "Copying system service file to /etc/systemd/system/filebrowser.service ..."
-        sleep 0.5
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Copying system service file to /etc/systemd/system/filebrowser.service ..."</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
 
-        cp filebrowser.service /etc/systemd/system/filebrowser.service
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">cp</span> filebrowser.service /etc/systemd/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">system</span>/filebrowser.service
 
-        echo "Enabling and starting the filebrowser system service..."
-        sleep 0.5
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Enabling and starting the filebrowser system service..."</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
 
         systemctl enable filebrowser.service
         systemctl start filebrowser.service
 
-        sleep 0.5
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
 
-        echo "DONE! Congratulations, you now have a running FileBrowser instance!"
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"DONE! Congratulations, you now have a running FileBrowser instance!"</span>
 
-        sleep 0.5
-        echo "After updating any settings in /etc/filebrowser.json make sure to run "systemmctl restart filebrowser.service""
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"After updating any settings in /etc/filebrowser.json make sure to run "</span>systemmctl restart filebrowser.service<span class="hljs-string" style="color: rgb(42, 161, 152);">""</span>
 
-        echo "Default Login:"
-        echo "User: admin"
-        echo "Pass: admin"
-        echo "Please make sure to change the password on your first login!"
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Default Login:"</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"User: admin"</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Pass: admin"</span>
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Please make sure to change the password on your first login!"</span></pre>
     </code></pre>
 </div>
 

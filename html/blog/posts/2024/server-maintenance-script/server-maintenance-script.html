@@ -69,152 +69,152 @@
 
 <div class="code-box">
     <pre><code>
-  #!/bin/bash
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#!/bin/bash</span>
 
   clear
 
-  echo 'Welcome to BytesOfProgress System Utility!'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'Welcome to BytesOfProgress System Utility!'</span>
 
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
   sleep 0.5
 
-  echo 'You can always start this utility by typing "bop"!'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'You can always start this utility by typing "bop"!'</span>
 
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
   sleep 1
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo 'CPU Temperature:'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'CPU Temperature:'</span>
 
   sensors | grep Core
 
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo 'CPU Usage:'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'CPU Usage:'</span>
 
-  grep -E '^cpu[0-9]+ ' /proc/stat | awk 'NR <= 2 {usage=($2+$4)*100/($2+$4+$5+$6)} {print "Core " NR-1 ": " usage "%"}'
+  grep -E <span class="hljs-string" style="color: rgb(42, 161, 152);">'^cpu[0-9]+ '</span> /proc/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span> | awk <span class="hljs-string" style="color: rgb(42, 161, 152);">'NR &lt;= 2 {usage=($2+$4)*100/($2+$4+$5+$6)} {print "Core " NR-1 ": " usage "%"}'</span>
 
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo 'RAM Usage:'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'RAM Usage:'</span>
 
-  awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {usage=((total-available)/total)*100; printf "Percent: %.2f%%\n", usage}' /proc/meminfo
-  awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {printf "MiB: %d / %d MB\n", (total-available)/1024, total/1024}' /proc/meminfo
+  awk <span class="hljs-string" style="color: rgb(42, 161, 152);">'/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {usage=((total-available)/total)*100; printf "Percent: %.2f%%\n", usage}'</span> /proc/meminfo
+  awk <span class="hljs-string" style="color: rgb(42, 161, 152);">'/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {printf "MiB: %d / %d MB\n", (total-available)/1024, total/1024}'</span> /proc/meminfo
 
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo 'Internet Access Test:'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'Internet Access Test:'</span>
 
-  ping -c 1 1.1.1.1 > /dev/null && echo "Successful!" || echo "Failed!"
+  ping -c 1 1.1.1.1 &gt; /dev/null &amp;&amp; <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Successful!"</span> || <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Failed!"</span>
 
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo 'DNS Resolving Test:'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'DNS Resolving Test:'</span>
 
-  ping -c 1 cloudflare.com > /dev/null && echo "Successful!" || echo "Failed!"
+  ping -c 1 cloudflare.com &gt; /dev/null &amp;&amp; <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Successful!"</span> || <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Failed!"</span>
 
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo "You are logged in as: $(whoami)"
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"You are logged in as: <span class="hljs-variable" style="color: rgb(181, 137, 0);">$(whoami)</span>"</span>
 
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo "Uptime: $(uptime -p | sed 's/up //')"
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Uptime: <span class="hljs-variable" style="color: rgb(181, 137, 0);">$(uptime -p | sed 's/up //')</span>"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo '-------------------------------------------------------------------------'
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'-------------------------------------------------------------------------'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo '01: Pull updates from BOP-Repository on GitHub ( root only )'
-  echo '02: Restart Nginx ( root only )'
-  echo '03: Restart TOR ( root only )'
-  echo '04: Restart Cloudflared ( root only )'
-  echo '05: Reboot ( root only )'
-  echo '06: Test Internet Connectivity'
-  echo '07: Test DNS Resolving'
-  echo '08: Restart Networking'
-  echo '09: Update OS ( root only )'
-  echo '10: Start HTOP'
-  echo '11: Start IFTOP'
-  echo '12: Start NYX'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'01: Pull updates from BOP-Repository on GitHub ( root only )'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'02: Restart Nginx ( root only )'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'03: Restart TOR ( root only )'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'04: Restart Cloudflared ( root only )'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'05: Reboot ( root only )'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'06: Test Internet Connectivity'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'07: Test DNS Resolving'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'08: Restart Networking'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'09: Update OS ( root only )'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'10: Start HTOP'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'11: Start IFTOP'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'12: Start NYX'</span>
 
-  echo '13: Restart Utility as root'
-  echo '14: Exit to Shell'
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'13: Restart Utility as root'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'14: Exit to Shell'</span>
 
-  echo
-  echo '-------------------------------------------------------------------------'
-  echo
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'-------------------------------------------------------------------------'</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span>
 
-  #------------------------------------------------------------------------------
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
 
-  echo -e "What would you like to do? \n"
-  read -r action
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"What would you like to do? \n"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">read</span> -r action
 
-  #------------------------------------------------------------------------------
-  if [ "$action" = 1 ]; then
-      bash /var/www/updates/merge.sh && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">#------------------------------------------------------------------------------</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">if</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 1 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      bash /var/www/updates/merge.sh &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 2 ]; then
-      systemctl restart nginx | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 2 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      systemctl restart nginx | <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'DONE'</span> &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 3 ]; then
-      systemctl restart tor | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 3 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      systemctl restart tor | <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'DONE'</span> &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 4 ]; then
-      systemctl restart cloudflared | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 4 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      systemctl restart cloudflared | <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'DONE'</span> &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 5 ]; then
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 5 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
       reboot
 
-  elif [ "$action" = 6 ]; then
-      ping -c 1 1.1.1.1 > /dev/null && echo "Successful!" || echo -e "Failed!\n" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 6 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      ping -c 1 1.1.1.1 &gt; /dev/null &amp;&amp; <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Successful!"</span> || <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Failed!\n"</span> &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 7 ]; then
-      ping -c 1 cloudflare.com > /dev/null && echo "Successful!" || echo -e "Failed!\n" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 7 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      ping -c 1 cloudflare.com &gt; /dev/null &amp;&amp; <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Successful!"</span> || <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Failed!\n"</span> &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 8 ]; then
-      systemctl restart networking | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 8 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      systemctl restart networking | <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'DONE'</span> &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 9 ]; then
-      echo 'Starting Update' && apt update && apt full-upgrade -y && apt autoremove -y && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 9 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">'Starting Update'</span> &amp;&amp; apt update &amp;&amp; apt full-upgrade -y &amp;&amp; apt autoremove -y &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 10 ]; then
-      htop && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 10 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      htop &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 11 ]; then
-      iftop && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 11 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      iftop &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
-  elif [ "$action" = 12 ]; then
-      nyx && bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 12 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+      nyx &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
 
 
-  elif [ "$action" = 13 ]; then
-    su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 13 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+    su -c <span class="hljs-string" style="color: rgb(42, 161, 152);">"/bin/bash /var/www/maintenance/BOP-system-util.sh"</span>
 
-  elif [ "$action" = 14 ]; then
-      bash
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">elif</span> [ <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$action</span>"</span> = 14 ]; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+    bash
 
-  else
-      echo "Invalid Input!" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-  fi
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">else</span>
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Invalid Input!"</span> &amp;&amp; sleep 3 &amp;&amp; bash /var/www/maintenance/BOP-system-util.sh
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">fi</span></pre>
     </code></pre>
 </div>
 

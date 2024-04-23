@@ -81,103 +81,103 @@
 
     <div class="code-box">
         <pre><code>
-    // Libraries
-    #include < WiFi.h>
-    #include < Wire.h>
-    #include < LiquidCrystal_I2C.h>
-    #include < ESP32Ping.h>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Libraries</span>
+  <span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;WiFi.h&gt;</span></span>
+  <span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;Wire.h&gt;</span></span>
+  <span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;LiquidCrystal_I2C.h&gt;</span></span>
+  <span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;ESP32Ping.h&gt;</span></span>
 
-    // WiFi access
-    const char* ssid = "SSID";
-    const char* password = "WPA2_PASS";
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// WiFi access</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">char</span>* ssid = <span class="hljs-string" style="color: rgb(42, 161, 152);">"SSID"</span>;
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">char</span>* password = <span class="hljs-string" style="color: rgb(42, 161, 152);">"WPA2_PASS"</span>;
 
-    // Setting LED pin
-    const int ledPin = 18;
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Setting LED pin</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">int</span> ledPin = <span class="hljs-number" style="color: rgb(42, 161, 152);">18</span>;
 
-    // Display data
-    LiquidCrystal_I2C lcd(0x27,20,4);
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Display data</span>
+  LiquidCrystal_I2C lcd(<span class="hljs-number" style="color: rgb(42, 161, 152);">0x27</span>,<span class="hljs-number" style="color: rgb(42, 161, 152);">20</span>,<span class="hljs-number" style="color: rgb(42, 161, 152);">4</span>);
 
-    void setup()
-    {
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>()
+  {
 
-    // Setting pinMode
-    pinMode(ledPin, OUTPUT);
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Setting pinMode</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">pinMode</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">OUTPUT</span>);
 
-    lcd.init();
-    lcd.backlight();
+  lcd.init();
+  lcd.backlight();
 
-    Serial.begin(115200);
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">115200</span>);
 
-    WiFi.mode(WIFI_STA);
-    WiFi.begin(ssid, password);
-    Serial.println("\nConnecting to WiFi Network ..");
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.mode(WIFI_STA);
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(ssid, password);
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"\nConnecting to WiFi Network .."</span>);
 
-    while(WiFi.status() != WL_CONNECTED){
-        Serial.print(".");
-        lcd.setCursor(1, 1);
-        lcd.print("CONNECTION FAILED!");
-        digitalWrite(ledPin, HIGH);
-        delay(100);
-    }
-        lcd.clear();
-        Serial.println("\nConnected to the WiFi network");
-        Serial.print("Local IP: ");
-        Serial.println(WiFi.localIP());
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">while</span>(<span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.status() != WL_CONNECTED){
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"."</span>);
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">setCursor</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>);
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"CONNECTION FAILED!"</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">100</span>);
+  }
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">clear</span>();
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"\nConnected to the WiFi network"</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"Local IP: "</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">localIP</span>());
 
-        digitalWrite(ledPin, HIGH);
-        delay(500);
-        digitalWrite(ledPin, LOW);
-    }
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">500</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">LOW</span>);
+  }
 
-    void loop()
-    {
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">loop</span>()
+  {
 
-    //-------------------------------------------------------------------
-    // HomeLab Panel
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">//-------------------------------------------------------------------</span>
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// HomeLab Panel</span>
 
-    bool panel = Ping.ping("IP", 1);
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">bool</span> panel = Ping.ping(<span class="hljs-string" style="color: rgb(42, 161, 152);">"IP"</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>);
 
-    lcd.setCursor(4, 1);
-    lcd.print("HomeLab Panel");
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">setCursor</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">4</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>);
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"HomeLab Panel"</span>);
 
-    if(!panel){
-        lcd.setCursor(6, 2);
-        lcd.print("OFFLINE!");
-        digitalWrite(ledPin, HIGH);
-        delay(5000);
-        digitalWrite(ledPin, LOW);
-        lcd.clear();
-    }
-    else{
-    lcd.setCursor(7, 2);
-    lcd.print("ONLINE");
-    delay(5000);
-    lcd.clear();
-    }
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">if</span>(!panel){
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">setCursor</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">6</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">2</span>);
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"OFFLINE!"</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">5000</span>);
+    <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">LOW</span>);
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">clear</span>();
+  }
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">else</span>{
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">setCursor</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">7</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">2</span>);
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"ONLINE"</span>);
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">5000</span>);
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">clear</span>();
+  }
 
-    //-------------------------------------------------------------------
-    // BytesOfProgress
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">//-------------------------------------------------------------------</span>
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// BytesOfProgress</span>
 
-    bool BOP = Ping.ping("IP", 1);
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">bool</span> BOP = Ping.ping(<span class="hljs-string" style="color: rgb(42, 161, 152);">"IP"</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>);
 
-    lcd.setCursor(3, 1);
-    lcd.print("BytesOfProgress");
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">setCursor</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">3</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>);
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"BytesOfProgress"</span>);
 
-    if(!BOP){
-        lcd.setCursor(6, 2);
-        lcd.print("OFFLINE!");
-        digitalWrite(ledPin, HIGH);
-        delay(5000);
-        digitalWrite(ledPin, LOW);
-        lcd.clear();
-    }
-    else{
-    lcd.setCursor(7, 2);
-    lcd.print("ONLINE");
-    delay(5000);
-    lcd.clear();
-        }
-    }
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">if</span>(!BOP){
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">setCursor</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">6</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">2</span>);
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"OFFLINE!"</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">HIGH</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">5000</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">LOW</span>);
+      lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">clear</span>();
+  }
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">else</span>{
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">setCursor</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">7</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">2</span>);
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"ONLINE"</span>);
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">5000</span>);
+  lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">clear</span>();
+      }
+  }</pre>
         </code></pre>
     </div>
 

@@ -27,7 +27,7 @@
 <center>
     <a href="/">
         <br>
-    <a href="/"> <img src="/assets/logo.png" class="homelogo"></a> 
+    <a href="/"> <img src="/assets/logo.png" class="homelogo"></a>
     <span style="color:#ff6600">
             <h1 style="font-size:50px">BytesOfProgress</h1>
         </span>
@@ -50,15 +50,15 @@
 
 <div class="code-box">
     <pre><code>
-void setup() {
-  // Set the Serial Monitor to 115200!
-  Serial.begin(115200);
-}
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>() {
+        <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Set the Serial Monitor to 115200!</span>
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">115200</span>);
+      }
 
-void loop() {
-  Serial.println("Hello from ESP32");
-  delay(1000);
-}
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">loop</span>() {
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"Hello from ESP32"</span>);
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">1000</span>);
+      }</pre>
     </code></pre>
 </div>
 
@@ -78,24 +78,24 @@ Then I programmed it to turn on the LED when the PIR Sensor Module recognizes so
 
 <div class="code-box">
     <pre><code>
-int ledPin = 14;
-int sensorPin = 27;
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-keyword" style="color: rgb(133, 153, 0);">int</span> ledPin = <span class="hljs-number" style="color: rgb(42, 161, 152);">14</span>;
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">int</span> sensorPin = <span class="hljs-number" style="color: rgb(42, 161, 152);">27</span>;
 
-void setup() {
-  pinMode(ledPin, OUTPUT);
-  pinMode(sensorPin, INPUT);
-}
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>() {
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">pinMode</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">OUTPUT</span>);
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">pinMode</span>(sensorPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">INPUT</span>);
+      }
 
-void loop() {
-  int sensorValue = digitalRead(sensorPin);
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">loop</span>() {
+        <span class="hljs-keyword" style="color: rgb(133, 153, 0);">int</span> sensorValue = <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalRead</span>(sensorPin);
 
-  if (sensorValue == HIGH) {
-    digitalWrite(ledPin, HIGH); // Turning on LED if the Sensor is "HIGH"
-  }
-  else {
-    digitalWrite(ledPin, LOW); // Turning off LED if the Sensor is "LOW"
-  }
-}
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">if</span> (sensorValue == <span class="hljs-literal" style="color: rgb(42, 161, 152);">HIGH</span>) {
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">HIGH</span>); <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Turning on LED if the Sensor is "HIGH"</span>
+        }
+        <span class="hljs-built_in" style="color: rgb(220, 50, 47);">else</span> {
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">digitalWrite</span>(ledPin, <span class="hljs-literal" style="color: rgb(42, 161, 152);">LOW</span>); <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Turning off LED if the Sensor is "LOW"</span>
+        }
+      }</pre>
     </code></pre>
 </div>
 
@@ -109,34 +109,34 @@ void loop() {
 
 <div class="code-box">
     <pre><code>
-// Connecting an ESP32 to a WiFi Network
-#include < WiFi.h> // Without the space between "<" and "WiFi"
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-comment" style="color: rgb(88, 110, 117);">// Connecting an ESP32 to a WiFi Network</span>
+      <span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;WiFi.h&gt;</span> <span class="hljs-comment" style="color: rgb(88, 110, 117);"></span></span>
 
-// Entering network credentials
-const char* ssid = "SSID";
-const char* password = "PASS";
+      <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Entering network credentials</span>
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">char</span>* ssid = <span class="hljs-string" style="color: rgb(42, 161, 152);">"SSID"</span>;
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">char</span>* password = <span class="hljs-string" style="color: rgb(42, 161, 152);">"PASS"</span>;
 
-void setup(){
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>(){
 
-    Serial.begin(115200); // You need this Value to find out ESP32's Local IP-Address.
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">115200</span>); <span class="hljs-comment" style="color: rgb(88, 110, 117);">// You need this Value to find out ESP32's Local IP-Address.</span>
 
-    WiFi.mode(WIFI_STA);
-    WiFi.begin(ssid, password);
-    Serial.println("\nConnecting to WiFi Network ..");
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.mode(WIFI_STA);
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(ssid, password);
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"\nConnecting to WiFi Network .."</span>);
 
-    while(WiFi.status() != WL_CONNECTED){
-        Serial.print(".");
-        delay(100);
-    }
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">while</span>(<span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.status() != WL_CONNECTED){
+              <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"."</span>);
+              <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">100</span>);
+          }
 
-    Serial.println("\nConnected to the WiFi network");
-    Serial.print("Local IP: ");
-    Serial.println(WiFi.localIP());
-}
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"\nConnected to the WiFi network"</span>);
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"Local IP: "</span>);
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">localIP</span>());
+      }
 
-void loop(){
-    // Nothing yet...
-}
+      <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">loop</span>(){
+          <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Nothing yet...</span>
+      }</pre>
     </code></pre>
 </div>
 
