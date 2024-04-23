@@ -27,7 +27,7 @@
 
 <a href="/">
     <br>
-<a href="/"> <img src="/assets/logo.png" class="homelogo"></a> 
+<a href="/"> <img src="/assets/logo.png" class="homelogo"></a>
     <span style="color:#ff6600">
             <h1 style="font-size:50px">BytesOfProgress</h1>
         </span>
@@ -82,60 +82,60 @@ This is what the code looks like:
 
 <div class="code-box">
     <pre><code>
-# Loop Start
-while True:
+<pre class="hljs" style="display: block; color: rgb(185, 181, 184); padding: 0.5em;"># <span class="hljs-keyword" style="color: rgb(200, 94, 124);">Loop</span> Start
+      <span class="hljs-keyword" style="color: rgb(200, 94, 124);">while</span> True:
 
-# Global Variables
+      # Global <span class="hljs-keyword" style="color: rgb(200, 94, 124);">Variables</span>
 
-# Addition, Subtraction, Multiplication or Division?
-    calculation = input("Which Type of Calculation do you want to use?\nAddition ( 1 )\nSubtraction ( 2 )\nMultiplication ( 3 )\nDivision ( 4 )\n")
+      # Addition, Subtraction, Multiplication <span class="hljs-comment" style="color: rgb(152, 148, 152);">or Division?</span>
+          calculation <span class="hljs-comment" style="color: rgb(152, 148, 152);">= input(</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">"Which Type of Calculation do you want to use?\nAddition ( 1 )\nSubtraction ( 2 )\nMultiplication ( 3 )\nDivision ( 4 )\n"</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">)</span>
 
-# User gives number 1, number 2.
-    a = float(input('Enter Number 1: '))
-    b = float(input('Enter Number 2: '))
+      # User <span class="hljs-comment" style="color: rgb(152, 148, 152);">gives number 1, number 2.</span>
+          a <span class="hljs-comment" style="color: rgb(152, 148, 152);">= float(input(</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">'Enter Number 1: '</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">))</span>
+          b <span class="hljs-comment" style="color: rgb(152, 148, 152);">= float(input(</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">'Enter Number 2: '</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">))</span>
 
-# Result
-    addition = (a+b)
-    subtraction = (a-b)
-    multiplication = (a*b)
-    division = (a/b)
+      # Result
+          addition <span class="hljs-comment" style="color: rgb(152, 148, 152);">= (a+b)</span>
+          subtraction <span class="hljs-comment" style="color: rgb(152, 148, 152);">= (a-b)</span>
+          multiplication <span class="hljs-comment" style="color: rgb(152, 148, 152);">= (a*b)</span>
+          division <span class="hljs-comment" style="color: rgb(152, 148, 152);">= (a</span>/b)
 
-#--------------------------------------------------------------------------------------------------------------------------------------------
+      #--------------------------------------------------------------------------------------------------------------------------------------------
 
-# Addition
+      # Addition
 
-    if (calculation) == "1":
-        print (('Your Result:'), addition)
+          <span class="hljs-keyword" style="color: rgb(200, 94, 124);">if</span> (calculation) == <span class="hljs-comment" style="color: rgb(152, 148, 152);">"1"</span>:
+              print ((<span class="hljs-comment" style="color: rgb(152, 148, 152);">'Your Result:'</span>), addition)
 
-# Subtraction
+      # Subtraction
 
-    if (calculation) == "2":
-        print (('Your Result:'), subtraction)
+          <span class="hljs-keyword" style="color: rgb(200, 94, 124);">if</span> (calculation) == <span class="hljs-comment" style="color: rgb(152, 148, 152);">"2"</span>:
+              print ((<span class="hljs-comment" style="color: rgb(152, 148, 152);">'Your Result:'</span>), subtraction)
 
-# Multiplication
+      # Multiplication
 
-    if (calculation) == "3":
-        print (('Your Result:'), multiplication)
+          <span class="hljs-keyword" style="color: rgb(200, 94, 124);">if</span> (calculation) == <span class="hljs-comment" style="color: rgb(152, 148, 152);">"3"</span>:
+              print ((<span class="hljs-comment" style="color: rgb(152, 148, 152);">'Your Result:'</span>), multiplication)
 
-# Division
+      # Division
 
-    if calculation == "4":
-        try:
-            division = a / b
-            print("Your Result:", division)
-        except ZeroDivisionError:
-            print("Numbers can not be zero!")
+          <span class="hljs-keyword" style="color: rgb(200, 94, 124);">if</span> calculation == <span class="hljs-comment" style="color: rgb(152, 148, 152);">"4"</span>:
+              try:
+                  division = a /<span class="hljs-comment" style="color: rgb(152, 148, 152);"> b</span>
+                  print(<span class="hljs-string" style="color: rgb(143, 193, 62);">"Your Result:"</span>, division)
+              except <span class="hljs-comment" style="color: rgb(152, 148, 152);">ZeroDivisionError:</span>
+                  print(<span class="hljs-string" style="color: rgb(143, 193, 62);">"Numbers can not be zero!"</span>)
 
-#---------------------------------------------------------------------------------------------------------------------------------------------
+      #---------------------------------------------------------------------------------------------------------------------------------------------
 
-# Restart?
+      # Restart?
 
-    restart = input("Would you like to do another Calculation? ( y / n )\n")
+          restart <span class="hljs-comment" style="color: rgb(152, 148, 152);">= input(</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">"Would you like to do another Calculation? ( y / n )\n"</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">)</span>
 
-    if (restart) == ("y"):
-        continue
-    else:
-        break
+          if <span class="hljs-comment" style="color: rgb(152, 148, 152);">(restart) == (</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">"y"</span><span class="hljs-comment" style="color: rgb(152, 148, 152);">):</span>
+              continue
+          else:
+              break</pre>
     </code></pre>
 </div>
 
