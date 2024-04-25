@@ -46,23 +46,174 @@
     <h1 style="font-size:30px">NAT (Network Address Translation)</h1>
 </span>
 
+<p>
+  NAT, or Network Address Translation, is a technique used in networking to
+  allow multiple devices within a local network to share a single public IP
+  address for communication with devices outside the local network,
+  such as on the internet.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">How does it work?</h1>
+</span>
 
+<p>
+  When a device from within the local network wants to communicate with a
+  device outside the network, such as a web server on the internet, NAT
+  translates the private IP address of the device into the public IP
+  address of the router or gateway that connects the local network to
+  the internet. It also assigns a temporary port number to that
+  communication session. This allows the device to communicate with
+  the server on the internet using the router's public IP address and
+  the assigned port number.
+</p>
 
+<p>
+  NAT keeps track of these translations in a NAT table, which maps the private
+  IP addresses and port numbers to the public IP address and port numbers.
+  This enables the router to correctly route incoming data packets back to
+  the appropriate device within the local network.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Types of NAT</h1>
+</span>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Static NAT</h1>
+</span>
 
+<p>
+  One-to-one mapping of internal private IP addresses to external public IP
+  addresses. This type of NAT is typically used when a device within the
+  internal network needs to be consistently accessible from outside the network.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Dynamic NAT</h1>
+</span>
 
+<p>
+  Maps a pool of internal private IP addresses to a pool of external public
+  IP addresses on a first-come, first-served basis. It dynamically assigns
+  external IP addresses from the pool to internal devices as needed.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">NAT Overload (PAT - Port Address Translation)</h1>
+</span>
 
+<p>
+  Maps multiple internal private IP addresses to a single external public IP
+  address by using different port numbers to distinguish between connections.
+  This is the most common type of NAT used in home and small office networks.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">What is the NAT-Table?</h1>
+</span>
 
+<p>
+  NAT maintains a translation table that keeps track of mappings between
+  internal private IP addresses, internal port numbers, external public
+  IP addresses, and external port numbers. When a packet traverses the NAT
+  device, it consults this table to determine how to translate the source
+  and destination addresses and ports.
+</p>
+
+<div class="code-box">
+    <pre><code>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Internal</span> <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">IP</span>       <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Internal</span> <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Port</span>   <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">External</span> <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">IP</span>       <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">External</span> <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Port</span>   <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Protocol</span>   <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">State</span>    <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Timeout</span>
+192<span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.168</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.1</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.10</span>      5000            203<span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.0</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.113</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.1</span>       10234           <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">TCP</span>        <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Active</span>   3600<span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">s</span>
+192<span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.168</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.1</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.20</span>      8080            203<span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.0</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.113</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.1</span>       443             <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">TCP</span>        <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Active</span>   3600<span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">s</span>
+192<span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.168</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.1</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.30</span>      6000            203<span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.0</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.113</span><span class="hljs-selector-class" style="color: rgb(38, 139, 210);">.2</span>       5000            <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">UDP</span>        <span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">Idle</span>     300<span class="hljs-selector-tag" style="color: rgb(133, 153, 0);">s</span>
+</pre>
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  In this example:
+</p>
+
+<p>
+  Device with internal IP address 192.168.1.10 is communicating over TCP
+  using port 5000, and its traffic is being translated to external
+  IP-Address 203.0.113.1 with port 10234.
+</p>
+
+<p>
+  Device with internal IP address 192.168.1.20 is communicating over TCP using
+  port 8080, and its traffic is being translated to external IP-Address
+  203.0.113.1 with port 443.
+</p>
+
+<p>
+  Device with internal IP address 192.168.1.30 was previously communicating
+  over UDP using port 6000, but its translation entry has expired due
+  to inactivity.
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Translation Process</h1>
+</span>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Outbound translation</h1>
+</span>
+
+<p>
+  When a packet from an internal device is destined for an external device,
+  NAT replaces the source IP address and port number in
+  the packet header with the external public IP address and a unique port
+  number from the NAT table.
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Inbound translation</h1>
+</span>
+
+<p>
+  When a response packet comes back from the external device, NAT looks up
+  the destination IP address and port number in the NAT table to determine
+  which internal device to forward the packet to. It then replaces the
+  destination IP address and port number in the packet header with the
+  corresponding internal private IP address and port number.
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Limitations & Issues</h1>
+</span>
+
+<p>
+  NAT can sometimes introduce issues with certain applications or protocols
+  that embed IP addresses or port numbers within their data payloads.
+</p>
+
+<p>
+  NAT traversal techniques, such as UPnP (Universal Plug and Play) and NAT-PMP
+  (NAT Port Mapping Protocol), are often employed to address these limitations
+  and facilitate communication between devices behind NAT.
+</p>
+
+<br>
 <hr>
 <br>
 <a href="/wiki/networks/networks.html" button class="button1" role="button">back</a>
