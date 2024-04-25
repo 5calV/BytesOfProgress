@@ -98,9 +98,26 @@ typically written in hexadecimal format with colons, like
     <p style="color:#ffff; font-size: 20px">
     Private / Local IP Address: Private IP addresses are used within
     local networks, like your home or office. They are not globally
-    unique and are used for internal network communication. Devices
-    in a local network can share the same private IP address, as
-    long as they are not connected directly to the internet.
+    unique and are used for internal network communication. In a typical
+    setup, a network of local IP-Addresses share one public IP-Address.
+    This works because of NAT ( Network Address Translation ).
+    For local IPv4 addresses, the specially reserved address ranges according
+    to the IETF (Internet Engineering Task Force) RFC (Request for Comments)
+    documents are usually used. These address ranges are intended for private
+    use and are not intended to be routed on the public Internet.
+    The most common ranges for local IPv4 addresses are:
+</p>
+
+<p>
+  From 10.0.0.0 to 10.255.255.255
+</p>
+
+<p>
+  From 172.16.0.0 to 172.31.255.255
+</p>
+
+<p>
+  From 192.168.0.0 to 192.168.255.255
 </p>
 
 <span style="color:#ff6600">
@@ -117,36 +134,6 @@ typically written in hexadecimal format with colons, like
     They are often used for servers, routers, and network infrastructure devices
     that need to maintain a consistent address.
 </p>
-
-<span style="color:#ff6600">
-    <h1 style="font-size:25px">IPv4 Address Exhaustion</h1>
-</span>
-
-    <p style="color:#ffff; font-size: 20px">
-Due to the rapid growth of the internet, IPv4 addresses have become tight.
-IPv6 was introduced to provide a vastly larger pool of addresses to handle
-the increasing number of devices connected to the internet.
-</p>
-
-<span style="color:#ff6600">
-    <h1 style="font-size:25px">NAT ( Network Address Translation )</h1>
-</span>
-
-    <p style="color:#ffff; font-size: 20px">
-NAT is a technique used to map multiple private IP addresses to a single
-public IP address. It's commonly used in home networks to allow multiple
-devices to share a single public IP.
-    </p>
-
-<span style="color:#ff6600">
-    <h1 style="font-size:25px">Subnetting</h1>
-</span>
-
-    <p style="color:#ffff; font-size: 20px">
-IP addresses are often divided into subnets to create smaller network
-segments within a larger network. Subnetting allows for more efficient
-address allocation and network management.
-    </p>
 
 <span style="color:#ff6600">
     <h1 style="font-size:25px">Network Classes</h1>
