@@ -1,2 +1,1 @@
-0 0 * * * /bin/bash /var/www/updates/merge.sh
-@reboot python3 /var/www/discord-bot/BOP-BOT.py 
+0 0 * * * /bin/bash /var/www/updates/merge.sh 
