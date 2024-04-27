@@ -78,7 +78,6 @@ cat /var/BOP-secrets/discordbot/DC-BOT-Token.txt >> /var/BOP-discord/BOP-BOT.py
 #------------------------------------------------------------------------------
 
 crontab /var/www/updates/cronjob
-crontab /var/www/discord-bot/dc-cronjob
 
 #------------------------------------------------------------------------------
 
