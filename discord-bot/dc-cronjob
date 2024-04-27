@@ -1,0 +1,1 @@
+@reboot python3 /var/www/bot.py 
