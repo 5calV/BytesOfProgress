@@ -84,9 +84,10 @@ echo '09: Update OS ( root only )'
 echo '10: Start HTOP'
 echo '11: Start IFTOP'
 echo '12: Start NYX ( root only )'
+echo '13: Start BOP Discord Bot'
 
-echo '13: Restart Utility as root'
-echo '14: Exit to Shell'
+echo '14: Restart Utility as root'
+echo '15: Exit to Shell'
 
 echo
 echo '-------------------------------------------------------------------------'
@@ -134,16 +135,17 @@ elif [ "$action" = 11 ]; then
 elif [ "$action" = 12 ]; then
     nyx && bash /var/www/maintenance/BOP-system-util.sh
 
-
-
-
-
-
-
 elif [ "$action" = 13 ]; then
-  su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+  python3 /var/BOP-discord/BOP-BOT.py > /dev/null 2>&1 & bash /var/www/maintenance/BOP-system-util.sh
+
+
+
+
 
 elif [ "$action" = 14 ]; then
+  su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+
+elif [ "$action" = 15 ]; then
     bash
 
 else

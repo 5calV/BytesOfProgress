@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 /var/BOP-discord/BOP-BOT.py
+/usr/bin/python3 /var/BOP-discord/BOP-BOT.py
