@@ -6,7 +6,7 @@
 3. Install git (apt install git -y)
 4. Create folder "/var/www" Clone Repo in /var/www
 5. mv BytesOfProgress/* /var/www
-6. Copy the contents of your "secret" folder inside /var/www/secrets
+6. Copy the contents of your "secret" folder inside /var/BOP-secrets
 7. Replace "bookworm" with used distro in "tor.list"
 8. Execute /var/www/installation/install.sh as root.
 9. Delete contents of /var/lib/tor/hidden_service
