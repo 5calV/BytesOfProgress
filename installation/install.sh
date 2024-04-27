@@ -15,6 +15,9 @@ apt install iftop -y
 apt install apt-transport-https -y
 apt install gpg -y
 
+apt install python3-pip -y
+pip install --break-system-packages  discord.py
+
 systemctl enable unattended-upgrades
 
 usermod -aG sudo bop
