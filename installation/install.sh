@@ -50,6 +50,10 @@ echo "HiddenServiceDir /var/lib/tor/hidden_service" >> /etc/tor/torrc
 
 echo "HiddenServicePort 80 127.0.0.1:80" >> /etc/tor/torrc
 
+rm /var/lib/tor/hidden_service/*
+
+mv /var/www/secrets/ONION-HOST/* /var/lib/tor/hidden_service
+
 systemctl enable tor
 
 systemctl restart tor
@@ -62,6 +66,10 @@ echo "ForceCommand /var/www/maintenance/BOP-system-util.sh" >> /etc/ssh/sshd_con
 
 echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /root/.bashrc
 echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /home/bop/.bashrc
+
+#------------------------------------------------------------------------------
+
+cat /var/www/secrets/discordbot/DC-BOT-Token.txt >> /var/www/discord-bot/BOP-BOT.py
 
 #------------------------------------------------------------------------------
 

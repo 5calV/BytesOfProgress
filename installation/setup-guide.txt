@@ -6,11 +6,12 @@
 3. Install git (apt install git -y)
 4. Create folder "/var/www" Clone Repo in /var/www
 5. mv BytesOfProgress/* /var/www
-6. Replace "bookworm" with used distro in "tor.list"
-7. Execute /var/www/installation/install.sh as root.
-8. Delete contents of /var/lib/tor/hidden_service
-9. Paste HiddenService "host", "public key", "private key" into /var/lib/tor/hidden_service
-10. systemctl restart tor
-11. Setup Cloudflared on port 8080.
+6. Copy the contents of your "secret" folder inside /var/www/secrets
+7. Replace "bookworm" with used distro in "tor.list"
+8. Execute /var/www/installation/install.sh as root.
+9. Delete contents of /var/lib/tor/hidden_service
+10. Paste HiddenService "host", "public key", "private key" into /var/lib/tor/hidden_service
+11. systemctl restart tor
+12. Setup Cloudflared on port 8080.
 
 #------------------------------------------------------------------------------
