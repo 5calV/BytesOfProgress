@@ -32,7 +32,7 @@ async def bop(ctx, *, query=None):
         await ctx.send(message)
     else:
         print("No results found.")  # Debug message
-        await ctx.send(query, " was not found in BytesOfProgress.")
+        await ctx.send("Has not been found in BytesOfProgress.")
 
 def search_files(query):
     results = []

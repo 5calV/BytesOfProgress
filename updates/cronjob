@@ -1,2 +1,5 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 0 0 * * * /bin/bash /var/www/updates/merge.sh 
 @reboot python3 /var/BOP-discord/BOP-BOT.py 
