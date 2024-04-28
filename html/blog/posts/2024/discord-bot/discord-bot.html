@@ -43,6 +43,8 @@
     <h1 style="font-size:30px">BOP Discord Bot</h1>
 </span>
 
+<p style="font-size: 15px">28th April 2024 / 11:00 PM</p>
+
 <p>
   BytesOfProgress now has a Discord Bot! It can perform searches for topics
   on BOP with given keyword queries.
@@ -60,8 +62,26 @@
 
 <a href="https://discord.com/oauth2/authorize?client_id=1233478057289846915&permissions=277025486848&scope=bot" button class="button1" role="button">Add Bot!</a>
 
+<br>
 
+<p>
+  My first intention was to make the bot search for keywords over https with 
+  the python module named "requests" and then parse the HTML with 
+  BeautifulSoup to learn about web-scraping. After I got it to work this way, 
+  I recognized that it was way too slow: It took almost a minute to process 
+  a query and search through the whole website before giving the user results. 
+  Because of this I decided to rewrite it to make it search through the files 
+  themselves rather than via https. This shortened the time from receiving a query 
+  to sending results back to the user from almost a minute to under a second!
+</p>
 
+<p>
+  For some odd reason I can't figure out how to start the bot automatically 
+  after a reboot. I made a cronjob that tries to start it, but the python file 
+  can't resolve the hostname "discord.com", when it's not started 
+  manually. So for now, I'm going to stick with restarting the bot manually after every 
+  reboot of the webserver (which also runs the discord bot).
+</p>
 
 
 <br><br>
