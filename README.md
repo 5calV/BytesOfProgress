@@ -12,4 +12,3 @@ I also try to provide as much information as possible for other people who want 
 ## Updates
 
 The changes made in this repository get published automatically at midnight (CET, German Time).
-This works due to https://github.com/5calV/BOP-updates
