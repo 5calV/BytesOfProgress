@@ -16,4 +16,18 @@ rm -rf /var/www/BytesOfProgress
 
 chmod +x /var/www/maintenance/BOP-system-util.sh
 
+#-------------------------------------------------------------------------------
+
+rm -rf /var/BOP-discord/*
+
+mv /var/www/discord-bot/BOP-BOT.py /var/BOP-discord/BOP-BOT.py
+
+cat /var/BOP-secrets/discordbot/DC-BOT-Token.txt >> /var/BOP-discord/BOP-BOT.py
+
+python3 /var/BOP-discord/BOP-BOT.py > /dev/null 2>&1
+
+#-------------------------------------------------------------------------------
+
+
+
 echo "DONE!"
