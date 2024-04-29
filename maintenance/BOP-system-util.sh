@@ -137,7 +137,7 @@ elif [ "$action" = 12 ]; then
     nyx && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 13 ]; then
-  python3 /var/BOP-discord/BOP-BOT.py > /dev/null 2>&1 & bash /var/www/maintenance/BOP-system-util.sh
+  bash /var/www/discord-bot/restart-bot.sh & bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 14 ]; then
   bash /var/www/updates/dc-bot-update.sh && bash /var/www/maintenance/BOP-system-util.sh
