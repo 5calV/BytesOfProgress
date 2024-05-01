@@ -1,0 +1,152 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: Unlock a Proxmox VM</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+    <br>
+    <hr>
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">Unlock a Proxmox VM</h1>
+</span>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<style>
+    .code-box {
+        background-color: #353541;
+        padding: 5px;
+        border-radius: 5px;
+        /* WIDTH EINSTELLEN FÜR BREITE! */
+        width: 70%;
+        /*--------------------------------------------------------------------------------------*/
+        margin: 0 auto;
+        overflow: hidden; /* Add this to handle potential overflow */
+    }
+
+    .code-box pre {
+        position: relative;
+        margin: 0;
+        padding: 0; /* Reset padding */
+        margin-top: 0; /* Reset margin-top */
+        color: #ffffff;
+        white-space: pre-wrap;
+        text-align: left;
+
+
+    }
+</style>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<p>
+  Proxmox VMs may be getting locked due to ongoing tasks like backups or 
+  migrations, resource allocation conflicts, storage issues like corruption, 
+  networking problems, or manual intervention for maintenance or troubleshooting.
+</p>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Unlock VM Methods</h1>
+</span>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Plan A:</h1>
+</span>
+
+<p>
+  When you encounter a situation where a virtual machine is locked due to an 
+  error or conflict, preventing normal operation or management tasks like 
+  starting, stopping, or migrating the VM. This command releases the lock, 
+  allowing you to resolve the issue and regain control over the VM:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # qm unlock VM-ID
+    </code></pre>
+</div>
+
+<p>
+  This may not always work, and the command may fail with following output: 
+</p>
+
+<div class="code-box">
+    <pre><code>
+    trying to acquire lock...
+    can't lock file '/var/lock/qemu-server/lock-VM-ID.conf' - got timeout
+    </code></pre>
+</div>
+
+<br><br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Plan B:</h1>
+</span>
+
+<p>
+  In this case we need to manually delete the lock.
+</p>
+
+<div class="code-box">
+    <pre><code>
+    # rm /var/lock/qemu-server/lock-VM-ID.conf
+    </code></pre>
+</div>
+
+<p>
+  Obviously, resorting to 'qm unlock' should be a last resort. It's generally 
+  not a great practice to forcefully terminate locks, but there are situations 
+  where it becomes necessary due to the inability to perform essential tasks.
+</p>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<br>
+<hr>
+<br>
+<a href="/wiki/hypervisor/proxmox/proxmox.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
