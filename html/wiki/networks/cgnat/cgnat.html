@@ -1,0 +1,121 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: CGNAT</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+<body>
+
+    <br>
+    <hr>
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">CGNAT</h1>
+</span>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Carrier-Grade Network Address Translation</h1>
+</span>
+
+<p>
+  IPv4-addresses are running out globally due to the explosion of 
+  internet-connected devices. CGNAT works by translating private IP-addresses 
+  of multiple customers of an Internet Service Provider (ISP) into a single 
+  shared public IP-address, allowing many devices to access the internet 
+  using fewer public IPv4-addresses. This way, ISPs can conserve IPv4-addresses 
+  while still providing internet access to their customers.
+</p>
+
+<p>
+  Carrier-Grade Network Address Translation visualized: 
+</p>
+
+<img src="cgnat.png" style="height: 480px; width: 900px;">
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Issues for selfhosting</h1>
+</span>
+
+<p>
+  CGNAT can introduce challenges for self-hosting because it typically prevents 
+  incoming connections from reaching devices behind the NAT. 
+  When you self-host services like web servers, game servers, or any other 
+  service that requires inbound connections, CGNAT can be problematic because 
+  it doesn't allow those incoming connections to reach your self-hosted 
+  services directly.
+</p>
+
+<p>
+  Your ISP assigns you a private IP-address that's shared with many other 
+  customers, and all traffic to and from the internet appears to originate f
+  rom the same public IP-address. As a result, when external devices try 
+  to connect to services you are hosting, the CGNAT device at your ISP 
+  doesn't know which internal device to forward the connection to.
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Overcoming CGNAT for selfhosting</h1>
+</span>
+
+<p>
+  To overcome this limitation, you would typically need a public IPv4-address 
+  that is not shared via CGNAT, or you have to use IPv6, which has a much 
+  larger address space and does not suffer from the same shortage issues as IPv4. 
+</p>
+
+<p>
+  There are also other ways to overcome CGNAT, for example Tunneling 
+  (Cloudflare's Argo Tunnel e.g.) or using a VPS with a public IPv4.
+</p>
+
+
+
+
+
+<br>
+<hr>
+<br>
+<a href="/wiki/networks/networks.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
