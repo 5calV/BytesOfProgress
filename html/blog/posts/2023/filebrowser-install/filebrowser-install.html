@@ -39,7 +39,7 @@
     <h1 style="font-size:30px">FileBrowser installation script</h1>
 </span>
 <p style="color:#ffff; font-size: 15px">16th November 2023 / 04:30 PM</p>
-<p style="color:#ffff; font-size: 20px">
+<p>
 I wrote a bash script which performs an automated installation of FileBrowser, which makes
 it possible to access files on a machine through a webbrowser. My script simplifies the process of
 installing filebrowser. The user only has to change one thing in a config file and then
@@ -56,7 +56,7 @@ execute install.sh.
 
 <br><br><hr><br>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 First I created a config file named filebrowser.json. This is where the user needs to change
 one thing: The IP-Address.
 </p>
@@ -73,7 +73,7 @@ one thing: The IP-Address.
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     After that, I created a system service file named filebrowser.service.
     This file is responsable for systemd starting the Filebrowser instance when the server it is running on is being
     turned on, or rebooted. The system service file looks like this:
@@ -91,7 +91,7 @@ one thing: The IP-Address.
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Finally, I  wrote the bash script:
     It has to install FileBrowser, copy the system service and config files to the right direction,
     start FileBrowser for the first time and enable the system service. I also added some "sleep"

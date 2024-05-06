@@ -43,13 +43,13 @@
         <h1 style="font-size:30px">ESP32 Display Server Monitoring</h1>
     </span>
     <p style="color:#ffff; font-size: 15px">13th January 2024 / 10:30 PM</p>
-    <p style="color:#ffff; font-size: 20px">
+    <p>
         To keep track if my servers are turned on and connected to my network, I needed a device
         with a small display, which pings the local IPv4 addresses, and shows the state
         on the display.
     </p>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
         For that, I decided to go with an ESP32 and a 4 / 20 I2C display.
         I started by connecting the ESP32 to my network with WiFi. After
         that, I connected the I2C display to the ESP32 and ran the first
@@ -60,19 +60,19 @@
     <img style="max-width:95%; width: 500px;" id="img_DocPreview" src="helloworld.jpg"/>
 
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
         Then I needed the ESP32 to ping all my servers once within every time it
         runs through the loop. For that I used the ESP32Ping library.
         Now the display needed to show the result of the ping.
     </p>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
         Since I run multiple servers, the display needs to switch back and forth
         between the servers. It will display the state of the next server
         every 5 seconds.
     </p>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
         I also wanted another indicator: LEDs.
         Whenever a server is offline, a red LED will turn on.
         To achieve this, I soldered the LED to a cable with a
@@ -181,7 +181,7 @@
         </code></pre>
     </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Now I needed a case to hold all this in place. I repurposed
     a case I constructed with TinkerCAD before, so I can not
     show the process of creating this.
@@ -191,13 +191,13 @@
 
 <a href="printFiles.zip" class="button1" role="button" download="printFiles">Download STL's</a>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     First I 3D-Printed the lid of the case:
 </p>
 
 <img style="max-width:95%; width: 500px;" id="img_DocPreview" src="lid.jpg"/>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Then it was time to 3D-Print the case itself and
     assemble all of it inside the case.
 </p>
