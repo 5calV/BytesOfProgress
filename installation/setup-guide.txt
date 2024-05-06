@@ -4,15 +4,12 @@
 1. Create sudo user named "bop"
 2. Give the server a static IPv4.
 3. Install git (apt install git -y)
-4. Create folder "/var/www" Clone Repo in /var/www
+4. Create folder "/var/www", Clone Repo in /var/www
 5. mv BytesOfProgress/* /var/www
 6. Create folder "/var/BOP-secrets" and paste the contents of your secret folder inside.
-7. Replace "bookworm" with used distro in "tor.list"
+7. Replace "bookworm" with used distro in "/var/www/installation/tor.list"
 8. Execute /var/www/installation/install.sh as root.
-9. Delete contents of /var/lib/tor/hidden_service
-10. Paste HiddenService "host", "public key", "private key" into /var/lib/tor/hidden_service
-11. systemctl restart tor
-12. Setup Cloudflared on port 8080.
-13. Manually start the Discord bot via the BOP System-Utility. (This needs to be done after every reboot)
+9. Setup Cloudflared on port 8080.
+10. Manually start the Discord bot via the BOP System-Utility. (This needs to be done after every reboot)
 
 #------------------------------------------------------------------------------
