@@ -51,14 +51,14 @@
 
 
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     This method was tested on Debian 12.
     Although the config file might be in a different location,
     it may work on any other distribution that has Systemd
     as their init-system.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     First, we have to find out the interface name.
 </p>
 
@@ -68,7 +68,7 @@
     </code></pre>
     </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     The Output should look something like this:
 </p>
 
@@ -82,7 +82,7 @@
     </code></pre>
     </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     The device we want to edit the config for is named "ens192" in this example.
     Now we can go ahead and make some changes the config file using a text editor like e.g. nano.
     In Debian, the config file's path is "/etc/network/interfaces"
@@ -90,7 +90,7 @@
 
 
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     The content of the file should look something like this:
 </p>
 
@@ -117,7 +117,7 @@ dns-nameservers DNS_YOU_WANT_TO_USE
     </code></pre>
     </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
         As you can see, we commented out the line containing things like
         "dhcp" and "allow-hotplug", and then added our own configuration.
         The only thing left to do now, is restarting the networking systemd service:
@@ -129,7 +129,7 @@ dns-nameservers DNS_YOU_WANT_TO_USE
     </code></pre>
     </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Congratulations! Your server has now a static local IP-Address.
     To double-check whether it has worked, you can loop up your IP with:
 </p>

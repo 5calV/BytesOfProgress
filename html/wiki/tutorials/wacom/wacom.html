@@ -47,13 +47,13 @@
 </span>
 
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     When a Wacom Tablet is plugged into a Linux Computer
     with multiple screens, it is being mapped to all of them which makes it hard to write.
     Here is how to map it to one particular screen:
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     BUT: This way works only for xorg. If you are running wayland,
     you can configure these settings with "libinput". Some Desktop
     Environments do even have a GUI programm in their Wayland Version,
@@ -70,7 +70,7 @@ $ xinput
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     The output should look somewhat like this:
 </p>
 
@@ -101,11 +101,11 @@ $ xinput
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     We can see that in this case, the Wacom Tablet has the ID "21", and the pen of the tablet has the ID "22".
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     The next thing we want to do is finding out the name of the screen we want the tablet to be mapped to. We can do that by executing:
 </p>
 
@@ -115,7 +115,7 @@ $ xrandr
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     The output should look somewhat like this:
 </p>
 
@@ -177,7 +177,7 @@ HDMI-2 disconnected (normal left inverted right x axis y axis)
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     We now see all of our screens connected to the Computer. We can also see our primary monitor which we want the tablet to be mapped to:
 </p>
 
@@ -187,7 +187,7 @@ HDMI-1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Now we have all information needed to map the Wacom tablet to our primary screen only. Let's do it:
 </p>
 
@@ -197,7 +197,7 @@ $ xinput map-to-output "penID" "name-of-screen"
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     For my example the command would look like this:
 </p>
 
@@ -207,7 +207,7 @@ $ xinput map-to-output 22 HDMI-1
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Congratulations! You now mapped your Wacom Tablet to one specific monitor! Happy writing, happy drawing!
 </p>
 

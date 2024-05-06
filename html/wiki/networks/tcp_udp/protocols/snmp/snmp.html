@@ -48,7 +48,7 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     SNMP, which stands for Simple Network Management Protocol, uses Port 161/UDP
     and 162/UDP ( Trap ). It is a widely used protocol for managing and monitoring network devices and systems. It provides a set of rules for network administrators to manage and collect information from network devices, such as routers, switches, servers, and printers. SNMP is crucial for network monitoring, troubleshooting, and performance optimization.
     </p>
@@ -57,7 +57,7 @@
         <h1 style="font-size:25px">Managed Devices</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     These are the network devices being monitored or managed, such as routers, switches, servers, and printers. Each managed device runs SNMP software, which allows it to be controlled and queried.
     </p>
 
@@ -65,7 +65,7 @@
         <h1 style="font-size:25px">SNMP Agents</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     SNMP agents are software modules running on managed devices. They collect and store information about the device's status and performance. When queried by an SNMP manager, agents provide data about the device.
     </p>
 
@@ -73,7 +73,7 @@
         <h1 style="font-size:25px">SNMP Manager</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     The SNMP manager is a central system used for monitoring and managing network devices. It sends SNMP requests to agents on managed devices to collect information or make changes to device configurations.
     </p>
 
@@ -81,11 +81,11 @@
         <h1 style="font-size:25px">Management Information Base (MIB) and Object Identifiers (OIDs)</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     Within SNMP, the Management Information Base (MIB) serves as a structured and hierarchical database. It defines the parameters, variables, and data objects that can be queried or controlled using SNMP. The MIB is organized as a tree-like structure, similar to a file system, with a unique identifier for each object and sub-object. These unique identifiers are called Object Identifiers (OIDs).
     </p>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     Object Identifiers (OIDs): OIDs are numeric values that uniquely identify each data object within the MIB. They follow a hierarchical structure, much like a file path. An OID might look like "1.3.6.1.2.1.1.1," where each number represents a branch or node in the MIB tree. The first segment (1) typically represents a specific organization or standards body. The subsequent segments traverse the hierarchy down to the specific data object or variable.
     </p>
 
@@ -93,7 +93,7 @@
         <h1 style="font-size:25px">OID Tree Structure</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     The hierarchical structure of OIDs allows for efficient organization and retrieval of information. SNMP managers can navigate through the MIB tree by specifying OIDs in their requests.
     Understanding OIDs is crucial for effective SNMP management. Network administrators must know the OIDs associated with the data they want to monitor or control. SNMP managers use these OIDs to retrieve information from SNMP agents. As a result, OIDs serve as the key to unlocking valuable data within the SNMP-managed network.
     </p>
@@ -102,7 +102,7 @@
         <h1 style="font-size:25px">SNMP Versions</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     There are several versions of SNMP, with SNMPv3 being the most commonly used today.
     </p>
 
@@ -110,7 +110,7 @@
         <h1 style="font-size:20px">SNMPv1</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     The original version of SNMP, which lacks security features. It uses community strings (similar to passwords) for authentication, making it vulnerable to security risks.
     </p>
 
@@ -118,7 +118,7 @@
         <h1 style="font-size:20px">SNMPv2</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     Improved on SNMPv1 by introducing additional functionalities, but it still had security limitations.
     </p>
 
@@ -126,7 +126,7 @@
         <h1 style="font-size:20px">SNMPv2c</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     A community-based version of SNMPv2, which is widely used. It retains SNMPv2's additional features but simplifies some aspects of management.
     </p>
 
@@ -134,7 +134,7 @@
         <h1 style="font-size:20px">SNMPv3</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     The most secure version of SNMP. It includes robust security features, such as encryption and authentication, making it suitable for use on public networks.
     </p>
 
@@ -142,22 +142,22 @@
         <h1 style="font-size:25px">SNMP Operations</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     SNMP operates through a set of standardized operations or messages.
     </p>
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     Get: The SNMP manager sends a "Get" request to retrieve specific information from an SNMP agent.
     </p>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     GetNext: This request is used to get the next piece of information in the MIB.
     </p>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     Set: The manager can send a "Set" request to modify the configuration or settings of a managed device.
     </p>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     Trap: SNMP agents can send "Trap" messages to the manager to notify it of specific events or conditions, such as a critical error.
     </p>
 
@@ -165,7 +165,7 @@
         <h1 style="font-size:25px">SNMP Traps</h1>
     </span>
 
-    <p style="color:#ffff; font-size: 20px">
+    <p>
     SNMP traps are unsolicited messages sent by network devices to SNMP managers. They are event-driven, triggered by specific occurrences, and serve as immediate notifications. Each SNMP trap includes variable bindings (varbinds) that provide event details. SNMP traps play an important role in network monitoring, enabling rapid responses to critical events and facilitating quick issue resolution.
     </p>
 

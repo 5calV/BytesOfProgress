@@ -48,7 +48,7 @@
 </span>
 
 <br><br>
-<p style="color:#ffff; font-size: 20px">
+<p>
     RAID, or Redundant Array of Independent Disks (previously called
     "redundant array of inexpensive disks"), is a
     storage technology that combines multiple physical disk
@@ -60,7 +60,7 @@
 
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     In a RAID array, data is distributed or replicated across
     the member drives according to the chosen RAID level. The
     two primary categories of RAID configurations are
@@ -75,7 +75,7 @@
     <h1 style="font-size:20px">Hardware RAID</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     In hardware RAID, a special controller
     takes care of the RAID tasks, and it's often
     part of the storage system. This controller has
@@ -86,7 +86,7 @@
 
 <img style="max-width:95%; width: 500px;" id="img_DocPreview" src="raidcontroller.jpg"/>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Setting up hardware RAID is done through a dedicated interface
     or tool from the RAID controller, similar to accessing the BIOS.
     When it comes to moving RAID configurations to a different system,
@@ -98,27 +98,27 @@
     <h1 style="font-size:20px">Software RAID</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Software RAID is generally more flexible and can be
     moved between systems with compatible software support.
     Software RAID is managed directly through the operating system.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Unlike hardware RAID, which has its dedicated processor,
     software RAID uses the computer's CPU and RAM for RAID calculations. While this
     may cause a slight overhead, modern CPUs are
     mostly powerful enough to handle these tasks efficiently.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Software RAID configurations can be easily adjusted and managed
     through the operating system's tools. This flexibility allows
     users to create, modify, or delete RAID arrays without the
     need for specialized hardware or additional components.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     One of the primary advantages of software RAID is its cost-effectiveness.
     Since it relies on the existing resources of the host system, there is
     no need for a separate RAID controller, making it
@@ -131,7 +131,7 @@
     <h1 style="font-size:25px">RAID Levels</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Each RAID level serves different purposes in terms of performance,
     redundancy, and capacity. Here are the most common RAID levels:
 </p>
@@ -142,23 +142,23 @@
     <h1 style="font-size:20px">RAID 0 (Striping)</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Pro: High performance, no overhead.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Contra: No redundancy.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     A minimum of 2 physical disks needed.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Usable capacity: n-0
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Failed drives without data-loss: 0
 </p>
 
@@ -170,25 +170,25 @@
     <h1 style="font-size:20px">RAID 1 (Mirroring)</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Pro: Instant failover: If the primary drive fails, the secondary
     can be accessed directly, preventing data loss.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Contra: Twice as much storage capacity required. Write speed is
     slow as data is written to two hard drives at the same time.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     A minimum of 2 physical disks needed.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Usable capacity: n-1
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Failed drives without data-loss: 1
 </p>
 
@@ -200,25 +200,25 @@
     <h1 style="font-size:20px">RAID 5 (Striping with Distributed Parity)</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Pro: High security through distribution of parity data across
     all hard drives: Hard drives can be replaced
     during operation (aka. are hotswappable).
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Contra: Write speed is slow.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     A minimum of 3 physical disks needed.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Usable capacity: n-1
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Failed drives without data-loss: 1
 </p>
 
@@ -230,25 +230,25 @@
     <h1 style="font-size:20px">RAID 6 (Striping with Dual Parity)</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Pro: Double parity protects against data loss.
     The percentage of usable data storage increases
     as more hard drives are added.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Contra: Lower performance than RAID 5.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     A minimum of 4 physical disks needed.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Usable capacity: n-2
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Failed drives without data-loss: 2
 </p>
 
@@ -260,24 +260,24 @@
     <h1 style="font-size:20px">RAID 10 (Striping and Mirroring)</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Pro: Good performance and fault tolerance. It combines striping and
     mirroring to provide both speed and redundancy.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Contra: Twice as much storage capacity required.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     A minimum of 4 physical disks needed.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Usable capacity: n-2
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Failed drives without data loss: Half of the total drives can fail without data loss.
 </p>
 
@@ -294,7 +294,7 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Each RAID level has its own advantages and trade-offs,
     and the choice depends on the specific requirements
     of the application, including considerations for

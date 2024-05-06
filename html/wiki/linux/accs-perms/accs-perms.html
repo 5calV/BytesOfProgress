@@ -50,7 +50,7 @@
         <h1 style="font-size:20px">Becoming root</h1>
     </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     For many Commands you need access to the administrator
     account of the machine. You can put "sudo" at the beginning
     of a command to execute it with admin rights, as long as
@@ -83,7 +83,7 @@
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 Often, the regular "su" is enough, but sometimes you will need to not only
 switch to the root user, but simulate a whole login from the root account.
 This means that the "root's" environment variables, working directory, and
@@ -96,7 +96,7 @@ You can do this by executing the following command:
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     or, if your account is in the sudo group:
 </p>
 
@@ -136,19 +136,19 @@ You can do this by executing the following command:
     <h1 style="font-size:20px">How do user groups work?</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 In Linux, user groups serve as a foundational element for managing
 user permissions and access control within the system. Groups are essentially collections
 of user accounts, organized to simplify the administration of file permissions,
 system resources, and collaborative tasks.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 Each group is identified by a unique
 Group ID (GID), a numeric value that is used internally by the system.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 A user in Linux can be associated with one or more groups,
 consisting of a primary group and supplementary groups.
 The primary group is specified in the "/etc/passwd" file, while supplementary
@@ -157,7 +157,7 @@ is particularly valuable for scenarios where multiple users require shared acces
 to files, directories, or system resources.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 The "/etc/group" file contains information about groups on the system, such as
 group names, GIDs, and the list of users belonging to each group.
 Administrators can use various commands to manage groups and users effectively:
@@ -175,7 +175,7 @@ Administrators can use various commands to manage groups and users effectively:
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 Or, to create a new user and also create a home directory for them:
 </p>
 
@@ -205,7 +205,7 @@ Or, to create a new user and also create a home directory for them:
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Or, if you want to change the password for the user you are currently logged in:
     </p>
 
@@ -261,33 +261,33 @@ Or, to create a new user and also create a home directory for them:
     <h1 style="font-size:20px">How do permissions work?</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 File and directory permissions are a crucial aspect of access control,
 determining who can read, write, or execute a file or directory.
 These permissions are organized into three categories: user (owner), group, and others.
 Each category has three basic permission types: read (r), write (w), and execute (x).
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 Permissions are assigned based on the octal number system (0-7),
 which represents each permission type as a digit. In this system:
 </p>
-<p style="color:#ffff; font-size: 20px">
+<p>
     Read (r) is represented by the value 4.
 </p>
-<p style="color:#ffff; font-size: 20px">
+<p>
     Write (w) is represented by the value 2.
 </p>
-<p style="color:#ffff; font-size: 20px">
+<p>
     Execute (x) is represented by the value 1.
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 To express multiple permissions, these values are added.
 For example, read and write permissions (rw) would be represented by 6 (4 + 2).
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Thus, we can give a user read and write
     privileges for a file by executing:
 </p>
@@ -298,7 +298,7 @@ For example, read and write permissions (rw) would be represented by 6 (4 + 2).
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     This can also be expressed using the octal system:
 </p>
 
@@ -308,7 +308,7 @@ For example, read and write permissions (rw) would be represented by 6 (4 + 2).
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 Similarly, you can give read-write permissions to a group by executing this:
 </p>
 
@@ -320,7 +320,7 @@ Similarly, you can give read-write permissions to a group by executing this:
 
 <br>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     We can revoke these permissions by replacing "=" with "-", like this:
     </p>
 

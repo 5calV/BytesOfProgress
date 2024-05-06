@@ -47,7 +47,7 @@
     <h1 style="font-size:30px">SSH permit root login</h1>
 </span>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Read about SSH <a class="text-link" href="/wiki/networks/tcp_udp/ssh_sftp.html">here</a>.
 </p>
 
@@ -59,16 +59,16 @@
 
 
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     To be able to login as root via SSH, we need to change
     one line in this config file:
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     /etc/ssh/sshd_config
 </p>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
 In the file, you will find following line:
 </p>
 
@@ -78,7 +78,7 @@ In the file, you will find following line:
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     To allow logging in as root, we will uncomment the line
     and change "prohibit-password" to "yes". Like this:
 </p>
@@ -89,7 +89,7 @@ In the file, you will find following line:
     </code></pre>
 </div>
 
-<p style="color:#ffff; font-size: 20px">
+<p>
     Save the file and exit your editor.
     The last thing left to do: Restarting the SSH system service.
 </p>
