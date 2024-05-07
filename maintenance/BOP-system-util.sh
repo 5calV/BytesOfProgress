@@ -4,8 +4,6 @@ clear
 
 echo 'Welcome to BytesOfProgress System Utility!'
 
-echo
-
 echo '
   ____        _             ____   __ _____                                   
  |  _ \      | |           / __ \ / _|  __ \                                  
