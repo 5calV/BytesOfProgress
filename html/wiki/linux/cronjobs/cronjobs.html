@@ -107,7 +107,7 @@
   # |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
   # |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
   # |  |  |  |  |
-  # *  *  *  *  * user-name command to be executed
+  # *  *  *  *  * command to be executed
 
   # Run the cron job every hour
   0 * * * * root /bin/bash /usr/local/bin/hourly_backup.sh
@@ -135,6 +135,36 @@
 </div>
 
 <br>
+
+<p>
+  Cronjobs can also trigger commands on certain events, for example 
+  on system startup:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  @reboot /bin/bash /var/www/merge.sh
+    </code></pre>
+</div>
+
+<p>
+  Or scheduled but without specifying the time:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  @hourly /bin/bash /var/www/merge.sh
+  
+  @daily /bin/bash /var/www/merge.sh
+  
+  @weekly /bin/bash /var/www/merge.sh
+  
+  @monthly /bin/bash /var/www/merge.sh
+  
+  @yearly /bin/bash /var/www/merge.sh
+    </code></pre>
+</div>
+
 
 <p>
   Note for troubleshooting: If your cronjob does not work as intended,
