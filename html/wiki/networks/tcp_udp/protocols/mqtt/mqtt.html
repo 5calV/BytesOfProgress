@@ -46,39 +46,190 @@
     <h1 style="font-size:30px">MQTT</h1>
 </span>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Message Queuing Telemetry Transport</h1>
+</span>
+
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
+<p>
+  MQTT (Message Queuing Telemetry Transport / originally MQ Telemetry Transport) 
+  is a lightweight messaging protocol designed for constrained devices and 
+  low-bandwidth, high-latency, or unreliable networks. MQTT is commonly used 
+  in IoT applications, where devices need to communicate 
+  efficiently and reliably with each other or with servers.
+</p>
 
+<p>
+  The default unencrypted MQTT port is 1883.
+</p>
 
+<p>
+  The MQTT protocol operates on a publish/subscribe messaging model. 
+  In this model, clients can publish messages to a specific topic, 
+  and other clients can subscribe to receive messages on that topic. 
+  This decouples the senders of messages from the receivers, allowing 
+  for flexible and scalable communication patterns.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Broker</h1>
+</span>
 
+<p>
+  The broker is a server that acts as an intermediary between MQTT clients. 
+  It receives messages published by clients and then delivers those messages 
+  to clients that have subscribed to relevant topics. The broker is responsible 
+  for managing client connections, handling subscriptions, 
+  and delivering messages.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Clients</h1>
+</span>
 
+<p>
+  Clients are devices or applications that connect to the MQTT broker to send 
+  or receive messages. There are two types of clients in MQTT:
+</p>
 
+<p>
+  Publishers: Publishers are clients that send messages to the broker. 
+  They publish messages to specific topics.
+</p>
 
+<p>
+  Subscribers: Subscribers are clients that receive messages from the broker. They subscribe to specific topics and receive messages published to those topics.
 
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Topics</h1>
+</span>
 
+<p>
+  Topics are hierarchical strings used to categorize messages. 
+  Clients can publish messages to specific topics and subscribe to receive 
+  messages from topics of interest. Topics are organized in a hierarchical 
+  structure, similar to a file system, using forward slashes ("/") as 
+  delimiters. For example, "sensors/temperature" could be a topic for 
+  temperature sensor data.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Messages</h1>
+</span>
 
+<p>
+  Messages always consist of a topic and the message content. 
+  Messages are sent with a definable Quality of Service: 
+</p>
 
+<p>
+  QoS 0: at most once: the message is sent once and may not arrive if the connection 
+  is interrupted.
+</p>
 
+<p>
+  QoS 1: at least once: the message is sent until receipt is confirmed and may reach 
+  the recipient multiple times.
+</p>
 
+<p>
+  QoS 2: exactly once: this ensures that the message arrives exactly once even if the 
+  connection is interrupted. 
+</p>
 
+<p>
+  In addition, the retain flag can be used to instruct the server to cache 
+  the message for this topic. Clients who subscribe to this topic will be 
+  the first to receive the cached message.
+</p>
 
+<p>
+  When establishing a connection, clients can define a “last will” in the form 
+  of a message. If the connection to the client is lost, this message is 
+  published and sent to the corresponding subscribers.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Types of messages</h1>
+</span>
 
+<p>
+  MQTT is usually used over TCP and has a fixed header. The first byte contains 
+  the message type (4 bits) and, depending on the message type, other flags.
+</p>
 
+<p>
+  The following message types exist:
+</p>
 
+<p>
+  CONNECT |
+  CONNACK |
+  PUBLISH |
+  PUBACK |
+  PUBREC |
+  PUBREL |
+  PUBCOMP |
+  SUBSCRIBE |
+  SUBACK |
+  UNSUBSCRIBE | 
+  UNSUBACK |
+  PINGREQ |
+  PINGRESP |
+  DISCONNECT |
+  AUTH (since MQTT Version 5.0)
+</p>
 
+<p>
+  From the second byte onwards, the header contains the length of the 
+  remaining MQTT packet.
+</p>
 
+<br>
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Message Flow</h1>
+</span>
 
+<p>
+  Publishing: A publisher client sends a message to the broker with a specified 
+  topic. The broker receives the message and forwards it to clients that have 
+  subscribed to that topic.
+</p>
+
+<p>
+  Subscribing: A subscriber client connects to the broker and subscribes to 
+  one or more topics of interest. When a message is published to a topic the 
+  subscriber is subscribed to, the broker delivers the message to the subscriber.
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Keep Alive Mechanism</h1>
+</span>
+
+<p>
+  MQTT includes a keep-alive mechanism to maintain the connection between the 
+  client and the broker. Clients periodically send PINGREQ messages to the 
+  broker, and the broker responds with PINGRESP messages to confirm the 
+  connection is active. If the broker doesn't receive a PINGREQ within 
+  a specified time (keep-alive interval), it assumes the client has 
+  disconnected.
+</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
