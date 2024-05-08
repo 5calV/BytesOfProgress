@@ -1,0 +1,105 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: ESP32 Code-Snippets</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+    <br>
+    <hr>
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">ESP32 Code-Snippets</h1>
+</span>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<div class="code-box">
+    <pre><code>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">
+  <span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;WiFi.h&gt;</span></span>
+       
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Replace with your own network credentials</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">char</span>* ssid = <span class="hljs-string" style="color: rgb(42, 161, 152);">"SSID"</span>;
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">const</span> <span class="hljs-keyword" style="color: rgb(133, 153, 0);">char</span>* password = <span class="hljs-string" style="color: rgb(42, 161, 152);">"PASS"</span>;
+       
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>(){
+       
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">115200</span>);
+       
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.mode(WIFI_STA);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(ssid, password);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"\nConnecting to WiFi Network .."</span>);
+       
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">while</span>(<span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.status() != WL_CONNECTED){
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"."</span>);
+          <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">100</span>);
+      }
+       
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"\nConnected to the WiFi network"</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"Local IP: "</span>);
+      <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(<span class="hljs-built_in" style="color: rgb(220, 50, 47);">WiFi</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">localIP</span>());
+  }
+       
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">loop</span>(){
+      <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Do Nothing</span>
+  }</pre>
+    </code></pre>
+</div>
+
+
+
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<br>
+<hr>
+<br>
+<a href="/wiki/microcontroller/ESP32/ESP32-snippets/ESP32-snippets.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
