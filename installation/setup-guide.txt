@@ -10,6 +10,6 @@
 7. Replace "bookworm" with used distro in "/var/www/installation/tor.list"
 8. Execute /var/www/installation/install.sh as root.
 9. Setup Cloudflared on port 8080.
-10. Manually start the Discord bot via the BOP System-Utility.
+10. Reboot
 
 #------------------------------------------------------------------------------
