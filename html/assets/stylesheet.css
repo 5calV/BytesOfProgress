@@ -659,8 +659,8 @@ video {
         font: bold 200% Consolas, Monaco, monospace;
         border-right: .1em solid #181818; /* Farbe der Caret (dunkelgrau) */
         width: 15ch;
-	color: #ff6600;
-        margin: 2em 2em;
+	      color: #ff6600;
+        margin: 1em 1em;
         white-space: nowrap;
         overflow: hidden;
         animation: typing 5s steps(15, end),
