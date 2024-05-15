@@ -15,6 +15,6 @@ cat /var/BOP-secrets/discordbot/DC-BOT-Token.txt >> /var/BOP-discord/BOP-BOT.py
 
 echo
 
-echo 'Please restart the bot with BOP System Utility.'
+echo 'Please restart the bot with BOP System Utility or perform a reboot.'
 
 sleep 3
