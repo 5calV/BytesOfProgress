@@ -2,7 +2,7 @@
 
 SCRIPT_NAME="BOP-BOT.py"
 
-# Finde und beende das Python-Skript
+# Find and quit bot
 pkill -f "$SCRIPT_NAME"
 
 #------------------------------------------------------------------------------
