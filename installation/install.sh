@@ -61,7 +61,7 @@ echo "HiddenServicePort 80 127.0.0.1:80" >> /etc/tor/torrc
 
 rm /var/lib/tor/hidden_service/*
 
-mv /var/BOP-secrets/ONION-HOST/* /var/lib/tor/hidden_service
+cp /var/BOP-secrets/ONION-HOST/* /var/lib/tor/hidden_service
 
 systemctl enable tor
 
