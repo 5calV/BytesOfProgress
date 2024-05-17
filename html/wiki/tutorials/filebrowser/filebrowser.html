@@ -1,0 +1,238 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: FileBrowser Installation</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+    <br>
+    <hr>
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">FileBrowser Installation</h1>
+</span>
+
+<p>
+I wrote a bash script which performs an automated installation of FileBrowser, which makes
+it possible to easily access files on a machine through a webbrowser. My script simplifies the process of
+installing filebrowser. But how to use it?
+</p>
+
+<br>
+
+<a href="https://filebrowser.org" button class="button1" role="button">FileBrowser-Website</a>
+
+<a href="https://github.com/filebrowser/filebrowser" button class="button1" role="button">FileBrowser on GitHub</a>
+
+<br><br>
+
+<a href="https://github.com/5calV/filebrowser-install-script" button class="button1" role="button">Script on GitHub</a>
+
+<br><br>
+
+<p>
+  This works on Debian and Debian derivatives.
+</p>
+
+<p>
+  Step 1: Create a config file named "filebrowser.json". 
+  Here you will specify the IP-address, port and file directory.
+</p>
+
+<div class="code-box">
+    <pre><code>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  {
+    <span class="hljs-attr" style="color: rgb(181, 137, 0);">"port"</span>: <span class="hljs-number" style="color: rgb(42, 161, 152);">8080</span>,
+    <span class="hljs-attr" style="color: rgb(181, 137, 0);">"baseURL"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">""</span>,
+    <span class="hljs-attr" style="color: rgb(181, 137, 0);">"address"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"000.000.000.000"</span>,
+    <span class="hljs-attr" style="color: rgb(181, 137, 0);">"log"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"stdout"</span>,
+    <span class="hljs-attr" style="color: rgb(181, 137, 0);">"database"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"/etc/filebrowser.db"</span>,
+    <span class="hljs-attr" style="color: rgb(181, 137, 0);">"root"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"/var/www"</span>
+  }</pre>
+</code></pre>
+</div>
+
+<br>
+
+<p>
+    Step 2: Now create a system service file named "filebrowser.service".
+    This file is responsible for systemd starting the Filebrowser instance when 
+    the server it is running on is being turned on, or rebooted. 
+    The system service file looks like this:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  [Unit]
+  Description=File Browser
+  After=network.target
+  [Service]
+  ExecStart=/usr/local/bin/filebrowser -c /etc/filebrowser.json
+  [Install]
+  WantedBy=multi-user.target
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+    Step 3: Now create a shell script (example.sh) in the same directory as the 
+    other two files and paste the following contents:
+</p>
+
+<div class="code-box">
+    <pre><code>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  #!/bin/bash
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"This script will perform an automatic installation of FileBrowser!"</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Updating repositories..."</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+
+  apt <span class="hljs-keyword" style="color: rgb(133, 153, 0);">update</span> &amp;&amp; apt full-upgrade -<span class="hljs-keyword" style="color: rgb(133, 153, 0);">y</span> &amp;&amp; apt install curl -<span class="hljs-keyword" style="color: rgb(133, 153, 0);">y</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Updates done."</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Downloading and installing FileBrowser..."</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+
+  curl -fsSL http<span class="hljs-variable" style="color: rgb(181, 137, 0);">s:</span>//raw.githubusercontent.<span class="hljs-keyword" style="color: rgb(133, 153, 0);">com</span>/filebrowser/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">get</span>/master/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">get</span>.<span class="hljs-keyword" style="color: rgb(133, 153, 0);">sh</span> | bash
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Copying config file to /etc/filebrowser.json ..."</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">cp</span> filebrowser.json /etc/filebrowser.json
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Copying system service file to /etc/systemd/system/filebrowser.service ..."</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">cp</span> filebrowser.service /etc/systemd/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">system</span>/filebrowser.service
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Enabling and starting the filebrowser system service..."</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+
+  systemctl enable filebrowser.service
+  systemctl start filebrowser.service
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"DONE! Congratulations, you now have a running FileBrowser instance!"</span>
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">0.5</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"After updating any settings in /etc/filebrowser.json make sure to run "</span>systemctl restart filebrowser.service<span class="hljs-string" style="color: rgb(42, 161, 152);">""</span>
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Default Login:"</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"User: admin"</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Pass: admin"</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Please make sure to change the password on your first login!"</span></pre>
+</code></pre>
+</div>
+
+<br>
+
+<p>
+  Step 4: Make sure you are logged in as root. Now execute the script with:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  bash example.sh
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  You can now access FileBrowser in your webbrowser with the IP-address and port.
+  As stated in the script, these are the default login credentials:
+</p>
+
+<p>
+  User: admin
+</p>
+
+<p>
+  Pass: admin
+</p>
+
+<p>
+  Please make sure to change the password on your first login!
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<br>
+<a href="/wiki/tutorials/tutorials.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
