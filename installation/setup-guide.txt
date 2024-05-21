@@ -11,5 +11,5 @@
 8. Execute /var/www/installation/install.sh as root.
 9. Setup Cloudflared on port 8080.
 10. Reboot
-
+11. You can now use the BytesOfProgress System Utility to manage this server by typing "bop".
 #------------------------------------------------------------------------------
