@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo '
-  ____        _             ____   __ _____                                   
- |  _ \      | |           / __ \ / _|  __ \                                  
- | |_) |_   _| |_ ___  ___| |  | | |_| |__) | __ ___   __ _ _ __ ___  ___ ___ 
+  ____        _             ____   __ _____
+ |  _ \      | |           / __ \ / _|  __ \
+ | |_) |_   _| |_ ___  ___| |  | | |_| |__) | __ ___   __ _ _ __ ___  ___ ___
  |  _ <| | | | __/ _ \/ __| |  | |  _|  ___/  __/ _ \ / _  |  __/ _ \/ __/ __|
  | |_) | |_| | ||  __/\__ \ |__| | | | |   | | | (_) | (_| | | |  __/\__ \__ \
  |____/ \__, |\__\___||___/\____/|_| |_|   |_|  \___/ \__, |_|  \___||___/___/
-         __/ |                                         __/ |                  
-        |___/                                         |___/                   
+         __/ |                                         __/ |
+        |___/                                         |___/
 '
 
 sleep 1.5
@@ -69,10 +69,6 @@ systemctl restart tor
 
 #------------------------------------------------------------------------------
 
-echo "ForceCommand /var/www/maintenance/BOP-system-util.sh" >> /etc/ssh/sshd_config
-
-#------------------------------------------------------------------------------
-
 echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /root/.bashrc
 echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /home/bop/.bashrc
 
@@ -91,3 +87,6 @@ crontab /var/www/installation/cronjob
 #------------------------------------------------------------------------------
 
 echo "DONE!"
+
+echo "It is recommended to perform a reboot!"
+echo "After rebooting you will be able to use the BytesOfProgress System Utility by executing the command: bop"
