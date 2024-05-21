@@ -70,6 +70,8 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
+<br>
+
 <span style="color:#ff6600">
     <h1 style="font-size:25px">Backup</h1>
 </span>
@@ -152,27 +154,62 @@
   help minimize the risk of data corruption.
 </p>
 
+<br>
+
 <span style="color:#ff6600">
     <h1 style="font-size:25px">Snapshot</h1>
 </span>
 
+<p>
+  A snapshot is a point-in-time image of a system or data set, capturing its
+  state at a specific moment. Unlike backups, which create a complete copy of
+  the data, snapshots only record the state of the data and the differences
+  or changes made since the last snapshot. This makes them an efficient tool
+  for quickly reverting to a previous state, testing, or short-term recovery.
+</p>
 
+<p>
+  When the first snapshot is taken, it captures the state of all data at that
+  moment, serving as the baseline. After this initial snapshot, subsequent
+  snapshots only record changes made to the data since the previous snapshot.
+  These changes can include modifications, deletions, or additions.
+</p>
 
+<p>
+  Because snapshots only store changes, they are much more storage-efficient
+  than full backups. They use a technique called "copy-on-write" or
+  "redirect-on-write." When data changes, the system first copies the
+  original data to the snapshot storage and then writes the new data
+  to the original location.
+</p>
 
+<p>
+  Snapshots depend on the original data, meaning if the underlying data storage
+  fails, snapshots alone cannot recover the lost data because they are not
+  full copies. Snapshots are not designed for long-term storage or disaster
+  recovery and are best used in addition to traditional backups to ensure
+  data protection. As time goes on, saving lots of changes can fill up
+  storage space, so it's important to sometimes clean up old
+  snapshots to keep storage use in check.
+</p>
 
+<p>
+  In dynamic environments, scheduling snapshots frequently—such as hourly or
+  several times a day—ensures up-to-date recovery points. Implementing a
+  retention policy to manage the number of snapshots retained and regularly
+  deleting old snapshots helps free up storage space and reduce complexity.
+</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<p>
+  Snapshots are widely used in various scenarios. In Hypervisors they capture
+  the state of virtual machines, enabling quick rollback and testing.
+  Databases use snapshots to capture consistent states for replication
+  and testing without interrupting operations.
+  Developers use snapshots to test new features or configurations,
+  allowing them to revert to a known good state if something goes wrong.
+  Snapshots are also useful for system updates and patching, as they
+  provide a quick way to revert if an update causes issues.
+</p>
 
 
 
