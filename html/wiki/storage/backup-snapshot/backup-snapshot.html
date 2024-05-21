@@ -70,6 +70,96 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Backup</h1>
+</span>
+
+<p>
+  There are different types of backups designed for various needs and scenarios.
+  These include full backups, incremental backups, and differential backups.
+</p>
+
+<p>
+  Full Backup:
+  A full backup involves copying all the data from a system to a backup storage
+  medium. This includes all files, folders, applications, and optionally, the
+  operating system. The advantage of a full backup is that it’s easy to restore
+  because everything is contained in one backup set.
+  Full backups take significant amounts of time and storage space,
+  which can be a exclusion criteria.
+</p>
+
+<p>
+  Incremental Backup:
+  An incremental backup only saves the changes made since the last backup,
+  whether it was a full or an incremental backup. This method is faster and
+  requires less storage space compared to full backups because it only
+  includes new or modified data. However, restoring from incremental
+  backups can be more complex and time-consuming, as it involves using
+  the last full backup plus all subsequent incremental backups
+  in the correct sequence.
+</p>
+
+<p>
+  Differential Backup: A differential backup saves all changes made since the
+  last full backup. This method strikes a balance between full and incremental
+  backups. It is faster to create than a full backup and simpler to restore
+  than incremental backups, as it only requires the last full backup and
+  the most recent differential backup. Differential backups take
+  more time and space than incremental backups but less than full backups.
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Creating & storing backups the right way</h1>
+</span>
+
+<p>
+  Backups can be stored in various locations, each with its own advantages
+  and disadvantages. External hard drives are portable and easy to use but
+  can be lost or damaged. Network Attached Storage (NAS) offers centralized
+  storage accessible from multiple devices but can be costly and requires
+  network setup. Cloud storage provides scalability and remote access
+  but relies on internet connectivity and may have ongoing costs.
+  Traditional magnetic tape is cost-effective for large volumes of
+  data and suitable for long-term storage, though it has slower
+  read/write speeds and requires tape management.
+</p>
+
+<p>
+  Effective backup strategies are essential for ensuring data integrity and
+  availability.
+  The Grandfather-Father-Son (GFS) strategy involves rotating
+  backups on a daily, weekly, and monthly basis, providing multiple recovery
+  points and historical versions.
+  The 3-2-1 rule recommends keeping three
+  copies of your data on two different types of media, with one copy
+  stored offsite. Scheduling backups during low activity periods,
+  known as backup windows, helps minimize impact on system performance.
+</p>
+
+<p>
+  Data corruption during backups can occur if data is being written to or
+  modified while the backup is running. This happens because the backup
+  process might capture data in an inconsistent state, leading to errors
+  or unusable backups. For instance, if a file is being updated during the
+  backup, the backup may only capture parts of the file, resulting in corruption.
+  To prevent this, many backup systems use techniques like snapshots or file
+  system freezing, which temporarily pause write operations to ensure a
+  consistent state. Additionally, scheduling backups during periods of low
+  activity and using backup software that handles open files properly can
+  help minimize the risk of data corruption.
+</p>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Snapshot</h1>
+</span>
+
+
+
+
+
 
 
 
