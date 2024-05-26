@@ -81,8 +81,13 @@
   These include full backups, incremental backups, and differential backups.
 </p>
 
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Full Backup</h1>
+</span>
+
 <p>
-  Full Backup:
   A full backup involves copying all the data from a system to a backup storage
   medium. This includes all files, folders, applications, and optionally, the
   operating system. The advantage of a full backup is that it’s easy to restore
@@ -91,8 +96,13 @@
   which can be a exclusion criteria.
 </p>
 
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Incremental Backup</h1>
+</span>
+
 <p>
-  Incremental Backup:
   An incremental backup only saves the changes made since the last backup,
   whether it was a full or an incremental backup. This method is faster and
   requires less storage space compared to full backups because it only
@@ -103,12 +113,36 @@
 </p>
 
 <p>
-  Differential Backup: A differential backup saves all changes made since the
+  How to restore incremental backups? First restore the full backup, after 
+  that restore the incremental backups in the oder they were made:
+</p>
+
+<p>
+  Full  ---> incr-01 ---> incr-02 ---> incr-03
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Differential Backup</h1>
+</span>
+
+<p>
+  A differential backup saves all changes made since the
   last full backup. This method strikes a balance between full and incremental
   backups. It is faster to create than a full backup and simpler to restore
   than incremental backups, as it only requires the last full backup and
   the most recent differential backup. Differential backups take
   more time and space than incremental backups but less than full backups.
+</p>
+
+<p>
+  How to restore differential backups? First restore the full backup, then the 
+  latest differential backup:
+</p>
+
+<p>
+  Full ---> latest diff
 </p>
 
 <br>
