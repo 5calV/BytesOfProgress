@@ -20,18 +20,18 @@ async def bop(ctx, *, query=None):
         await ctx.send("Please enter a query.")
         return
 
-    print(f"Received query: {query}")  # Debug message
+    print(f"Received query: {query}")
     results = search_files(query)
-    print("Results:", results)  # Debug message
+    print("Results:", results)
     if results:
-        print("Sending results...")  # Debug message
-        # Format the results message
+        print("Sending results...")
+
         message = f'"{query}" was found in BytesOfProgress:\n'
         for result in results:
             message += result + "\n"
         await ctx.send(message)
     else:
-        print("No results found.")  # Debug message
+        print("No results found.")
         await ctx.send("Has not been found in BytesOfProgress.")
 
 def search_files(query):
@@ -48,7 +48,7 @@ def search_files(query):
                         if query.lower() in content.lower():
                             url = base_url + os.path.relpath(filepath, root_dir)
                             results.append(url)
-                            print("Query found in file:", url)  # Debug message
+                            print("Query found in file:", url)
                 except Exception as e:
                     print(f"Error reading file {filepath}: {e}")
     return results
@@ -56,4 +56,4 @@ def search_files(query):
 
 
 
-# bot.run('Token')
+# bot.run('TOKEN')
