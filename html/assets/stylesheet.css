@@ -562,12 +562,12 @@ video {
     }
 }
 
-// Steps& width == number of letters"
-.animation {
+// Steps & width == number of letters"
+.typing-animation {
     font: bold 200% Consolas, Monaco, monospace;
-    border-right: .1em solid #181818; /* Farbe der Caret (dunkelgrau) */
+    border-right: .1em solid #181818;
     width: 15ch;
-	    color: #ff6600;
+	  color: #ff6600;
     margin: 1em 1em;
     white-space: nowrap;
     overflow: hidden;
