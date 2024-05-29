@@ -6,23 +6,18 @@
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
-body{
+body {
     margin:0;
     padding:0;
     font-family: sans-serif;
     background:#181818;
   }
 
-
-
-
   hr {
     height: 6px;
     background-color: #ff6600;
     border: 0;
 }
-
-
 
 p {
   text-align: left;
@@ -42,33 +37,23 @@ p {
     text-decoration: underline;
 }
 
-
 img {
     max-width: 95%;
     width: 550px;
 }
 
-
-
-
 .videodiv {
   width: 100%;
   max-height: 70%
 }
+
 video {
   max-height: auto;
   width: 1000px;
   max-width: 95%;
 }
 
-
-
-
-
-
-
-.console-post {
-    
+.console-post {  
     width: 400px;
     max-width: 100%;
     background-color: #111;
@@ -78,7 +63,6 @@ video {
     padding: 10px;
     margin: 0 auto;
     margin-bottom: 10px;
-    //box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .console-header {
@@ -161,26 +145,12 @@ video {
     font-size: 15px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .code-box {
   background-color: #353541;
   padding: 5px;
   border-radius: 5px;
-  /* WIDTH EINSTELLEN FÜR BREITE! */
   width: 750px;
   max-width: 90%;
-  /*--------------------------------------------------------------------------------------*/
   margin: 0 auto;
   overflow: hidden;
   border-style: solid;
@@ -198,21 +168,7 @@ video {
   text-align: left;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#background{
+#background {
   position:absolute;
   z-index:-1;
   right:0;
@@ -221,34 +177,14 @@ video {
   top:0;
   min-height:100vh
 }
-.noover{
+
+.noover {
 	overflow:hidden;
 }
-.homelogo{
+
+.homelogo {
 		    width: 127px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .button1 {
   --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
@@ -259,7 +195,6 @@ video {
   --color: #afffff;
   color: var(--color);
   cursor: pointer;
-  /* use position: relative; so that BG is only for .btn */
   text-decoration: none;
   position: relative;
   isolation: isolate;
@@ -270,12 +205,12 @@ video {
   border: 0;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
   clip-path: polygon(
-    /* Top-left */ 0% var(--curve-size),
+    0% var(--curve-size),
     var(--curve-size) 0,
-    /* top-right */ 100% 0,
+    100% 0,
     100% calc(100% - var(--curve-size)),
-    /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
-    /* bottom-right 2 */ 0 100%
+    calc(100% - var(--curve-size)) 100%,
+    0 100%
   );
   transition: color 250ms;
 }
@@ -312,32 +247,29 @@ video {
   background: var(--bg);
   z-index: -1;
   clip-path: polygon(
-    /* Top-left */ var(--border-width)
+    var(--border-width)
       calc(var(--curve-size) + var(--border-width) * 0.5),
-    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
-    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width))
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
       calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */
       calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
       calc(100% - var(--border-width)),
-    /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
-  );
+      var(--border-width) calc(100% - var(--border-width))
+);
   transition: clip-path 500ms;
 }
 
 .button1:where(:hover, :focus)::after {
   clip-path: polygon(
-    /* Top-left */ calc(100% - var(--border-width))
+      calc(100% - var(--border-width))
       calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    calc(100% - var(--border-width)) var(--border-width),
-    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width))
+      calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
       calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */
       calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
       calc(100% - var(--border-width)),
-    /* bottom-right 2 */
       calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
       calc(100% - var(--border-width))
   );
@@ -347,19 +279,6 @@ video {
 .button1:where(:hover, :focus) {
   color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .wheel-and-hamster {
   --dur: 1s;
@@ -523,12 +442,10 @@ video {
 		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
 }
 
-/* Animations */
 @keyframes hamster {
   from, to {
     transform: rotate(4deg) translate(-0.8em,1.85em);
   }
-
   50% {
     transform: rotate(0) translate(-0.8em,1.85em);
   }
@@ -548,7 +465,6 @@ video {
   from, 90%, to {
     transform: scaleY(1);
   }
-
   95% {
     transform: scaleY(0);
   }
@@ -634,378 +550,345 @@ video {
   }
 }
 
-
-
-
-
-
-
-    @keyframes typing {
-        from {
-            width: 0;
-        }
+@keyframes typing {
+    from {
+        width: 0;
     }
+}
 
-    @keyframes blink-caret {
-        50% {
-            border-color: #ff6600; /* Blinkende Farbe (orange) */
-        }
+@keyframes blink-caret {
+    50% {
+        border-color: #ff6600; /* Blinkende Farbe (orange) */
     }
+}
 
-    /* When you change the amount of characters in the h1, you have to change
-       the width: 14ch and steps(13, end), if there are 13 characters, put 13,
-       if there are 20, put 20, etc. */
-    .animation {
-        font: bold 200% Consolas, Monaco, monospace;
-        border-right: .1em solid #181818; /* Farbe der Caret (dunkelgrau) */
-        width: 15ch;
-	      color: #ff6600;
-        margin: 1em 1em;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: typing 5s steps(15, end),
-                   blink-caret .5s step-end infinite alternate;
-    }
+// Steps& width == number of letters"
+.animation {
+    font: bold 200% Consolas, Monaco, monospace;
+    border-right: .1em solid #181818; /* Farbe der Caret (dunkelgrau) */
+    width: 15ch;
+	    color: #ff6600;
+    margin: 1em 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 5s steps(15, end),
+                blink-caret .5s step-end infinite alternate;
+}
 
+.btncontainer {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  display: grid;
+  gap: 2em;
+  place-content: center;
+  width: 400px;
+  max-width: 95%;
+}
 
+.input-btn {
+  display: none;
+  max-width: 95%;
+}
 
+.neon-btn {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 2em;
+  text-align: right;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transform: scale(1);
+  clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+}
 
+.neon-btn .span {
+  display: flex;
+  position: absolute;
+  inset: 1px;
+  background-color: #212121;
+  z-index: 1;
+}
 
+.neon-btn .txt {
+  text-align: right;
+  position: relative;
+  z-index: 2;
+  color: aliceblue;
+  font-size: 1em;
+  transition: all ease-in-out 2s linear;
+  text-shadow: 0px 0px 1px #4090b5, 0px 0px 1px #9e30a9, 0 0 1px white;
+}
 
+.neon-btn::before,
+.neon-btn::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1.5/1;
+}
 
+.neon-btn::before {
+  box-shadow: -17px -19px 20px #9e30a9;
+  background-image: conic-gradient(#9e30a9, transparent, transparent, transparent, transparent, transparent, transparent, #9e30a9);
+  animation: rotate 4s linear infinite -2s;
+}
 
+.neon-btn::after {
+  box-shadow: -17px -19px 10px #4090b5;
+  background-image: conic-gradient(#4090b5, transparent, transparent, transparent, transparent, transparent, transparent, transparent, #4090b5);
+  animation: rotate 4s linear infinite;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-    .btncontainer {
-      font-family: sans-serif;
-      font-weight: bold;
-      font-size: 1.2em;
-      display: grid;
-      gap: 2em;
-      place-content: center;
-      width: 400px;
-      max-width: 95%;
-    }
-
-    .input-btn {
-      display: none;
-      max-width: 95%;
-    }
-
-    .neon-btn {
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0.5em 2em;
-      text-align: right;
-      background: transparent;
-      position: relative;
-      overflow: hidden;
-      transform: scale(1);
-      clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
-    }
-
-    .neon-btn .span {
-      display: flex;
-      position: absolute;
-      inset: 1px;
-      background-color: #212121;
-      z-index: 1;
-    }
-
-    .neon-btn .txt {
-      text-align: right;
-      position: relative;
-      z-index: 2;
-      color: aliceblue;
-      font-size: 1em;
-      transition: all ease-in-out 2s linear;
-      text-shadow: 0px 0px 1px #4090b5, 0px 0px 1px #9e30a9, 0 0 1px white;
-    }
-
-    .neon-btn::before,
-    .neon-btn::after {
-      content: "";
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      aspect-ratio: 1.5/1;
-    }
-
-    .neon-btn::before {
-      box-shadow: -17px -19px 20px #9e30a9;
-      background-image: conic-gradient(#9e30a9, transparent, transparent, transparent, transparent, transparent, transparent, #9e30a9);
-      animation: rotate 4s linear infinite -2s;
-    }
-
-    .neon-btn::after {
-      box-shadow: -17px -19px 10px #4090b5;
-      background-image: conic-gradient(#4090b5, transparent, transparent, transparent, transparent, transparent, transparent, transparent, #4090b5);
-      animation: rotate 4s linear infinite;
-    }
-
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes colorchange {
-      0% {
-        text-shadow: 0px 0px 0px #9e30a9, 0px 0px 0px #4090b5, 0 0 0px rgba(255, 255, 255, 0.616);
-      }
-
-      50% {
-        text-shadow: -6px 5px 1px #9e30a9, 5px 11px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
-      }
-
-      to {
-        text-shadow: 2px 4px 1px #9e30a9, 2px 2px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
-      }
-    }
-
-    @keyframes backgroundchange {
-      0% {
-        background-color: transparent;
-      }
-
-      50% {
-        background-color: #4090b5;
-      }
-
-      to {
-        background-color: transparent;
-      }
-    }
-
-  /*---------------------------------------------------------------------------------------------------*/
-
-    .btncontainer1 {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      font-style: italic;
-      font-weight: bold;
-      font-size: 1.2em;
-      display: grid;
-      gap: 2em;
-      place-content: center;
-      width: 400px;
-      max-width: 95%;
-      pointer-events: none;
-    }
-
-    .btncontainer1 input[type=radio] {
-      display: none;
-      pointer-events: none;
-      max-width: 95%;
-    }
-
-    .input-btn:is(:checked) + .neon-btn .span {
-      inset: 2px;
-      background-color: #4090b5;
-      background: repeating-linear-gradient(to bottom, transparent 0%, #4090b5 1px, #4090b5 3px, #4090b5 5px, #4090b5 4px, transparent 0.5%), repeating-linear-gradient(to left, hsl(295, 60%, 12%) 100%, hsl(295, 60%, 12%) 100%);
-      box-shadow: inset 0 40px 20px hsl(296, 59%, 10%);
-    }
-
-    .input-btn:is(:checked) + .neon-btn .txt {
-      text-shadow: 2px 4px 1px #9e30a9, 2px 2px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
-      color: rgb(255, 255, 255);
-      animation: colorchange 0.3s ease;
-    }
-
-    .input-btn:is(:checked) + .neon-btn::before {
-      animation-duration: 0.6s;
-    }
-
-    .input-btn:is(:checked) + .neon-btn::after {
-      animation-duration: 0.6s;
-    }
-
-    .neon-btn {
-      width: 300px;
-      height: 60px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0.5em 5em;
-      text-align: right;
-      background: transparent;
-      position: relative;
-      overflow: hidden;
-      transition: all 2s ease-in-out;
-      -webkit-clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
-      clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
-    }
-
-    .neon-btn .span {
-      display: flex;
-      -webkit-clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
-      clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
-      position: absolute;
-      inset: 1px;
-      background-color: #212121;
-      z-index: 1;
-    }
-
-    .neon-btn .txt {
-      text-align: right;
-      position: relative;
-      z-index: 2;
-      color: aliceblue;
-      font-size: 1em;
-      transition: all ease-in-out 2s linear;
-      text-shadow: 0px 0px 1px #4090b5, 0px 0px 1px #9e30a9, 0 0 1px white;
-    }
-
-    .neon-btn::before {
-      content: "";
-      position: absolute;
-      height: 300px;
-      aspect-ratio: 1.5/1;
-      box-shadow: -17px -19px 20px #9e30a9;
-      background-image: conic-gradient(#9e30a9, transparent, transparent, transparent, transparent, transparent, transparent, #9e30a9);
-      animation: rotate 4s linear infinite -2s;
-    }
-
-    .neon-btn::after {
-      content: "";
-      position: absolute;
-      height: 300px;
-      aspect-ratio: 1.5/1;
-      box-shadow: -17px -19px 10px #4090b5;
-      background-image: conic-gradient(#4090b5, transparent, transparent, transparent, transparent, transparent, transparent, transparent, #4090b5);
-      animation: rotate 8s linear infinite;
-    }
-
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes colorchange {
-      0% {
-        text-shadow: 0px 0px 0px #9e30a9, 0px 0px 0px #4090b5, 0 0 0px rgba(255, 255, 255, 0.616);
-      }
-
-      50% {
-        text-shadow: -6px 5px 1px #9e30a9, 5px 11px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
-      }
-
-      to {
-        text-shadow: 2px 4px 1px #9e30a9, 2px 2px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
-      }
-    }
-
-    @keyframes backgroundchange {
-      0% {
-        background-color: transparent;
-      }
-
-      50% {
-        background-color: #4090b5;
-      }
-
-      to {
-        background-color: transparent;
-      }
-    }
-
-
-
-
-    .card {
-      width: 250px;
-      height: 300px;
-      background: #07182E;
-      position: relative;
-      display: flex;
-      align-items: center;
-      border-radius: 20px;
-      border: #07182E 10px;
-      overflow: hidden;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
 
-  .card img {
-    width: 64px; /* Adjust the width as needed */
-    height: auto;
-    display: block;
-    margin: 0
-    z-index: 2; /* Ensure a higher z-index */
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes colorchange {
+  0% {
+    text-shadow: 0px 0px 0px #9e30a9, 0px 0px 0px #4090b5, 0 0 0px rgba(255, 255, 255, 0.616);
   }
 
-  .card a {
-    width: 64px; /* Adjust the width as needed */
-    height: auto;
-    margin-bottom: 10px; /* Adjust the margin as needed */
-    display: block;
-    margin: 9px;
-    z-index: 2; /* Ensure a higher z-index */
+  50% {
+    text-shadow: -6px 5px 1px #9e30a9, 5px 11px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
   }
 
-  .card h2 {
-      z-index: 1;
-      color: white;
-      font-size: 2em;
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
+  to {
+    text-shadow: 2px 4px 1px #9e30a9, 2px 2px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
+  }
+}
+
+@keyframes backgroundchange {
+  0% {
+    background-color: transparent;
   }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      width: 100px;
-      background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
-      height: 450px;
-      animation: rotBGimg 2s linear infinite;
-      transition: all 0.2s linear;
-      top: -25%;
-      right: 25%;
-      z-index: 1; /* Adjust as needed ----------------------------------------------------*/
-    }
+  50% {
+    background-color: #4090b5;
+  }
 
-    @keyframes rotBGimg {
-      from {
-        transform: rotate(0deg);
-      }
+  to {
+    background-color: transparent;
+  }
+}
 
-      to {
-        transform: rotate(360deg);
-      }
-    }
+.btncontainer1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.2em;
+  display: grid;
+  gap: 2em;
+  place-content: center;
+  width: 400px;
+  max-width: 95%;
+  pointer-events: none;
+}
 
-    .card::after {
-      content: '';
-      position: absolute;
-      background: #07182E;
-      inset: 5px;
-      border-radius: 10px;
+.btncontainer1 input[type=radio] {
+  display: none;
+  pointer-events: none;
+  max-width: 95%;
+}
 
-      z-index: 1; /* Adjust as needed */
-    }
+.input-btn:is(:checked) + .neon-btn .span {
+  inset: 2px;
+  background-color: #4090b5;
+  background: repeating-linear-gradient(to bottom, transparent 0%, #4090b5 1px, #4090b5 3px, #4090b5 5px, #4090b5 4px, transparent 0.5%), repeating-linear-gradient(to left, hsl(295, 60%, 12%) 100%, hsl(295, 60%, 12%) 100%);
+  box-shadow: inset 0 40px 20px hsl(296, 59%, 10%);
+}
+
+.input-btn:is(:checked) + .neon-btn .txt {
+  text-shadow: 2px 4px 1px #9e30a9, 2px 2px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
+  color: rgb(255, 255, 255);
+  animation: colorchange 0.3s ease;
+}
+
+.input-btn:is(:checked) + .neon-btn::before {
+  animation-duration: 0.6s;
+}
+
+.input-btn:is(:checked) + .neon-btn::after {
+  animation-duration: 0.6s;
+}
+
+.neon-btn {
+  width: 300px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 5em;
+  text-align: right;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 2s ease-in-out;
+  -webkit-clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+  clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+}
+
+.neon-btn .span {
+  display: flex;
+  -webkit-clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+  clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+  position: absolute;
+  inset: 1px;
+  background-color: #212121;
+  z-index: 1;
+}
+
+.neon-btn .txt {
+  text-align: right;
+  position: relative;
+  z-index: 2;
+  color: aliceblue;
+  font-size: 1em;
+  transition: all ease-in-out 2s linear;
+  text-shadow: 0px 0px 1px #4090b5, 0px 0px 1px #9e30a9, 0 0 1px white;
+}
+
+.neon-btn::before {
+  content: "";
+  position: absolute;
+  height: 300px;
+  aspect-ratio: 1.5/1;
+  box-shadow: -17px -19px 20px #9e30a9;
+  background-image: conic-gradient(#9e30a9, transparent, transparent, transparent, transparent, transparent, transparent, #9e30a9);
+  animation: rotate 4s linear infinite -2s;
+}
+
+.neon-btn::after {
+  content: "";
+  position: absolute;
+  height: 300px;
+  aspect-ratio: 1.5/1;
+  box-shadow: -17px -19px 10px #4090b5;
+  background-image: conic-gradient(#4090b5, transparent, transparent, transparent, transparent, transparent, transparent, transparent, #4090b5);
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes colorchange {
+  0% {
+    text-shadow: 0px 0px 0px #9e30a9, 0px 0px 0px #4090b5, 0 0 0px rgba(255, 255, 255, 0.616);
+  }
+
+  50% {
+    text-shadow: -6px 5px 1px #9e30a9, 5px 11px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
+  }
+
+  to {
+    text-shadow: 2px 4px 1px #9e30a9, 2px 2px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
+  }
+}
+
+@keyframes backgroundchange {
+  0% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: #4090b5;
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
+
+.card {
+  width: 250px;
+  height: 300px;
+  background: #07182E;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  border: #07182E 10px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card img {
+  width: 64px;
+  height: auto;
+  display: block;
+  margin: 0
+  z-index: 2;
+}
+
+.card a {
+  width: 64px;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin: 9px;
+  z-index: 2;
+}
+
+.card h2 {
+    z-index: 1;
+    color: white;
+    font-size: 2em;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+  height: 450px;
+  animation: rotBGimg 2s linear infinite;
+  transition: all 0.2s linear;
+  top: -25%;
+  right: 25%;
+  z-index: 1;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  background: #07182E;
+  inset: 5px;
+  border-radius: 10px;
+  z-index: 1;
+}
