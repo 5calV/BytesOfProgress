@@ -54,8 +54,9 @@ video {
 }
 
 .console-post {  
-    width: 400px;
-    max-width: 100%;
+    width: 500px;
+    min-width: 35%;
+    max-width: 90%;
     background-color: #111;
     color: #27c93f;
     border: 1px solid #333;
