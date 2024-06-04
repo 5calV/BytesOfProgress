@@ -48,7 +48,15 @@
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
 <p>
-  Apache Guacamole is....
+  Apache Guacamole is an open-source remote desktop gateway that allows users 
+  to access their desktop environments via a web browser. It is designed to 
+  be clientless, meaning it requires no software to be installed 
+  on the client side. The user is easily able to access all of their 
+  computers remotely through a webbrowser!
+</p>
+
+<p>
+  We are going to install guacamole using <a class="text-link" href="https://hub.docker.com/r/abesnier/guacamole">this docker image</a>.
 </p>
 
 <span style="color:#ff6600">
@@ -59,17 +67,99 @@
   This method is tested on Debian 12.
 </p>
 
+<p>
+  Necessary preparations: A Debian or Debian-based server, root access.
+</p>
+
+<p>
+  First we need to install docker and docker-compose:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # apt install docker.io docker-compose -y
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  After that we need to create a file called "docker-compose.yml".
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # touch docker-compose.yml
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  Now we need to paste following contents into the file:
+</p>
+
+<p>
+  NOTE: YAML is indentation-sensitive!
+</p>
+
+<div class="code-box">
+<pre><code>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">version:</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"3"</span>
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">services:</span>
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">  guacamole:</span>
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">    image:</span> abesnier/guacamole
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">    container_name:</span> guacamole
+
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">    volumes:</span>
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">      - postgres:</span>/config
+
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">    ports:</span>
+<span class="hljs-bullet" style="color: rgb(203, 75, 22);">      -</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">8080</span>:<span class="hljs-number" style="color: rgb(42, 161, 152);">8080</span>
+        
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">    restart:</span> always
+
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">volumes:</span>
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">  postgres:</span>
+<span class="hljs-attr" style="color: rgb(181, 137, 0);">    driver:</span> local</pre>
+</code></pre>
+</div>
+
+<br>
+
+<p>
+  Now we can start the containers like this:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # docker-compose up -d
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  We can now access Apache Guacamole with our webbrowser: "http://IP_ADDRESS:8080/".
+</p>
+
+<p>
+  Default Login:
+</p>
+
+<p>
+  User: guacadmin
+</p>
 
 
+<p>
+  Pass: guacadmin
+</p>
 
-
-
-
-
-
-
-
-
+<p>
+  Please make sure to change the login name and password as soon as possible.
+</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
