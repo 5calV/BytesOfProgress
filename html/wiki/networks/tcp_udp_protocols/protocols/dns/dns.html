@@ -46,9 +46,24 @@
     <h1 style="font-size:30px">DNS - Domain Name System</h1>
 </span>
 
-    <p>A DNS (Domain Name System) server is a critical component of the internet that translates human-friendly domain names into IP (Internet Protocol) addresses, which computers and networked devices use to identify each other on the internet. DNS servers play a crucial role in making the internet accessible by providing a human-readable way to access websites and services. Without DNS, users would need to remember and enter complex IP addresses to access online resources, which would be impractical. But how does this work?</p>
+<p>
+  A DNS (Domain Name System) server is a critical component of the internet 
+  that translates human-friendly domain names into IP (Internet Protocol) 
+  addresses, which computers and networked devices use to identify each 
+  other on the internet. DNS servers play a crucial role in making the 
+  internet accessible by providing a human-readable way to access websites 
+  and services. Without DNS, users would need to remember and enter complex 
+  IP addresses to access online resources, which would be impractical. 
+  But how does this work?
+</p>
 
-    <p>
+<p>
+  DNS primarily uses port 53/UDP for its transport layer due to its 
+  connectionless nature, low overhead, and fast lookup capabilities, 
+  with Pprt 53/TCP being used for larger responses and zone transfers.
+</p>
+
+<p>
 When you enter a domain name in a web browser, your device needs to know the
 corresponding IP address to establish a connection.
 This is where DNS servers come into play.
@@ -207,7 +222,7 @@ for IPv6 addresses. It maps a domain name to an IPv6 address.
 
 <hr>
 <br>
-<a href="/wiki/networks/networks.html" button class="button1" role="button">back</a>
+<a href="/wiki/networks/tcp_udp_protocols/tcp_udp_protocols.html" button class="button1" role="button">back</a>
 <br>
 <br>
 </center>
