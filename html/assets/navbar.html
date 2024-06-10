@@ -1,41 +1,48 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
+    <title>BOP Navbar</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link rel="stylesheet" href="/assets/stylesheet.css">
 </head>
-
 <body class="navbar-body">
-
     <nav>
         <ul class="navbar">
             <br><br>
-            <p>
-              NAVIGATION-BAR IS NOT FINISHED YET!
-            </p>
+            <p>NAVIGATION-BAR IS NOT FINISHED YET!</p>
             <li><a class="text-link" href="/" target="_blank">Home</a></li>
+            <!-- Blog Dropdown -->
             <li class="dropdown">
                 <a class="text-link" href="/blog/index.html" target="_blank">Blog</a>
                 <ul class="dropdown-content">
-                    <li><a class="text-link" href="/blog/posts/2024/A1_posts-2024.html" target="_blank">2024</a></li>
-
-                    <li><a class="text-link" href="/blog/posts/2023/A1_posts-2023.html" target="_blank">2023</a></li>
-
-                    <li><a class="text-link" href="/blog/posts/2022/A1_posts-2022.html" target="_blank">2022</a></li>
-
+                    <li class="dropdown">
+                        <a class="text-link" href="/blog/posts/2024/A1_posts-2024.html" target="_blank">2024</a>
+                        <ul class="dropdown-content">
+                            <li><a class="text-link" href="/blog/posts/2024/discord-bot/discord-bot.html" target="_blank">BOP Discord Bot</a></li>
+                            <li><a class="text-link" href="/blog/posts/2024/webserver/webserver.html" target="_blank">New Webserver</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="text-link" href="/blog/posts/2023/A1_posts-2023.html" target="_blank">2023</a>
+                        <ul class="dropdown-content">
+                            <!-- Add 2023 posts here -->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="text-link" href="/blog/posts/2022/A1_posts-2022.html" target="_blank">2022</a>
+                        <ul class="dropdown-content">
+                            <!-- Add 2022 posts here -->
+                        </ul>
+                    </li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a class="text-link" href="/wiki/index.html" target="_blank">Wiki</a>
-                <ul class="dropdown-content">
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#history">History</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </li>
-            <li><a href="#contact">Contact</a></li>
+            <!-- Wiki -->
+            <li><a class="text-link" href="/wiki/index.html" target="_blank">Wiki</a></li>
+            <!-- About -->
+            <li><a href="/about/about.html">About</a></li>
         </ul>
     </nav>
 </body>
