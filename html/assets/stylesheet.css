@@ -894,95 +894,60 @@ video {
   z-index: 1;
 }
 
+/*----------------------------------------------------------------------------------------------------------*/
 .navbar-body {
     background-color: #212121 ;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .navbar-container {
-  position: fixed;
-  top: 0;
-  width: 0; /* Anfangszustand: ausgeklappt */
-  height: 100%;
-  background-color: #212121 !important; /* Neue Hintergrundfarbe für die Navbar */
-  z-index: 999;
-  transition: width 0.5s ease; /* Animation für das Ein- und Ausklappen */
-  border: 2px solid #ff6600;
+    position: fixed;
+    top: 0;
+    width: 0; /* Anfangszustand: ausgeklappt */
+    height: 100%;
+    background-color: #212121 !important; /* Neue Hintergrundfarbe für die Navbar */
+    z-index: 999;
+    transition: width 0.5s ease; /* Animation für das Ein- und Ausklappen */
+    border: 2px solid #ff6600;
 }
 
 .navbar-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-ul {
-    list-style-type: disc; /* Setzt den Aufzählungspunkt auf den Standardpunkt (Kreis) */
+.navbar {
+    padding: 0;
+    margin: 0;
 }
 
-.dropdown-content {
-    list-style-type: disc; /* Setzt den Aufzählungspunkt der verschachtelten Liste ebenfalls auf den Standardpunkt (Kreis) */
-    display: none;
+.navbar-item {
+    position: relative;
+    padding-left: 20px; /* Einrückung für verschachtelte Elemente */
+    display: block;
 }
 
-  /* Stil für den Button */
 .toggle-btn {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 40px; /* Setze die Breite des Buttons */
-  height: 40px; /* Setze die Höhe des Buttons gleich der Breite */
-  background-color: #ff6600;
-  color: black;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1000; /* Höherer z-index-Wert als die Navbar */
-  transition: left 0.5s ease; /* Animation für die Bewegung des Buttons */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 40px; /* Setze die Breite des Buttons */
+    height: 40px; /* Setze die Höhe des Buttons gleich der Breite */
+    background-color: #ff6600;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000; /* Höherer z-index-Wert als die Navbar */
+    transition: left 0.5s ease; /* Animation für die Bewegung des Buttons */
 }
 
-.dropdown:hover .dropdown-content {
-    display: block; /* Zeige Dropdown-Inhalte beim Überfahren des Dropdowns */
-}
-
-  /* Ausklappbare Navbar */
 .navbar-open {
-  width: 400px; /* Breite der Navbar, wenn ausgeklappt */
-  background-color: #ff6600;
+    width: 400px; /* Breite der Navbar, wenn ausgeklappt */
+    background-color: #ff6600;
 }
 
 .navbar-open .toggle-btn {
-  left: 410px; /* Position des Buttons relativ zur ausgeklappten Navbar */
+    left: 410px; /* Position des Buttons relativ zur ausgeklappten Navbar */
 }
 
-li::marker {
-  color: #ff6600;
-}
