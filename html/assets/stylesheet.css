@@ -898,6 +898,7 @@ video {
 
 .navbar-body {
     background-color: #212121;
+    overflow: scroll;
 }
 
 .navbar-container {
@@ -910,12 +911,12 @@ video {
     transition: width 0.5s ease; /* Animation für das Ein- und Ausklappen */
     border-right: 4px solid #ff6600;
     border-left: 1px solid #ff6600;
-    /*overflow: auto;*/
+    border-bottom: none;
 }
 
 .navbar-open {
     width: 475px; /* Expanded width of the navbar */
-    background-color: #ff6600;
+    background-color: #212121;
     overflow-y: auto; /* Enable vertical scrolling when expanded */
 }
 
