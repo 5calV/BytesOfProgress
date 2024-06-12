@@ -897,19 +897,22 @@ video {
 /*----------------------------------------------------------------------------------------------------------*/
 
 .navbar-body {
-    background-color: #212121 ;
+    background-color: #212121;
+    overflow: auto; /* Dies stellt sicher, dass der gesamte Body scrollbar ist */
 }
 
 .navbar-container {
-    position: fixed;
+    position: absolute; /* Ändere von fixed zu absolute */
     top: 0;
-    width: 0;
-    height: 100%;
-    background-color: #212121 !important;
+    left: 0;
+    width: 475px; /* Setze eine feste Breite */
+    height: 100%; /* Volle Höhe */
+    background-color: #212121;
     z-index: 999;
     transition: width 0.5s ease;
     border-right: 2px solid #ff6600;
     border-left: 2px solid #ff6600;
+    overflow: auto; /* Scrollen innerhalb des Containers ermöglichen */
 }
 
 .navbar-iframe {
@@ -921,6 +924,8 @@ video {
 .navbar {
     padding: 0;
     margin: 0;
+    overflow: auto;
+    height: 100%;
 }
 
 .navbar-item {
@@ -931,7 +936,7 @@ video {
 }
 
 .toggle-btn {
-    position: fixed;
+    position: absolute; /* Ändere von fixed zu absolute */
     top: 15px;
     left: 15px;
     width: 40px;
@@ -957,7 +962,7 @@ video {
 .navbar-link {
     text-decoration: none;
     color: #ff6600;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .navbar-link:hover {
