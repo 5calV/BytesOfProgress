@@ -895,6 +895,7 @@ video {
 }
 
 /*----------------------------------------------------------------------------------------------------------*/
+
 .navbar-body {
     background-color: #212121 ;
 }
@@ -907,7 +908,8 @@ video {
     background-color: #212121 !important; /* Neue Hintergrundfarbe für die Navbar */
     z-index: 999;
     transition: width 0.5s ease; /* Animation für das Ein- und Ausklappen */
-    border: 2px solid #ff6600;
+    border-right: 2px solid #ff6600;
+    border-left: 2px solid #ff6600;
 }
 
 .navbar-iframe {
@@ -925,12 +927,13 @@ video {
     position: relative;
     padding-left: 20px; /* Einrückung für verschachtelte Elemente */
     display: block;
+    width: 470px;
 }
 
 .toggle-btn {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 15px;
     width: 40px; /* Setze die Breite des Buttons */
     height: 40px; /* Setze die Höhe des Buttons gleich der Breite */
     background-color: #ff6600;
@@ -943,11 +946,46 @@ video {
 }
 
 .navbar-open {
-    width: 400px; /* Breite der Navbar, wenn ausgeklappt */
+    width: 475px; /* Breite der Navbar, wenn ausgeklappt */
     background-color: #ff6600;
 }
 
 .navbar-open .toggle-btn {
-    left: 410px; /* Position des Buttons relativ zur ausgeklappten Navbar */
+    left: 485px; /* Position des Buttons relativ zur ausgeklappten Navbar */
 }
 
+.navbar-link {
+    text-decoration: none;
+    color: #ff6600;
+    font-size: 20px;
+}
+
+.navbar-link:hover {
+    text-decoration: underline;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+.navbar-item.level-0 {
+  margin-left: 0;
+}
+
+.navbar-item.level-1 {
+  margin-left: 20px;
+}
+
+.navbar-item.level-2 {
+  margin-left: 40px;
+}
+
+.navbar-item.level-3 {
+  margin-left: 80px;
+}
+
+.navbar-item.level-4 {
+  margin-left: 160px;
+}
+
+.navbar-item.level-5 {
+  margin-left: 320px;
+}
