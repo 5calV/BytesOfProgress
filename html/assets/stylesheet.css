@@ -898,22 +898,27 @@ video {
 
 .navbar-body {
     background-color: #212121;
-    overflow: auto; /* Dies stellt sicher, dass der gesamte Body scrollbar ist */
 }
 
 .navbar-container {
-    position: absolute; /* Ändere von fixed zu absolute */
+    position: fixed;
     top: 0;
-    left: 0;
-    width: 475px; /* Setze eine feste Breite */
-    height: 100%; /* Volle Höhe */
-    background-color: #212121;
+    width: 0; /* Anfangszustand: eingeklappt */
+    height: 100%;
+    background-color: #212121; /* Hintergrundfarbe für die Navbar */
     z-index: 999;
-    transition: width 0.5s ease;
-    border-right: 2px solid #ff6600;
-    border-left: 2px solid #ff6600;
-    overflow: auto; /* Scrollen innerhalb des Containers ermöglichen */
+    transition: width 0.5s ease; /* Animation für das Ein- und Ausklappen */
+    border-right: 4px solid #ff6600;
+    border-left: 1px solid #ff6600;
+    /*overflow: auto;*/
 }
+
+.navbar-open {
+    width: 475px; /* Expanded width of the navbar */
+    background-color: #ff6600;
+    overflow-y: auto; /* Enable vertical scrolling when expanded */
+}
+
 
 .navbar-iframe {
     width: 100%;
@@ -924,45 +929,34 @@ video {
 .navbar {
     padding: 0;
     margin: 0;
-    overflow: auto;
-    height: 100%;
 }
 
 .navbar-item {
     position: relative;
-    padding-left: 20px;
+    padding-left: 20px; /* Einrückung für verschachtelte Elemente */
     display: block;
     width: 470px;
 }
 
 .toggle-btn {
-    position: absolute; /* Ändere von fixed zu absolute */
+    position: fixed;
     top: 15px;
     left: 15px;
-    width: 40px;
-    height: 40px;
+    width: 40px; /* Breite des Buttons */
+    height: 40px; /* Höhe des Buttons gleich der Breite */
     background-color: #ff6600;
     color: black;
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 1000;
-    transition: left 0.5s ease;
-}
-
-.navbar-open {
-    width: 475px;
-    background-color: #ff6600;
-}
-
-.navbar-open .toggle-btn {
-    left: 485px;
+    z-index: 1000; /* Höherer z-index als die Navbar */
+    transition: left 0.5s ease; /* Animation für die Bewegung des Buttons */
 }
 
 .navbar-link {
     text-decoration: none;
     color: #ff6600;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 .navbar-link:hover {
