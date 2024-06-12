@@ -8,7 +8,7 @@
 
 
     <br>
-    <hr>
+
     <br>
     <!DOCTYPE html>
 
@@ -16,7 +16,7 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>BOP Blog: ESP32 Display Server Monitoring</title>
+        <title>BOP Blog: ESP32 Server Monitoring</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
         <link rel="stylesheet" href="/assets/stylesheet.css"/>
             <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
@@ -27,7 +27,14 @@
 
 
     <body>
+
+<button class="toggle-btn" onclick="document.getElementById('navbar').classList.toggle('navbar-open')">☰</button>
+
+<div class="navbar-container" id="navbar">
+    <iframe class="navbar-iframe" src="/assets/navbar/main-navbar.html"></iframe>
+</div>
     <center>
+
 
 
     <a href="/">
@@ -36,11 +43,11 @@
         <span style="color:#ff6600">
                 <h1 style="font-size:50px">BytesOfProgress</h1>
             </span>
-    <hr>
+
 
 
     <span style="color:#ff6600">
-        <h1 style="font-size:30px">ESP32 Display Server Monitoring</h1>
+        <h1 style="font-size:30px">ESP32 Server Monitoring</h1>
     </span>
     <p style="color:#ffff; font-size: 15px">13th January 2024 / 10:30 PM</p>
     <p>
