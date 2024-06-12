@@ -903,11 +903,11 @@ video {
 .navbar-container {
     position: fixed;
     top: 0;
-    width: 0; /* Anfangszustand: ausgeklappt */
+    width: 0;
     height: 100%;
-    background-color: #212121 !important; /* Neue Hintergrundfarbe für die Navbar */
+    background-color: #212121 !important;
     z-index: 999;
-    transition: width 0.5s ease; /* Animation für das Ein- und Ausklappen */
+    transition: width 0.5s ease;
     border-right: 2px solid #ff6600;
     border-left: 2px solid #ff6600;
 }
@@ -925,7 +925,7 @@ video {
 
 .navbar-item {
     position: relative;
-    padding-left: 20px; /* Einrückung für verschachtelte Elemente */
+    padding-left: 20px;
     display: block;
     width: 470px;
 }
@@ -934,24 +934,24 @@ video {
     position: fixed;
     top: 15px;
     left: 15px;
-    width: 40px; /* Setze die Breite des Buttons */
-    height: 40px; /* Setze die Höhe des Buttons gleich der Breite */
+    width: 40px;
+    height: 40px;
     background-color: #ff6600;
     color: black;
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 1000; /* Höherer z-index-Wert als die Navbar */
-    transition: left 0.5s ease; /* Animation für die Bewegung des Buttons */
+    z-index: 1000;
+    transition: left 0.5s ease;
 }
 
 .navbar-open {
-    width: 475px; /* Breite der Navbar, wenn ausgeklappt */
+    width: 475px;
     background-color: #ff6600;
 }
 
 .navbar-open .toggle-btn {
-    left: 485px; /* Position des Buttons relativ zur ausgeklappten Navbar */
+    left: 485px;
 }
 
 .navbar-link {
