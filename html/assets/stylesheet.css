@@ -896,105 +896,25 @@ video {
 
 /*----------------------------------------------------------------------------------------------------------*/
 
-.navbar-body {
-    background-color: #212121;
-    overflow: scroll;
-}
-
-.navbar-container {
-    position: absolute;
-    top: 0;
-    width: 0; /* Anfangszustand: eingeklappt */
-    height: 100%;
-    background-color: #212121; /* Hintergrundfarbe fÃ¼r die Navbar */
-    z-index: 999;
-    transition: width 0.5s ease; /* Animation fÃ¼r das Ein- und Ausklappen */
-    /*border-left: 3px solid #ff6600;*/
-    /*border-left: 1px solid #ff6600;*/
-}
-
-.navbar-open {
-    width: 480px; /* Expanded width of the navbar */
-    background-color: #212121;
-    overflow-y: auto; /* Enable vertical scrolling when expanded */
-    border-left: 5px solid #ff6600;
-    border-right: 3px solid #ff6600;
-}
-
-.navbar-iframe {
-    width: 100%;
-    height: 100%;
-}
-
-.navbar {
-    padding: 0;
-    margin: 0;
-}
-
-.navbar-item {
-    position: relative;
-    padding-left: 20px;
-    display: block;
-    width: 450px;
-}
-
 .toggle-btn {
     position: fixed;
     top: 15px;
     left: 15px;
-    width: 40px; /* Breite des Buttons */
-    height: 40px; /* HÃ¶he des Buttons gleich der Breite */
+    width: 120px;
+    height: 40px;
     background-color: #ff6600;
     color: black;
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 1000; /* HÃ¶herer z-index als die Navbar */
-    transition: left 0.5s ease; /* Animation fÃ¼r die Bewegung des Buttons */
+    z-index: 1000;
+    transition: left 0.5s ease;
 }
 
-.navbar-link {
-    text-decoration: none;
-    color: #ff6600;
-    font-size: 17px;
-}
-
-.navbar-link:hover {
-    text-decoration: underline;
-}
-
-.navbar-link-placeholder{
-  width: 5px;
-}
-
-/*----------------------------------------------------------------------------------------------------------*/
-
-.navbar-item.level-0 {
-  margin-left: 0;
-  width: 460px;
-}
-
-.navbar-item.level-1 {
-  margin-left: 20px;
-  width: 440px;
-}
-
-.navbar-item.level-2 {
-  margin-left: 40px;
-  width: 420px;
-}
-
-.navbar-item.level-3 {
-  margin-left: 80px;
-  width: 400px;
-}
-
-.navbar-item.level-4 {
-  margin-left: 160px;
-  width: 380px;
-}
-
-.navbar-item.level-5 {
-  margin-left: 320px;
-  width: 360px;
+#navbar-container {
+    width: 0; /* Startbreite 0, wird animiert */
+    height: 100vh; /* Volle Bildschirmhöhe */
+    overflow: hidden; /* Versteckt den Inhalt, der über die Breite des Containers hinausgeht */
+    background-color: #f0f0f0; /* Hintergrundfarbe für Sichtbarkeit */
+    transition: width 0.5s ease; /* Übergangseffekt für die Breitenänderung */
 }
