@@ -902,15 +902,15 @@ video {
 }
 
 .navbar-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 0; /* Anfangszustand: eingeklappt */
     height: 100%;
-    background-color: #212121; /* Hintergrundfarbe für die Navbar */
+    background-color: #212121; /* Hintergrundfarbe fÃ¼r die Navbar */
     z-index: 999;
-    transition: width 0.5s ease; /* Animation für das Ein- und Ausklappen */
+    transition: width 0.5s ease; /* Animation fÃ¼r das Ein- und Ausklappen */
     border-right: 4px solid #ff6600;
-    border-left: 1px solid #ff6600;
+    border-left: none;/*1px solid #ff6600;*/
     border-bottom: none;
 }
 
@@ -924,7 +924,7 @@ video {
 .navbar-iframe {
     width: 100%;
     height: 100%;
-    border: none;
+    border: 5px;
 }
 
 .navbar {
@@ -934,7 +934,7 @@ video {
 
 .navbar-item {
     position: relative;
-    padding-left: 20px; /* Einrückung für verschachtelte Elemente */
+    padding-left: 20px; /* EinrÃ¼ckung fÃ¼r verschachtelte Elemente */
     display: block;
     width: 470px;
 }
@@ -944,14 +944,14 @@ video {
     top: 15px;
     left: 15px;
     width: 40px; /* Breite des Buttons */
-    height: 40px; /* Höhe des Buttons gleich der Breite */
+    height: 40px; /* HÃ¶he des Buttons gleich der Breite */
     background-color: #ff6600;
     color: black;
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 1000; /* Höherer z-index als die Navbar */
-    transition: left 0.5s ease; /* Animation für die Bewegung des Buttons */
+    z-index: 1000; /* HÃ¶herer z-index als die Navbar */
+    transition: left 0.5s ease; /* Animation fÃ¼r die Bewegung des Buttons */
 }
 
 .navbar-link {
@@ -964,28 +964,38 @@ video {
     text-decoration: underline;
 }
 
+.navbar-link-placeholder{
+  width: 5px;
+}
+
 /*----------------------------------------------------------------------------------------------------------*/
 
 .navbar-item.level-0 {
   margin-left: 0;
+  width: 460px;
 }
 
 .navbar-item.level-1 {
   margin-left: 20px;
+  width: 440px;
 }
 
 .navbar-item.level-2 {
   margin-left: 40px;
+  width: 420px;
 }
 
 .navbar-item.level-3 {
   margin-left: 80px;
+  width: 400px;
 }
 
 .navbar-item.level-4 {
   margin-left: 160px;
+  width: 380px;
 }
 
 .navbar-item.level-5 {
   margin-left: 320px;
+  width: 360px;
 }
