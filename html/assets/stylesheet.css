@@ -896,11 +896,11 @@ video {
 
 /*----------------------------------------------------------------------------------------------------------*/
 
-.toggle-btn {
+.toggle-btn-navbar {
     position: fixed;
     top: 15px;
     left: 15px;
-    width: 120px;
+    width: 40px;
     height: 40px;
     background-color: #ff6600;
     color: black;
@@ -911,10 +911,86 @@ video {
     transition: left 0.5s ease;
 }
 
-#navbar-container {
-    width: 0; /* Startbreite 0, wird animiert */
-    height: 100vh; /* Volle Bildschirmhöhe */
-    overflow: hidden; /* Versteckt den Inhalt, der über die Breite des Containers hinausgeht */
-    background-color: #f0f0f0; /* Hintergrundfarbe für Sichtbarkeit */
-    transition: width 0.5s ease; /* Übergangseffekt für die Breitenänderung */
+.navbar-body {
+    background-color: #212121;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-left: none;
 }
+
+.navbar-container {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #212121;
+    z-index: 999;
+    transition: width 0.5s ease;
+    border-right: 4px solid #ff6600;
+    border-left: none;/*1px solid #ff6600;*/
+    border-bottom: none;
+}
+
+.navbar-open {
+    width: 475px;
+    background-color: #212121;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.navbar-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow-x: hidden;
+}
+
+.navbar {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-item {
+    position: relative;
+    padding-left: 20px;
+    display: block;
+    width: 470px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #ff6600;
+    font-size: 17px;
+}
+
+.navbar-link:hover {
+    text-decoration: underline;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+.navbar-item.level-0 {
+    margin-left: 0;
+}
+
+.navbar-item.level-1 {
+    margin-left: 20px;
+}
+
+.navbar-item.level-2 {
+    margin-left: 40px;
+}
+
+.navbar-item.level-3 {
+    margin-left: 80px;
+}
+
+.navbar-item.level-4 {
+    margin-left: 160px;
+}
+
+.navbar-item.level-5 {
+    margin-left: 320px;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
