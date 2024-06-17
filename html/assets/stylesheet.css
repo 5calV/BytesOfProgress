@@ -934,7 +934,7 @@ video {
     background-color: #212121;
     overflow-y: scroll;
     overflow-x: hidden;
-    border-left: 3px solid #ff6600;
+
 }
 
 .navbar-container {
@@ -945,8 +945,7 @@ video {
     background-color: #212121;
     z-index: 999;
     transition: width 0.5s ease;
-    border-right: 4px solid #ff6600;
-    border-bottom: none;
+    /*border-right: 3px solid #ff6600;*/
 }
 
 .navbar-container.fixed {
@@ -959,6 +958,7 @@ video {
     overflow-y: auto;
     overflow-x: hidden;
     border-left: none;
+    border-right: 5px solid #ff6600;
 }
 
 .navbar-iframe {
