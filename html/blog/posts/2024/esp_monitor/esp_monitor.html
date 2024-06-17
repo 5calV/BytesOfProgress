@@ -28,11 +28,13 @@
 
     <body>
 
-<button class="toggle-btn" onclick="document.getElementById('navbar').classList.toggle('navbar-open')">☰</button>
+      <button class="toggle-btn-navbar" id="navbarOpenButton">☰</button>
+      <div id="navbarContainer" class="navbar-container">
+          <iframe class="navbar-iframe" src="/assets/navbar/main-navbar.html" frameBorder= "0"></iframe>
+      </div>
 
-<div class="navbar-container" id="navbar">
-    <iframe class="navbar-iframe" src="/assets/navbar/main-navbar.html" frameBorder="0"></iframe>
-</div>
+      <script src="/assets/navbar/navbar.js"></script>
+      
     <center>
 
 
