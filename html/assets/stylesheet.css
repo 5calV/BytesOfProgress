@@ -147,27 +147,27 @@ video {
 }
 
 .code-box {
+  position: relative; /* Make sure the .code-box is relative for absolute positioning */
   background-color: #353541;
   padding: 5px;
   border-radius: 5px;
-  width: 750px;
+  width: 90%;
   max-width: 90%;
   margin: 0 auto;
   overflow: hidden;
+  overflow-x: scroll;
   border-style: solid;
   border-color: #ff6600;
   border-width: 2px;
   font-family: monospace;
-  position: relative;
 }
 
 .code-box pre {
   margin: 0;
-  padding: 0px;
+  padding: 0;
   color: #ffffff;
-  white-space: pre-wrap;
+  white-space: pre-wrap;    /* Preserve white spaces and wrap lines */
   text-align: left;
-  padding-left: 40px;
   box-sizing: border-box;
   line-height: 1.5;
 }
