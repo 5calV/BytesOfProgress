@@ -72,7 +72,7 @@
         $ sudo apt install apache2
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
     <span style="color:#ff6600">
         <h1 style="font-size:20px">Becoming root</h1>
     </span>
@@ -82,7 +82,7 @@
         $ su
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <p>
 Often, the regular "su" is enough, but sometimes you will need to not only
 switch to the root user, but simulate a whole login from the root account.
@@ -95,7 +95,7 @@ You can do this by executing the following command:
         $ su -
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <p>
     or, if your account is in the sudo group:
 </p>
@@ -105,7 +105,7 @@ You can do this by executing the following command:
         $ sudo -i
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
     <span style="color:#ff6600">
         <h1 style="font-size:20px">Exiting root account</h1>
     </span>
@@ -115,7 +115,7 @@ You can do this by executing the following command:
         # exit
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <br>
 <hr>
 
@@ -128,7 +128,7 @@ You can do this by executing the following command:
         $ su username
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <br><hr>
 
 
@@ -174,7 +174,7 @@ Administrators can use various commands to manage groups and users effectively:
         # useradd username
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <p>
 Or, to create a new user and also create a home directory for them:
 </p>
@@ -184,7 +184,7 @@ Or, to create a new user and also create a home directory for them:
         # useradd -m username
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <span style="color:#ff6600">
     <h1 style="font-size:20px">Deleting a user</h1>
 </span>
@@ -194,7 +194,7 @@ Or, to create a new user and also create a home directory for them:
         # userdel username
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <span style="color:#ff6600">
     <h1 style="font-size:20px">Changing a user's password</h1>
 </span>
@@ -204,7 +204,7 @@ Or, to create a new user and also create a home directory for them:
         # passwd username
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <p>
     Or, if you want to change the password for the user you are currently logged in:
     </p>
@@ -297,7 +297,7 @@ For example, read and write permissions (rw) would be represented by 6 (4 + 2).
         # chmod u=rw filename
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <p>
     This can also be expressed using the octal system:
 </p>
@@ -307,7 +307,7 @@ For example, read and write permissions (rw) would be represented by 6 (4 + 2).
         # chmod 600 filename
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <p>
 Similarly, you can give read-write permissions to a group by executing this:
 </p>
@@ -317,7 +317,7 @@ Similarly, you can give read-write permissions to a group by executing this:
         # chmod g=rx filename
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <br>
 
 <p>

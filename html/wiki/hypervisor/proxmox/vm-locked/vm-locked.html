@@ -48,33 +48,6 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
-<style>
-    .code-box {
-        background-color: #353541;
-        padding: 5px;
-        border-radius: 5px;
-        /* WIDTH EINSTELLEN FÜR BREITE! */
-        width: 70%;
-        /*--------------------------------------------------------------------------------------*/
-        margin: 0 auto;
-        overflow: hidden; /* Add this to handle potential overflow */
-    }
-
-    .code-box pre {
-        position: relative;
-        margin: 0;
-        padding: 0; /* Reset padding */
-        margin-top: 0; /* Reset margin-top */
-        color: #ffffff;
-        white-space: pre-wrap;
-        text-align: left;
-
-
-    }
-</style>
-
-<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
-
 <p>
   Proxmox VMs may be getting locked due to ongoing tasks like backups or 
   migrations, resource allocation conflicts, storage issues like corruption, 
@@ -101,7 +74,7 @@
   # qm unlock VM-ID
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <p>
   This may not always work, and the command may fail with following output: 
 </p>
@@ -112,7 +85,7 @@
     can't lock file '/var/lock/qemu-server/lock-VM-ID.conf' - got timeout
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <br><br>
 
 <span style="color:#ff6600">
@@ -128,7 +101,7 @@
     # rm /var/lock/qemu-server/lock-VM-ID.conf
     </code></pre>
 </div>
-
+<script src="/assets/codebox.js"></script>
 <p>
   Obviously, this should be a last resort. It's generally 
   not a great practice to forcefully terminate locks, but there are situations 
