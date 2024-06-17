@@ -5,32 +5,36 @@
 //  \(͡⚈ᴗ͡⚈)/
 
 //-------------------------------------------------------------------------------------------------------------------------------------*/
+
 document.addEventListener("DOMContentLoaded", function() {
     const toggleButton = document.getElementById("navbarOpenButton");
     const navbarContainer = document.getElementById("navbarContainer");
 
-    // Überprüfen, ob toggleButton und navbarContainer erfolgreich gefunden wurden
     if (toggleButton && navbarContainer) {
         toggleButton.addEventListener("click", function() {
             if (navbarContainer.classList.contains("navbar-open")) {
-                // Navbar schließen
+                // Navbar closed
                 navbarContainer.classList.remove("navbar-open");
                 navbarContainer.style.width = "0";
-                console.log("Navbar geschlossen");
-            } else {
-                // Navbar öffnen
+                console.log("Navbar closed");
+              } 
+              
+            else {
+                // Navbar opened
                 navbarContainer.classList.add("navbar-open");
                 navbarContainer.style.width = "475px";
-                console.log("Navbar geöffnet");
+                console.log("Navbar opened");
             }
         });
 
-        // Scrollverhalten der Hauptseite überwachen
+        // Observe scrolling-behavior
         window.addEventListener("scroll", function() {
             const scrollPosition = window.scrollY;
             navbarContainer.style.top = scrollPosition + "px";
         });
-    } else {
-        console.error("toggleButton oder navbarContainer nicht gefunden");
+    } 
+    
+    else {
+        console.error("toggleButton oder navbarContainer not found!");
     }
 });
