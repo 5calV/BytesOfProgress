@@ -945,11 +945,12 @@ video {
     background-color: #212121;
     z-index: 999;
     transition: width 0.5s ease;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
 
 .navbar-container.fixed {
   top: -100px;
+  overflow-y: hidden;
 }
 
 .navbar-open {
