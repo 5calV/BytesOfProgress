@@ -956,7 +956,7 @@ video {
 .navbar-open {
     width: 475px;
     background-color: #212121;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     overflow-x: hidden;
     border-left: none;
     border-right: 5px solid #ff6600;
