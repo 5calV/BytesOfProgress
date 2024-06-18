@@ -932,7 +932,7 @@ video {
 
 .navbar-body {
     background-color: #212121;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     overflow-x: hidden;
 
 }
