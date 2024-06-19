@@ -946,7 +946,6 @@ video {
     background-color: #212121;
     z-index: 999;
     transition: width 0.5s ease;
-    /*overflow-y: hidden;*/
 }
 
 .navbar-container.fixed {
@@ -957,7 +956,8 @@ video {
 .navbar-open {
     width: 475px;
     background-color: #212121;
-    /*overflow-y: auto;*/
+    /* Do not touch this overflow! */
+    overflow-y: hidden;
     overflow-x: hidden;
     border-left: none;
     border-right: 5px solid #ff6600;
