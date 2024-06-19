@@ -1006,7 +1006,7 @@ video {
 }
 
 .navbar-item.level-2 {
-    margin-left: 40px;
+    margin-left: 60px;
 }
 
 .navbar-item.level-3 {
@@ -1014,11 +1014,11 @@ video {
 }
 
 .navbar-item.level-4 {
-    margin-left: 160px;
+    margin-left: 100px;
 }
 
 .navbar-item.level-5 {
-    margin-left: 320px;
+    margin-left: 120px;
 }
 
 /*----------------------------------------------------------------------------------------------------------*/
