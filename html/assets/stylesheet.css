@@ -172,22 +172,6 @@ video {
   line-height: 1.5;
 }
 
-.line-numbers {
-  position: absolute;
-  top: 29px;
-  left: 5px;
-  width: 30px;
-  text-align: right;
-  color: #aaaaaa;
-  user-select: none;
-  pointer-events: none;
-  line-height: 1.5;
-}
-
-.line-numbers span {
-  display: block;
-}
-
 #background {
   position:absolute;
   z-index:-1;
