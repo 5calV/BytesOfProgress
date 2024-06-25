@@ -55,6 +55,60 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Version 8.2 and newer</h1>
+</span>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Method 1: wget</h1>
+</span>
+
+<p>
+  We need to download <a class="text-link" href="https://raw.githubusercontent.com/foundObjects/pve-nag-buster/master/install.sh">this</a> file 
+  from a GitHub repo. We will use wget for that.
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # wget https://raw.githubusercontent.com/foundObjects/pve-nag-buster/master/install.sh
+    </code></pre>
+</div>
+
+<p>
+  Now we execute the script, or adjust permissions to make it executable:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # sudo bash install.sh
+
+  # or ..
+  # chmod +x install.sh && sudo ./install.sh
+    </code></pre>
+</div>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:20px">Method 2: git</h1>
+</span>
+
+<p>
+  Cloning the repository, executing the script:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # git clone https://github.com/foundObjects/pve-nag-buster.git
+
+  # cd pve-nag-buster && sudo ./install.sh
+    </code></pre>
+</div>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Up tp version 8.2</h1>
+</span>
+
 <p>
   We can turn off the subscription message / warning that pops up after logging 
   in to the Proxmox WebUI by opening the shell of the proxmox node / host, and 
@@ -63,7 +117,7 @@
 
 <div class="code-box">
     <pre><code>
-  sed -Ezi.bak "s/(function(orig_cmd) {)/\1\n\torig_cmd();\n\treturn;/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+  # sed -Ezi.bak 's/(function\(orig_cmd\) \{)/\1\n\torig_cmd();\n\treturn;/g' /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
     </code></pre>
 </div>
 
@@ -76,11 +130,14 @@
  
  <div class="code-box">
      <pre><code>
-  systemctl restart pveproxy.service
+  # systemctl restart pveproxy.service
      </code></pre>
  </div>
  
  <br>
+ 
+ 
+ 
  
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
