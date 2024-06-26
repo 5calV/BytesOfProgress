@@ -1,0 +1,114 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: ESP32 DHT11 Snippet</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+  <button class="toggle-btn-navbar" id="navbarOpenButton">☰</button>
+  <div id="navbarContainer" class="navbar-container">
+      <iframe class="navbar-iframe" src="/assets/navbar/main-navbar.html" frameBorder= "0"></iframe>
+  </div>
+
+  <script src="/assets/navbar/navbar.js"></script>
+
+    <br>
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">ESP32 DHT11 Snippet</h1>
+</span>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<p>
+  This listens to a DHT11-Sensor attached to the ESP32. 
+  It outputs the current temperature to the Serial Monitor. 
+  Use a pull-up resistor! 
+</p>
+
+<div class="code-box">
+    <pre><code><pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;DHT.h&gt;</span></span>
+
+<span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">define</span> DHTPIN 33     <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Digital pin connected to the DHT sensor</span></span>
+
+<span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">define</span> DHTTYPE DHT11   <span class="hljs-comment" style="color: rgb(88, 110, 117);">// DHT Sensor Type</span></span>
+
+DHT dht(DHTPIN, DHTTYPE);
+
+<span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>() {
+
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">9600</span>);   <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Starting the serial communication</span>
+
+  dht.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">begin</span>();          <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Starting to listen to the sensor</span>
+
+}
+
+<span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">loop</span>() {
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Wait a few seconds between measurements.</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">delay</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">5000</span>);
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Reading temperature &amp; storing it in a variable</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">float</span> temp = dht.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">readTemperature</span>();
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Printing the temperature variable to the serial monitor</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">Serial</span>.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">println</span>(temp, <span class="hljs-number" style="color: rgb(42, 161, 152);">2</span>);
+
+}</pre></code></pre>
+</div>
+
+
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<br>
+<hr>
+<br>
+<a href="/wiki/microcontroller/ESP32/ESP32-snippets/ESP32-snippets.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
