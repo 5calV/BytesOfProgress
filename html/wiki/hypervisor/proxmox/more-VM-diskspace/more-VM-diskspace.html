@@ -55,18 +55,51 @@
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
+<p>
+  Quick Note: This is only suitable for specific usecases! 
+  This can especially be useful in single-disk setups, where many VMs are going 
+  to be created.
+</p>
 
+<p>
+  With the default Proxmox setup, "local" stores the ISO images and container templates, 
+  and 'local-lvm' stores the installed VMs and containers themselves. 
+  Apparently, deleting "local-lvm" in order to resize "local" removes the ability 
+  to take snapshots of each VM and container.
+</p>
 
+<br>
 
+<p>
+  Step 1: Navigate to "Datacenter ---> Storage". Select "local-lvm" and 
+  click on "Remove".
+</p>
 
+<p>
+  Step 2: Enter the following commands in this particular order:
+</p>
 
+<div class="code-box">
+    <pre><code>
+  # lvremove /dev/pve/data
+    </code></pre>
+</div>
 
+<br>
 
+<div class="code-box">
+    <pre><code>
+  # lvresize -l +100%FREE /dev/pve/root
+    </code></pre>
+</div>
 
+<br>
 
-
-
-
+<div class="code-box">
+    <pre><code>
+  # resize2fs /dev/mapper/pve-root
+    </code></pre>
+</div>
 
 
 
