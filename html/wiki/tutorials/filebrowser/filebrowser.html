@@ -80,16 +80,14 @@ installing filebrowser. But how to use it?
 </p>
 
 <div class="code-box">
-    <pre><code>
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  {
+    <pre><code><pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  {
     <span class="hljs-attr" style="color: rgb(181, 137, 0);">"port"</span>: <span class="hljs-number" style="color: rgb(42, 161, 152);">8080</span>,
     <span class="hljs-attr" style="color: rgb(181, 137, 0);">"baseURL"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">""</span>,
     <span class="hljs-attr" style="color: rgb(181, 137, 0);">"address"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"000.000.000.000"</span>,
     <span class="hljs-attr" style="color: rgb(181, 137, 0);">"log"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"stdout"</span>,
     <span class="hljs-attr" style="color: rgb(181, 137, 0);">"database"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"/etc/filebrowser.db"</span>,
     <span class="hljs-attr" style="color: rgb(181, 137, 0);">"root"</span>: <span class="hljs-string" style="color: rgb(42, 161, 152);">"/var/www"</span>
-  }</pre>
-</code></pre>
+  }</pre></code></pre>
 </div>
 
 <br>
@@ -102,15 +100,13 @@ installing filebrowser. But how to use it?
 </p>
 
 <div class="code-box">
-    <pre><code>
-  [Unit]
+    <pre><code>  [Unit]
   Description=File Browser
   After=network.target
   [Service]
   ExecStart=/usr/local/bin/filebrowser -c /etc/filebrowser.json
   [Install]
-  WantedBy=multi-user.target
-    </code></pre>
+  WantedBy=multi-user.target</code></pre>
 </div>
 
 <br>
@@ -121,8 +117,7 @@ installing filebrowser. But how to use it?
 </p>
 
 <div class="code-box">
-    <pre><code>
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  #!/bin/bash
+    <pre><code><pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  #!/bin/bash
 
   <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"This script will perform an automatic installation of FileBrowser!"</span>
   <span class="hljs-keyword" style="color: rgb(133, 153, 0);">sleep</span> <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>
@@ -166,8 +161,7 @@ installing filebrowser. But how to use it?
   <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Default Login:"</span>
   <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"User: admin"</span>
   <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Pass: admin"</span>
-  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Please make sure to change the password on your first login!"</span></pre>
-</code></pre>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Please make sure to change the password on your first login!"</span></pre></code></pre>
 </div>
 
 <br>
@@ -178,7 +172,7 @@ installing filebrowser. But how to use it?
 
 <div class="code-box">
     <pre><code>
-  bash example.sh
+  # bash example.sh
     </code></pre>
 </div>
 

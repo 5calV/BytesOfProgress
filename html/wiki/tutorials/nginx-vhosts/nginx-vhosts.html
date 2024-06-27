@@ -88,8 +88,7 @@
 </p>
 
 <div class="code-box">
-    <pre><code>
-server {
+    <pre><code>  server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
@@ -101,8 +100,7 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
-}
-    </code></pre>
+  }</code></pre>
 </div>
 
 <br>
@@ -117,8 +115,7 @@ server {
 </p>
 
 <div class="code-box">
-    <pre><code>
-server {
+    <pre><code>  server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
@@ -130,9 +127,9 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
-}
+  }
 
-server {
+  server {
     listen 8080;
     listen [::]:8080;
 
@@ -144,8 +141,7 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
-}
-    </code></pre>
+  }</code></pre>
 </div>
 
 <br>

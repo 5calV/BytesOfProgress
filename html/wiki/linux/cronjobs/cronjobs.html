@@ -89,8 +89,7 @@
 </p>
 
 <div class="code-box">
-    <pre><code>
-  # /etc/crontab: system-wide crontab
+    <pre><code>  # /etc/crontab: system-wide crontab
   # Unlike any other crontab you don't have to run the 'crontab'
   # command to install the new version when you edit this file
   # and files in /etc/cron.d. These files also have username fields,
@@ -123,8 +122,7 @@
   30 2 * * * root /bin/bash /usr/local/bin/daily_cleanup.sh
 
   # Run the cron job every Sunday at 3:00 AM
-  0 3 * * 0 root /bin/bash /usr/local/bin/weekly_report.sh
-    </code></pre>
+  0 3 * * 0 root /bin/bash /usr/local/bin/weekly_report.sh</code></pre>
 </div>
 
 <br>
@@ -159,8 +157,7 @@
 </p>
 
 <div class="code-box">
-    <pre><code>
-  @hourly /bin/bash /var/www/merge.sh
+    <pre><code>  @hourly /bin/bash /var/www/merge.sh
   
   @daily /bin/bash /var/www/merge.sh
   
@@ -168,8 +165,7 @@
   
   @monthly /bin/bash /var/www/merge.sh
   
-  @yearly /bin/bash /var/www/merge.sh
-    </code></pre>
+  @yearly /bin/bash /var/www/merge.sh</code></pre>
 </div>
 
 <br>

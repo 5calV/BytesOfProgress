@@ -81,13 +81,11 @@
 </p>
 
 <div class="code-box">
-    <pre><code>
-1: lo: LOOPBACK,UP,LOWER_UP mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    <pre><code>1: lo: LOOPBACK,UP,LOWER_UP mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: ens192: BROADCAST,MULTICAST,UP,LOWER_UP mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
     link/ether 00:0c:29:0d:d5:a2 brd ff:ff:ff:ff:ff:ff
-    altname enp11s0
-    </code></pre>
+    altname enp11s0</code></pre>
     </div>
 
 
@@ -104,8 +102,7 @@
 </p>
 
 <div class="code-box">
-    <pre><code>
-# This file describes the network interfaces available on your system
+    <pre><code># This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
 source /etc/network/interfaces.d/*
@@ -122,8 +119,7 @@ iface ens192 inet static
 address YOUR_STATIC_IP
 netmask YOUR_NETMASK
 gateway YOUR_GATEWAY
-dns-nameservers DNS_YOU_WANT_TO_USE
-    </code></pre>
+dns-nameservers DNS_YOU_WANT_TO_USE</code></pre>
     </div>
 
 

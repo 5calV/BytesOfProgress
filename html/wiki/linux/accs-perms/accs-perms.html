@@ -76,7 +76,7 @@
 
 <div class="code-box">
     <pre><code>
-        $ sudo apt install apache2
+  $ sudo apt install apache2
     </code></pre>
 </div>
 
@@ -86,7 +86,7 @@
 
 <div class="code-box">
     <pre><code>
-        $ su
+  $ su
     </code></pre>
 </div>
 
@@ -99,7 +99,7 @@ You can do this by executing the following command:
 </p>
 <div class="code-box">
     <pre><code>
-        $ su -
+  $ su -
     </code></pre>
 </div>
 
@@ -109,7 +109,7 @@ You can do this by executing the following command:
 
 <div class="code-box">
     <pre><code>
-        $ sudo -i
+  $ sudo -i
     </code></pre>
 </div>
 
@@ -119,7 +119,7 @@ You can do this by executing the following command:
 
 <div class="code-box">
     <pre><code>
-        # exit
+  # exit
     </code></pre>
 </div>
 
@@ -132,7 +132,7 @@ You can do this by executing the following command:
 
 <div class="code-box">
     <pre><code>
-        $ su username
+  $ su username
     </code></pre>
 </div>
 
@@ -178,7 +178,7 @@ Administrators can use various commands to manage groups and users effectively:
 
 <div class="code-box">
     <pre><code>
-        # useradd username
+  # useradd username
     </code></pre>
 </div>
 
@@ -188,7 +188,7 @@ Or, to create a new user and also create a home directory for them:
 
 <div class="code-box">
     <pre><code>
-        # useradd -m username
+  # useradd -m username
     </code></pre>
 </div>
 
@@ -198,7 +198,7 @@ Or, to create a new user and also create a home directory for them:
 
 <div class="code-box">
     <pre><code>
-        # userdel username
+  # userdel username
     </code></pre>
 </div>
 
@@ -208,7 +208,7 @@ Or, to create a new user and also create a home directory for them:
 
 <div class="code-box">
     <pre><code>
-        # passwd username
+  # passwd username
     </code></pre>
 </div>
 
@@ -218,7 +218,7 @@ Or, to create a new user and also create a home directory for them:
 
     <div class="code-box">
         <pre><code>
-            # passwd
+  # passwd
         </code></pre>
     </div>
 
@@ -228,7 +228,7 @@ Or, to create a new user and also create a home directory for them:
 
     <div class="code-box">
         <pre><code>
-            # groupadd mygroup
+  # groupadd mygroup
         </code></pre>
     </div>
 
@@ -238,7 +238,7 @@ Or, to create a new user and also create a home directory for them:
 
     <div class="code-box">
         <pre><code>
-            # groupdel mygroup
+  # groupdel mygroup
         </code></pre>
     </div>
 
@@ -248,7 +248,7 @@ Or, to create a new user and also create a home directory for them:
 
     <div class="code-box">
         <pre><code>
-            # usermod -aG mygroup username
+  # usermod -aG mygroup username
         </code></pre>
     </div>
 
@@ -258,7 +258,7 @@ Or, to create a new user and also create a home directory for them:
 
     <div class="code-box">
         <pre><code>
-            # gpasswd -d username mygroup
+  # gpasswd -d username mygroup
         </code></pre>
     </div>
 
@@ -301,7 +301,7 @@ For example, read and write permissions (rw) would be represented by 6 (4 + 2).
 
 <div class="code-box">
     <pre><code>
-        # chmod u=rw filename
+  # chmod u=rw filename
     </code></pre>
 </div>
 
@@ -311,7 +311,7 @@ For example, read and write permissions (rw) would be represented by 6 (4 + 2).
 
 <div class="code-box">
     <pre><code>
-        # chmod 600 filename
+  # chmod 600 filename
     </code></pre>
 </div>
 
@@ -321,7 +321,7 @@ Similarly, you can give read-write permissions to a group by executing this:
 
 <div class="code-box">
     <pre><code>
-        # chmod g=rx filename
+  # chmod g=rx filename
     </code></pre>
 </div>
 
@@ -329,11 +329,11 @@ Similarly, you can give read-write permissions to a group by executing this:
 
 <p>
     We can revoke these permissions by replacing "=" with "-", like this:
-    </p>
+</p>
 
     <div class="code-box">
         <pre><code>
-            # chmod g-rx filename
+  # chmod g-rx filename
         </code></pre>
     </div>
 
