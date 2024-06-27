@@ -57,22 +57,6 @@ echo
 
 #------------------------------------------------------------------------------
 
-echo 'Internet Access Test:'
-
-ping -c 1 1.1.1.1 > /dev/null && echo "Successful!" || echo "Failed!"
-
-echo
-
-#------------------------------------------------------------------------------
-
-echo 'DNS Resolving Test:'
-
-ping -c 1 cloudflare.com > /dev/null && echo "Successful!" || echo "Failed!"
-
-echo
-
-#------------------------------------------------------------------------------
-
 echo "You are logged in as: $(whoami)"
 
 echo
