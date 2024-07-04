@@ -1,0 +1,158 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: PiHole Installation & Local DNS configuration</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+  <button class="toggle-btn-navbar" id="navbarOpenButton">☰</button>
+  <div id="navbarContainer" class="navbar-container">
+      <iframe class="navbar-iframe" src="/assets/navbar/main-navbar.html" frameBorder= "0"></iframe>
+  </div>
+
+  <script src="/assets/navbar/navbar.js"></script>
+
+    <br>
+
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">PiHole Install & Local DNS Config</h1>
+</span>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<p>
+  Pi-hole is a network-wide ad blocker that acts as a DNS sinkhole. 
+  It effectively blocks advertisements and tracking domains for all devices 
+  connected to the network by intercepting DNS requests.
+</p>
+
+<p>
+  Once installed, you configure your router to use Pi-hole as the primary 
+  DNS server, and it begins filtering DNS requests according to its block lists. 
+  Pi-hole provides a web interface for monitoring and managing the DNS requests 
+  and blocked domains.
+</p>
+
+<p>
+  Requirements: A Raspberry Pi with Raspberry Pi OS (Raspbian) or a Debian 
+  PC / VM, root / sudo access, a static local IPv4. Recommendation: Do yourself a favor by using 
+  Ethernet, not WiFi!
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">PiHole Installation</h1>
+</span>
+
+<p>
+  Step 1: Download and execute the install script. If curl is not installed on your system, 
+  you can install it with "sudo apt install curl -y"
+</p>
+
+<div class="code-box">
+<pre><code>
+  $ curl -sSL https://install.pi-hole.net | bash
+</code>
+</pre>
+</div>
+
+<br>
+
+<p>
+  Step 2: Follow the installation wizard: It will ask you if you really have a 
+  static local IPv4, which upstream DNS servers to use, if you want the default 
+  blocklist, if you want to install the webinterface, and if you want detailed 
+  logs.
+</p>
+
+<p>
+  After the webinterface question, it will ask you if you wish to install 
+  the webserver and required PHP modules. Hit yes, otherwise the webinterface 
+  will not work.
+</p>
+
+<p>
+  Step 3: Change the primary DNS of your router to the IP-Address of the PiHole.
+</p>
+
+<p>
+  Step 4: Webinterface Login: After the installation finished, the 
+  webinterface login password is displayed in the terminal. 
+  Make sure to copy this somewhere safe. You can access the webinterface 
+  with "http://ip.address/admin".
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Local DNS Configuration</h1>
+</span>
+
+<img src="localdns.png" style="height: ; max-height: 90%; max-width: 95%; width: 1200px">
+
+<p>
+  In your PiHole Webinterface, navigate to "Local DNS" ---> "DNS Records". 
+  Here you can make DNS Records for IP-Addresses. Make sure that you use something 
+  like ".local as your TLD, not something which exits in the outer internet, to 
+  avoid conflicts. Example:
+</p>
+
+<p>
+  router.homelab.local ---> 192.168.0.1
+</p>
+
+<p>
+  Now you can ping or nslookup the configures domain, to see if the 
+  query is being resolved correctly.
+</p>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<br>
+<hr>
+<br>
+<a href="/wiki/tutorials/tutorials.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
