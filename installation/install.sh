@@ -34,7 +34,7 @@ pip install --break-system-packages  discord.py
 
 systemctl enable unattended-upgrades
 
-usermod -aG sudo bop
+usermod -aG sudo admin
 
 chmod +x /var/www/maintenance/BOP-system-util.sh
 
