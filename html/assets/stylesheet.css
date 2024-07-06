@@ -562,7 +562,7 @@ video {
 
 @keyframes blink-caret {
     50% {
-        border-color: #ff6600; /* Blinkende Farbe (orange) */
+        border-color: #ff6600; /* Blinking caret */
     }
 }
 
@@ -918,7 +918,6 @@ video {
 
 .navbar-body {
     background-color: #212121;
-    /*overflow-y: scroll;*/
     overflow-x: hidden;
 }
 
@@ -940,7 +939,6 @@ video {
 .navbar-open {
     width: 475px;
     background-color: #212121;
-    /* Do not touch this overflow! */
     overflow-y: hidden;
     overflow-x: hidden;
     border-left: none;
