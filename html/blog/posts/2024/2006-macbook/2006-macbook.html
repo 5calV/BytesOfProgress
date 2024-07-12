@@ -72,6 +72,7 @@
 <p>
   Essentially I had to boot to a shell by pressing "Command"+"S" right after 
   pressing the power button. There I entered the following commands:
+  This is the hardware configuration of mine:
 </p>
 
 <br>
@@ -81,10 +82,127 @@
   # launchctl load /System/Library/LaunchDaemons/com.apple.DirectoryServices.plist
   # ls /Users
   # dscl . -passwd /Users/username password
-  # reboot</pre>
+  # reboot</code></pre>
 </div>
 
 <br>
+
+<p>
+  This is the hardware configuration of mine:
+</p>
+
+<br>
+
+<img src="config.jpg"/>
+
+<br><br>
+
+<p>
+  What I did now was upgrading the MacBook with an SSD:
+</p>
+
+<p>
+  I did this by removing the battery first, and then removing 3 screws:
+</p>
+
+<br>
+
+<img src="ram-ssd-1.jpg" style="height: ; max-height: 90%; max-width: 95%; width:1000px">
+
+<br><br>
+
+<p>
+  After removing these 3 screws, I was able to remove the cover of 
+  the RAM and HDD:
+</p>
+
+<br>
+
+<img src="ram-ssd-2.jpg" style="height: ; max-height: 90%; max-width: 95%; width:1000px">
+
+<br><br>
+
+<p>
+  I pulled out the HDD by the white paper sticking on the bracket. Then I 
+  screwed in the new SSD and closed the MacBook again.
+</p>
+
+<p>
+  Then I had to figure out installing a supported version of OSX / MacOS on 
+  the SSD. This did require some research, seems like it is not easy to 
+  get your hands on a working OSX installation. After 2 days of research 
+  someone linked me a (totally legit installation) working raw hard disk 
+  image of their Mac OS X Snow Leopard (10.6) installation. I just had to 
+  flash it with 
+  <a class="text-link" href="https://etcher.balena.io/" target="_blank">Balena Etcher</a> 
+  and boot the MacBook from the USB using the "Option" / "Alt" key right 
+  after pressing the power button and then select the right media in the boot menu:
+</p>
+
+<br>
+
+<img src="installation-01.jpg"/>
+
+<br><br>
+
+<p>
+  I then was greeted by the OSX installer:
+</p>
+
+<br>
+
+<img src="installation-02.jpg" style="height: ; max-height: 90%; max-width: 95%; width:1000px">
+
+<br><br>
+
+<p>
+  The installer did not immediatly recognize the newly built-in SSD, but that 
+  was just a little filesystem issue: I just had to go to 
+  "Utilities ----> Disk Utility" and reformat, or erase, the SSD to 
+  a filesystem which is supported by Mac:
+</p>
+
+<br>
+
+<img src="installation-03.jpg" style="height: ; max-height: 90%; max-width: 95%; width:1000px">
+
+<br><br>
+
+<p>
+  After that, the SSD was recognized just fine by the installer:
+</p>
+
+<br>
+
+<img src="installation-04.jpg" style="height: ; max-height: 90%; max-width: 95%; width:1000px">
+
+<br><br>
+
+<p>
+  The installer worked without any issues, until a reboot which is 
+  performed by the installer automatically: It rebooted and then guided me 
+  through the first time setup wizard of OSX. One issue I had, was that 
+  the installer got stuck while creating the local user account. 
+  That was easily solved by not establishing an internet connection 
+  during the setup process.
+</p>
+
+<p>
+  The installation and setup succeeded!
+</p>
+
+<br>
+
+<img src="installed.jpg" style="height: ; max-height: 90%; max-width: 95%; width:1000px">
+
+<br><br>
+
+
+
+
+
+
+
 
 
 
