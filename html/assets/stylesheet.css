@@ -43,14 +43,20 @@ img {
 }
 
 .videodiv {
-  width: 100%;
-  max-height: 70%
+  width: 1000px;
+  max-width: 95%;
+  margin: 0 auto;
+  border: 3px solid #ff6600;
+  border-radius: 10px;
 }
 
 video {
-  max-height: auto;
-  width: 1000px;
-  max-width: 95%;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  background-color: #000;
+  outline: none;
+  border-radius: 7px;
 }
 
 .console-post {  
