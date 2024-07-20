@@ -141,6 +141,35 @@
   query is being resolved correctly.
 </p>
 
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Whitelist & Blacklist</h1>
+</span>
+
+<p>
+  If your Pihole blocks queries you do not want to be blocked, you can 
+  whitelist it in "Domains". This also works the other way around: 
+  You can let your Pihole block certain domains by blacklisting them. 
+  This works for both root domains and specific subdomains. You can 
+  also add domains to the list as "wildcard": This includes the 
+  root domain and any subdomains.
+</p>
+
+<br>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Adding Adlists</h1>
+</span>
+
+<p>
+  To add more adlists, navigate to "Adlists" and paste the link of your 
+  chosen list. Then click on "Add". After that run "pihole -g" in the command 
+  line of the pihole or navigate to "Tools ---> Update Gravity". 
+  The gravity update is needed for the pihole to pull the domains 
+  of the newly added lists.
+</p>
+
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
 <br>
