@@ -994,19 +994,19 @@ video {
 }
 
 .navbar-item.level-2 {
-    margin-left: 60px;
+    margin-left: 40px;
 }
 
 .navbar-item.level-3 {
-    margin-left: 80px;
+    margin-left: 60px;
 }
 
 .navbar-item.level-4 {
-    margin-left: 100px;
+    margin-left: 80px;
 }
 
 .navbar-item.level-5 {
-    margin-left: 120px;
+    margin-left: 100px;
 }
 
 /*----------------------------------------------------------------------------------------------------------*/
