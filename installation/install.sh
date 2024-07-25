@@ -40,6 +40,12 @@ chmod +x /var/www/maintenance/BOP-system-util.sh
 
 #------------------------------------------------------------------------------
 
+ufw allow 22
+ufw allow 80
+ufw allow 8080
+
+#------------------------------------------------------------------------------
+
 rm /etc/nginx/sites-available/default
 
 cp /var/www/installation/default /etc/nginx/sites-available/default
@@ -83,6 +89,12 @@ cat /var/BOP-secrets/discordbot/DC-BOT-Token.txt >> /var/BOP-discord/BOP-BOT.py
 #------------------------------------------------------------------------------
 
 crontab /var/www/installation/cronjob
+
+#------------------------------------------------------------------------------
+
+rm /etc/motd
+
+mv /var/www/installation/motd /etc/motd
 
 #------------------------------------------------------------------------------
 
