@@ -29,10 +29,6 @@ apt install iftop -y
 apt install apt-transport-https -y
 apt install gpg -y
 
-apt install shellinabox -y
-apt install apache2 -y
-apt install apache2-utils -y
-
 apt install python3-pip -y
 pip install --break-system-packages  discord.py
 
@@ -99,59 +95,6 @@ crontab /var/www/installation/cronjob
 rm /etc/motd
 
 mv /var/www/installation/motd /etc/motd
-
-#------------------------------------------------------------------------------
-
-# Admin Panel Config
-
-rm /etc/apache2/ports.conf
-
-mv /var/www/installation/ports.conf /etc/apache2/ports.conf
-
-rm /etc/apache2/sites-available/000-default.conf
-
-mv /var/www/installation/000-default.conf /etc/apache2/sites-available/000-default.conf
-
-a2enmod cgi
-
-a2enconf serve-cgi-bin
-
-systemctl restart apache2
-
-mkdir /var/www/management
-
-mv /var/www/maintenance/admin-panel/* /var/www/management
-
-rm /etc/apache2/conf-available/serve-cgi-bin.conf
-
-mv /var/www/installation/serve-cgi-bin.conf /etc/apache2/conf-available/serve-cgi-bin.conf
-
-read -p "Enter a username for the admin-panel: " username
-sudo htpasswd -c /etc/apache2/.htpasswd "$username"
-
-systemctl restart apache2
-
-chmod +x /var/www/management/cgi-bin/monitoring.sh
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #------------------------------------------------------------------------------
 
