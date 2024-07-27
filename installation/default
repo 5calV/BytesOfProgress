@@ -25,7 +25,7 @@ server {
     server_name admin-panel;
 
     root /var/www/management;
-    panel.html;
+    index panel.html;
 
     location / {
         auth_basic "Restricted Content";

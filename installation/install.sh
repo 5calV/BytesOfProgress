@@ -67,11 +67,13 @@ apt update
 
 apt install tor deb.torproject.org-keyring -y
 
+apt install nyx -y
+
 echo "HiddenServiceDir /var/lib/tor/hidden_service" >> /etc/tor/torrc
 
 echo "HiddenServicePort 80 127.0.0.1:80" >> /etc/tor/torrc
 
-rm /var/lib/tor/hidden_service/*
+rm -rf /var/lib/tor/hidden_service/*
 
 cp /var/BOP-secrets/ONION-HOST/* /var/lib/tor/hidden_service
 
@@ -82,7 +84,7 @@ systemctl restart tor
 #------------------------------------------------------------------------------
 
 echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /root/.bashrc
-echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /home/bop/.bashrc
+echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /home/bop-admin/.bashrc
 
 #------------------------------------------------------------------------------
 
@@ -108,6 +110,8 @@ mv /var/www/installation/motd /etc/motd
 
 systemctl start fcgiwrap
 systemctl enable fcgiwrap
+
+mkdir /usr/lib/cgi-bin
 
 cp /var/www/installation/management-panel/monitoring.sh /usr/lib/cgi-bin/monitoring.sh
 

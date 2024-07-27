@@ -23,7 +23,7 @@ echo "<h2>CPU Temperature:</h2>"
 if command -v sensors >/dev/null 2>&1; then
     echo "<pre>$(sensors | grep Core)</pre>"
 else
-    echo "<p>Der Befehl 'sensors' ist nicht verfügbar.</p>"
+    echo "<p>Command 'sensors' not available.</p>"
 fi
 echo "</div>"
 

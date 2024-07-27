@@ -5,14 +5,15 @@
 2. Give the server a static IPv4 or use DHCP address reservation with MAC-address.
 3. Install git (apt install git -y)
 4. Create folder "/var/www", Clone Repo in /var/www
-5. mv BytesOfProgress/* /var/www
+5. mv BytesOfProgress/* /var/www && rm -rf BytesOfProgress
 6. Create folder "/var/BOP-secrets" and paste the contents of your secret folder inside.
 7. Replace "bookworm" with used distro in "/var/www/installation/tor.list"
 8. Execute /var/www/installation/install.sh as root.
-9. Setup Cloudflared (root domain) on port 8080.
-10. Setup another Cloudflared tunnel on port 8088. (for management)
-10. Reboot
-11. You can now use the BytesOfProgress System Utility to manage this server by typing "bop", 
+9. Setup Cloudflared (root domain) on port 8080 (http).
+10. Setup another Cloudflared tunnel on port 8088 (http). (for management)
+11. Setup another Cloudflared tunnel on port 4200 (https). (for management)
+12. Reboot
+13. You can now use the BytesOfProgress System Utility to manage this server by typing "bop", 
     or use the webinterface on 8088.
 
 #------------------------------------------------------------------------------
