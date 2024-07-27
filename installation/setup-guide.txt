@@ -10,8 +10,9 @@
 7. Replace "bookworm" with used distro in "/var/www/installation/tor.list"
 8. Execute /var/www/installation/install.sh as root.
 9. Setup Cloudflared (root domain) on port 8080.
-10. Setup another Cloudflared tunnel on port 9090. (For management). (NOT YET)
+10. Setup another Cloudflared tunnel on port 8088. (for management)
 10. Reboot
-11. You can now use the BytesOfProgress System Utility to manage this server by typing "bop".
+11. You can now use the BytesOfProgress System Utility to manage this server by typing "bop", 
+    or use the webinterface on 8088.
 
 #------------------------------------------------------------------------------

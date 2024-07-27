@@ -29,6 +29,10 @@ apt install iftop -y
 apt install apt-transport-https -y
 apt install gpg -y
 
+apt install shellinabox -y
+apt install fcgiwrap -y
+apt install apache2-utils -y
+
 apt install python3-pip -y
 pip install --break-system-packages  discord.py
 
@@ -43,6 +47,8 @@ chmod +x /var/www/maintenance/BOP-system-util.sh
 ufw allow 22
 ufw allow 80
 ufw allow 8080
+ufw allow 8088
+ufw allow 4200
 
 #------------------------------------------------------------------------------
 
@@ -95,6 +101,29 @@ crontab /var/www/installation/cronjob
 rm /etc/motd
 
 mv /var/www/installation/motd /etc/motd
+
+#------------------------------------------------------------------------------
+
+# Management panel
+
+systemctl start fcgiwrap
+systemctl enable fcgiwrap
+
+cp /var/www/installation/management-panel/monitoring.sh /usr/lib/cgi-bin/monitoring.sh
+
+chmod +x /usr/lib/cgi-bin/monitoring.sh
+
+mkdir /var/www/management
+
+cp /var/www/installation/management-panel/panel.html /var/www/management/panel.html
+
+chmod +x /usr/lib/cgi-bin/monitoring.sh
+
+read -p "Enter username for web admin panel: " username
+
+sudo htpasswd -c /etc/nginx/.htpasswd $username
+
+systemctl restart nginx
 
 #------------------------------------------------------------------------------
 
