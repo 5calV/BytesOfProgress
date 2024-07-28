@@ -74,8 +74,6 @@ rm /etc/motd
 
 mv /var/www/installation/motd /etc/motd
 
-#------------------------------------------------------------------------------
-
 # Management panel
 
 systemctl start fcgiwrap

@@ -81,11 +81,11 @@ echo '05: Test Internet Connectivity'
 echo '06: Test DNS Resolving'
 echo '07: Restart Networking ( root only )'
 echo '08: Update OS ( root only )'
-echo '9: Start HTOP'
+echo '09: Start HTOP'
 echo '10: Start IFTOP'
 
-echo '12: Restart Utility as root'
-echo '13: Exit to Shell'
+echo '11: Restart Utility as root'
+echo '12: Exit to Shell'
 
 echo
 echo '-------------------------------------------------------------------------'
