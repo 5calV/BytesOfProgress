@@ -39,6 +39,10 @@ usermod -aG sudo bop-admin
 
 chmod +x /var/www/maintenance/BOP-system-util.sh
 
+rm -rf /var/www/html
+
+mkdir /var/www/html
+
 #------------------------------------------------------------------------------
 
 ufw allow 22
