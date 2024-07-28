@@ -75,21 +75,17 @@ echo
 
 echo '01: Pull updates from BOP-Repository on GitHub ( root only )'
 echo '02: Restart Nginx ( root only )'
-echo '03: Restart TOR ( root only )'
-echo '04: Restart Cloudflared ( root only )'
-echo '05: Reboot ( root only )'
-echo '06: Test Internet Connectivity'
-echo '07: Test DNS Resolving'
-echo '08: Restart Networking ( root only )'
-echo '09: Update OS ( root only )'
-echo '10: Start HTOP'
-echo '11: Start IFTOP'
-echo '12: Start NYX ( root only )'
-echo '13: Restart BOP Discord Bot ( root only )'
-echo '14: Update BOP Discord Bot ( root only )'
+echo '03: Restart Cloudflared ( root only )'
+echo '04: Reboot ( root only )'
+echo '05: Test Internet Connectivity'
+echo '06: Test DNS Resolving'
+echo '07: Restart Networking ( root only )'
+echo '08: Update OS ( root only )'
+echo '9: Start HTOP'
+echo '10: Start IFTOP'
 
-echo '15: Restart Utility as root'
-echo '16: Exit to Shell'
+echo '12: Restart Utility as root'
+echo '13: Exit to Shell'
 
 echo
 echo '-------------------------------------------------------------------------'
@@ -101,6 +97,7 @@ echo -e "What would you like to do? \n"
 read -r action
 
 #------------------------------------------------------------------------------
+
 if [ "$action" = 1 ]; then
     bash /var/www/updates/merge.sh && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
@@ -108,40 +105,29 @@ elif [ "$action" = 2 ]; then
     systemctl restart nginx | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 3 ]; then
-    systemctl restart tor | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
-
-elif [ "$action" = 4 ]; then
     systemctl restart cloudflared | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
-elif [ "$action" = 5 ]; then
+elif [ "$action" = 4 ]; then
     reboot
 
-elif [ "$action" = 6 ]; then
+elif [ "$action" = 5 ]; then
     ping -c 1 1.1.1.1 > /dev/null && echo "Successful!" || echo -e "Failed!\n" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
-elif [ "$action" = 7 ]; then
+elif [ "$action" = 6 ]; then
     ping -c 1 cloudflare.com > /dev/null && echo "Successful!" || echo -e "Failed!\n" && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
-elif [ "$action" = 8 ]; then
+elif [ "$action" = 7 ]; then
     systemctl restart networking | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
-elif [ "$action" = 9 ]; then
+elif [ "$action" = 8 ]; then
     echo 'Starting Update' && apt update && apt full-upgrade -y && apt autoremove -y && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
-elif [ "$action" = 10 ]; then
+elif [ "$action" = 9 ]; then
     htop && bash /var/www/maintenance/BOP-system-util.sh
 
-elif [ "$action" = 11 ]; then
+elif [ "$action" = 10 ]; then
     iftop && bash /var/www/maintenance/BOP-system-util.sh
 
-elif [ "$action" = 12 ]; then
-    nyx && bash /var/www/maintenance/BOP-system-util.sh
-
-elif [ "$action" = 13 ]; then
-  bash /var/www/discord-bot/restart-bot.sh & bash /var/www/maintenance/BOP-system-util.sh
-
-elif [ "$action" = 14 ]; then
-  bash /var/www/updates/dc-bot-update.sh && bash /var/www/maintenance/BOP-system-util.sh
 
 
 
@@ -154,10 +140,10 @@ elif [ "$action" = 14 ]; then
 
 
 
-elif [ "$action" = 15 ]; then
+elif [ "$action" = 11 ]; then
   su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
 
-elif [ "$action" = 16 ]; then
+elif [ "$action" = 12 ]; then
     bash
 
 else
