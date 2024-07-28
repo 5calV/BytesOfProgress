@@ -33,9 +33,6 @@ apt install shellinabox -y
 apt install fcgiwrap -y
 apt install apache2-utils -y
 
-apt install python3-pip -y
-pip install --break-system-packages  discord.py
-
 systemctl enable unattended-upgrades
 
 usermod -aG sudo bop-admin
