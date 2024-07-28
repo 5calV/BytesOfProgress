@@ -46,7 +46,6 @@ chmod +x /var/www/maintenance/BOP-system-util.sh
 
 ufw allow 22
 ufw allow 80
-ufw allow 8080
 ufw allow 8088
 ufw allow 4200
 
@@ -59,40 +58,10 @@ cp /var/www/installation/default /etc/nginx/sites-enabled/default
 
 systemctl restart nginx
 
-mv  /var/www/installation/tor.list /etc/apt/sources.list.d/tor.list
-
-wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --dearmor | tee /usr/share/keyrings/tor-archive-keyring.gpg >/dev/null
-
-apt update
-
-apt install tor deb.torproject.org-keyring -y
-
-apt install nyx -y
-
-echo "HiddenServiceDir /var/lib/tor/hidden_service" >> /etc/tor/torrc
-
-echo "HiddenServicePort 80 127.0.0.1:80" >> /etc/tor/torrc
-
-rm -rf /var/lib/tor/hidden_service/*
-
-cp /var/BOP-secrets/ONION-HOST/* /var/lib/tor/hidden_service
-
-systemctl enable tor
-
-systemctl restart tor
-
 #------------------------------------------------------------------------------
 
 echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /root/.bashrc
 echo "alias bop='bash /var/www/maintenance/BOP-system-util.sh'" >> /home/bop-admin/.bashrc
-
-#------------------------------------------------------------------------------
-
-mkdir /var/BOP-discord
-
-mv /var/www/discord-bot/BOP-BOT.py /var/BOP-discord/BOP-BOT.py
-
-cat /var/BOP-secrets/discordbot/DC-BOT-Token.txt >> /var/BOP-discord/BOP-BOT.py
 
 #------------------------------------------------------------------------------
 
@@ -134,4 +103,5 @@ systemctl restart nginx
 echo "DONE!"
 
 echo "It is recommended to perform a reboot!"
-echo "After rebooting you will be able to use the BytesOfProgress System Utility by executing the command: bop"
+echo "After rebooting you will be able to use the BytesOfProgress System Utility by executing the command: bop, or use the admin panel on 8088."
+
