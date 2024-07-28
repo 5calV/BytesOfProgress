@@ -11,6 +11,10 @@ echo "Replacing the old website files..."
 
 mv /var/www/BytesOfProgress/* /var/www/
 
+mkdir /var/www/management
+
+cp /var/www/installation/management-panel/* /var/www/management/
+
 echo "Removing repository"
 rm -rf /var/www/BytesOfProgress
 

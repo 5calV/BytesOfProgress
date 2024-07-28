@@ -89,7 +89,7 @@ chmod +x /usr/lib/cgi-bin/monitoring.sh
 
 mkdir /var/www/management
 
-cp /var/www/installation/management-panel/panel.html /var/www/management/panel.html
+cp /var/www/installation/management-panel/* /var/www/management/
 
 chmod +x /usr/lib/cgi-bin/monitoring.sh
 
