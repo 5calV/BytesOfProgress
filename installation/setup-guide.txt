@@ -6,10 +6,7 @@
 3. Install git (apt install git -y)
 4. Create folder "/var/www", Clone Repo in /var/www
 5. mv /var/www/BytesOfProgress/* /var/www && rm -rf /var/www/BytesOfProgress
-mv /var/www/BytesOfProgress/* /var/www/
 
-
-rm -rf /var/www/BytesOfProgress
 
 8. Execute /var/www/installation/install.sh as root.
 9. Setup Cloudflared (root domain) on port 8080 (http).
