@@ -12,9 +12,3 @@ I also try to provide as much information as possible for other people who want 
 ## Updates
 
 The changes made in this repository get published automatically at midnight (CET, German Time).
-
-## Discord Bot
-
-Get information on the BOP Discord Bot and add it to your server here:
-
-https://bytesofprogress.io/blog/posts/2024/discord-bot/discord-bot.html
