@@ -21,7 +21,7 @@ echo "<body>"
 echo "<div class='section'>"
 echo "<h2>CPU Temperature:</h2>"
 if command -v sensors >/dev/null 2>&1; then
-  echo "<pre>$sensors | grep Core | awk '{print $1, $2, $3}'</pre>"
+  echo "<pre>$(sensors | grep Core | awk '{print $1, $2, $3}')</pre>"
 else
     echo "<p>Command 'sensors' not available.</p>"
 fi
