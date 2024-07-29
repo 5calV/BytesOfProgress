@@ -7,10 +7,6 @@ git clone https://github.com/5calV/BytesOfProgress
 
 mv BytesOfProgress /var/www
 
-rm /usr/lib/cgi-bin/monitoring.sh
-
-mv /var/www/installation/management-panel/monitoring.sh /usr/lib/cgi-bin/monitoring.sh
-
 echo "Replacing the old website files..."
 
 mv /var/www/BytesOfProgress/* /var/www/
