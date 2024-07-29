@@ -34,7 +34,7 @@ sleep 1
 
 echo 'CPU Temperature:'
 
-sensors | grep Core
+sensors | grep Core | awk '{print $1, $2, $3}'
 
 echo
 
