@@ -59,7 +59,7 @@ video {
   border-radius: 7px;
 }
 
-.console-post {  
+.console-post {
     width: 500px;
     min-width: 35%;
     max-width: 90%;
@@ -161,7 +161,7 @@ video {
   max-width: 90%;
   margin: 0 auto;
   overflow: hidden;
-  overflow-x: scroll;
+  /*overflow-x: scroll;*/
   border-style: solid;
   border-color: #ff6600;
   border-width: 2px;
