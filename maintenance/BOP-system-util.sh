@@ -40,9 +40,7 @@ echo
 
 #------------------------------------------------------------------------------
 
-echo 'CPU Usage:'
-
-awk 'BEGIN {print "Core CPU Usage:"}
+awk 'BEGIN {print "CPU Usage:"}
   /^cpu[0-9]+/ {
     idle[$1]=$5;
     total[$1]=$2+$3+$4+$5+$6;
