@@ -30,7 +30,7 @@ echo "</div>"
 # CPU Usage
 echo "<div class='section'>"
 echo "<h2>CPU Usage:</h2>"
-echo "<pre>$(grep -E '^cpu[0-9]+ ' /proc/stat | awk 'NR <= 2 {usage=($2+$4)*100/($2+$4+$5+$6)} {print "Core " NR-1 ": " usage "%"}')</pre>"
+echo "<pre>$(grep -E '^cpu[0-9]+ ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5+$6); print "Core " NR-1 ": " usage "%"}')</pre>"
 echo "</div>"
 
 # RAM Usage
