@@ -7,13 +7,13 @@ echo "<html lang=\"de\">"
 echo "<head>"
 echo "  <meta charset=\"UTF-8\">"
 echo "  <title>BOP Admin Panel</title>"
-echo "    <link rel=\"icon\" type=\"image/x-icon\" href=\"/assets/favicon.png\">"
-echo "    <style>"
-echo "        body { font-family: Arial, sans-serif; color: #ffffff; background-color: #000000; }"
-echo "        .section { margin-bottom: 20px; }"
-echo "        .section h2 { margin: 0; }"
-echo "        pre { color: #ffffff; }"
-echo "    </style>"
+echo "  <link rel=\"icon\" type=\"image/x-icon\" href=\"/assets/favicon.png\">"
+echo "  <style>"
+echo "    body { font-family: Arial, sans-serif; color: #ffffff; background-color: #000000; }"
+echo "    .section { margin-bottom: 20px; }"
+echo "    .section h2 { margin: 0; }"
+echo "    pre { color: #ffffff; font-size: 14px; white-space: pre-wrap; }"
+echo "  </style>"
 echo "</head>"
 echo "<body>"
 
@@ -23,14 +23,41 @@ echo "<h2>CPU Temperature:</h2>"
 if command -v sensors >/dev/null 2>&1; then
   echo "<pre>$(sensors | grep Core | awk '{print $1, $2, $3}')</pre>"
 else
-    echo "<p>Command 'sensors' not available.</p>"
+  echo "<p>Command 'sensors' not available.</p>"
 fi
 echo "</div>"
 
 # CPU Usage
 echo "<div class='section'>"
 echo "<h2>CPU Usage:</h2>"
-echo "<pre>$(grep -E '^cpu[0-9]+ ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5+$6); print "Core " NR-1 ": " usage "%"}')</pre>"
+echo "<pre>"
+(
+  # First measurement
+  awk '/^cpu[0-9]+/ {print $1, $2+$3+$4+$5+$6, $5}' /proc/stat > /tmp/stat1
+  sleep 1
+  # Second measurement
+  awk '/^cpu[0-9]+/ {print $1, $2+$3+$4+$5+$6, $5}' /proc/stat > /tmp/stat2
+
+  # Calculation & Output
+  awk '
+    NR==FNR {
+      idle_before[$1]=$3
+      total_before[$1]=$2
+      next
+    }
+    /^cpu[0-9]+/ {
+      idle[$1]=$3
+      total[$1]=$2
+      if (length(idle_before[$1])) {
+        idle_diff = idle[$1] - idle_before[$1]
+        total_diff = total[$1] - total_before[$1]
+        usage = (total_diff > 0) ? (100 * (1 - (idle_diff / total_diff))) : 0
+        core = substr($1, 4)
+        printf "Core %d: %.1f%%\n", core, usage
+      }
+    }' /tmp/stat1 /tmp/stat2
+)
+echo "</pre>"
 echo "</div>"
 
 # RAM Usage
@@ -50,3 +77,6 @@ echo "</div>"
 
 echo "</body>"
 echo "</html>"
+
+# Removing temporary files.
+rm /tmp/stat1 /tmp/stat2
