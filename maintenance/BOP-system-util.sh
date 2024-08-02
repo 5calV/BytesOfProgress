@@ -42,7 +42,22 @@ echo
 
 echo 'CPU Usage:'
 
-grep -E '^cpu[0-9]+ ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5+$6); print "Core " NR-1 ": " usage "%"}'
+awk 'BEGIN {print "Core CPU Usage:"}
+  /^cpu[0-9]+/ {
+    idle[$1]=$5;
+    total[$1]=$2+$3+$4+$5+$6;
+    if (NR==FNR) {
+      idle_before[$1]=idle[$1];
+      total_before[$1]=total[$1];
+      next;
+    }
+    idle_diff = idle[$1] - idle_before[$1];
+    total_diff = total[$1] - total_before[$1];
+    usage = (total_diff > 0) ? (100 * (1 - (idle_diff / total_diff))) : 0;
+    core = substr($1, 4);
+    printf "Core %d: %.1f%%\n", core, usage;
+  }' /proc/stat <(sleep 1; cat /proc/stat)
+
 
 echo
 
