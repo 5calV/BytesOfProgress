@@ -47,6 +47,7 @@ mkdir /var/www/html
 
 ufw allow 22
 ufw allow 80
+ufw allow 8080
 ufw allow 8088
 ufw allow 4200
 
@@ -74,6 +75,8 @@ rm /etc/motd
 
 mv /var/www/installation/motd /etc/motd
 
+#------------------------------------------------------------------------------
+
 # Management panel
 
 systemctl start fcgiwrap
@@ -96,6 +99,34 @@ read -p "Enter username for web admin panel: " username
 sudo htpasswd -c /etc/nginx/.htpasswd $username
 
 systemctl restart nginx
+
+#------------------------------------------------------------------------------
+
+# Onion mirror
+
+mv /var/www/installation/tor.list /etc/apt/sources.list.d/tor.list
+
+wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --dearmor | tee /usr/share/keyrings/tor-archive-keyring.gpg >/dev/null
+
+apt update
+
+apt install tor deb.torproject.org-keyring -y
+
+systemctl restart tor
+
+apt install nyx -y
+
+echo "HiddenServiceDir /var/lib/tor/hidden_service" >> /etc/tor/torrc
+
+echo "HiddenServicePort 80 127.0.0.1:80" >> /etc/tor/torrc
+
+rm -rf /var/lib/tor/hidden_service/*
+
+cp /var/BOP-secrets/ONION-HOST/* /var/lib/tor/hidden_service
+
+systemctl enable tor
+
+systemctl restart tor
 
 #------------------------------------------------------------------------------
 

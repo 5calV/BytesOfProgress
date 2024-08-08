@@ -6,13 +6,16 @@
 3. Install git (apt install git -y)
 4. Create folder "/var/www", Clone Repo in /var/www
 5. rm -rf /var/www/html && mv /var/www/BytesOfProgress/* /var/www && rm -rf /var/www/BytesOfProgress
-6. Execute /var/www/installation/install.sh as root.
-7. Setup Cloudflared (root domain) on port 8080 (http).
-8. Setup another Cloudflared tunnel on port 8088 (http). (for management)
-9. Setup another Cloudflared tunnel on port 4200 (https). (for management)
-10. Reboot
-11. You can now use the BytesOfProgress System Utility to manage this server by typing "bop", 
+6. Replace "bookworm" in tor.list with your distro's version name.
+7. mkdir /var/BOP-secrets
+8. Copy "ONION-HOST" from the USB to /var/BOP-secrets/
+9. Execute /var/www/installation/install.sh as root.
+10. Setup Cloudflared (root domain) on port 8080 (http).
+11. Setup another Cloudflared tunnel on port 8088 (http). (for management)
+12. Setup another Cloudflared tunnel on port 4200 (https). (for management)
+13. Reboot
+14. You can now use the BytesOfProgress System Utility to manage this server by typing "bop", 
     or use the webinterface on 8088.
-12. Perform an update using the System Utility
+15. Perform an update using the System Utility
 
 #------------------------------------------------------------------------------
