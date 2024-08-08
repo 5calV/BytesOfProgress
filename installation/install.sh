@@ -128,6 +128,8 @@ systemctl enable tor
 
 systemctl restart tor
 
+systemctl restart nginx
+
 #------------------------------------------------------------------------------
 
 echo "DONE!"

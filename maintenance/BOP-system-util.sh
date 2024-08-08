@@ -96,9 +96,11 @@ echo '07: Restart Networking ( root only )'
 echo '08: Update OS ( root only )'
 echo '09: Start HTOP'
 echo '10: Start IFTOP'
+echo '11: Restart TOR'
+echo '12: Start Nyx'
 
-echo '11: Restart Utility as root'
-echo '12: Exit to Shell'
+echo '13: Restart Utility as root'
+echo '14: Exit to Shell'
 
 echo
 echo '-------------------------------------------------------------------------'
@@ -141,22 +143,30 @@ elif [ "$action" = 9 ]; then
 elif [ "$action" = 10 ]; then
     iftop && bash /var/www/maintenance/BOP-system-util.sh
 
-
-
-
-
-
-
-
-
-
-
-
-
 elif [ "$action" = 11 ]; then
-  su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+    systemctl restart tor && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 12 ]; then
+    nyx && bash /var/www/maintenance/BOP-system-util.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+elif [ "$action" = 13 ]; then
+  su -c "/bin/bash /var/www/maintenance/BOP-system-util.sh"
+
+elif [ "$action" = 14 ]; then
     bash
 
 else
