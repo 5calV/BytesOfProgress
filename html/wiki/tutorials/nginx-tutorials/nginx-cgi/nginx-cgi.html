@@ -175,8 +175,23 @@ rm /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>
 <p>
   This example script monitors the uptime and RAM usage of the server. 
   Of course you can use any kind of script you wish, as long as it uses 
-  these HTML/BASH mixure.
+  these HTML/BASH mixure. IMPORTANT: You have these two lines in the beginning, 
+  otherwise it will not  work:
 </p>
+
+<div class="code-box">
+    <pre><code>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Content-Type: text/html"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">""</span>
+    </code></pre>
+</div>
+
+
+
+
+
+
+
 
 <p>
   Step 4: Start & enable the fastcgi system service:
