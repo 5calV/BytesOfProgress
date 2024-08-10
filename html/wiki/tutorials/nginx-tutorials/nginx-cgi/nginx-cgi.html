@@ -1,0 +1,246 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: Nginx Execute BASH Scripts (CGI) & HTMX updates</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+  <button class="toggle-btn-navbar" id="navbarOpenButton">☰</button>
+  <div id="navbarContainer" class="navbar-container">
+      <iframe class="navbar-iframe" src="/assets/navbar/main-navbar.html" frameBorder= "0"></iframe>
+  </div>
+
+  <script src="/assets/navbar/navbar.js"></script>
+
+    <br>
+
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">Execute BASH Scripts (CGI) & HTMX updates</h1>
+</span>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<p>
+  In this guide we will set up a way to execute BASH scripts with Nginx & fastcgi. 
+  After that we will make it update itself without reloading the page by using HTMX.
+</p>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Setting it up</h1>
+</span>
+
+<p>
+  This method is tested on Debian 12.
+</p>
+
+<p>
+  Step 1: Install nginx and fastcgi
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # apt install nginx fcgiwrap -y
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  Step 2: Modify your server config file. Ussually it is located at "/etc/nginx/sites-available/default".
+</p>
+
+<br>
+
+<div class="code-box">
+    <pre><code>  server {
+      listen 8088;
+      server_name NAME;
+
+      root /var/www/html;
+      index index.html;
+          
+      location /cgi-bin/ {
+          alias /usr/lib/cgi-bin/; # Default path for cgi scripts.
+          fastcgi_pass unix:/var/run/fcgiwrap.socket;
+          include fastcgi_params;
+          fastcgi_param SCRIPT_FILENAME /usr/lib$fastcgi_script_name;
+      }
+  }</code></pre>
+</div>
+
+<br>
+
+<p>
+  After that, test the nginx config with "# nginx -t". On success, restart the 
+  nginx system service with "# systemctl restart nginx"
+</p>
+
+<p>
+  Step 3: Now we write our BASH script: We create a file in "/usr/lib/cgi-bin". 
+  If the directory does not exist yet, create it with mkdir. 
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # nano /usr/lib/cgi-bin/script.sh
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  In there you can bash-echo your HTML or simply write commands that provide an output.
+</p>
+
+<br>
+
+<div class="code-box">
+  <pre><code><pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-meta" style="color: rgb(203, 75, 22);">#!/bin/sh
+</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Content-Type: text/html"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">""</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;!DOCTYPE html&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;html lang=\"de\"&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;head&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;meta charset=\"UTF-8\"&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;title&gt;Monitoringl&lt;/title&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;link rel=\"icon\" type=\"image/x-icon\" href=\"/assets/favicon.png\"&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;style&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"    body { font-family: Arial, sans-serif; color: #ffffff; background-color: #000000; }"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"    .section { margin-bottom: 20px; }"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"    .section h2 { margin: 0; }"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"    pre { color: #ffffff; font-size: 14px; white-space: pre-wrap; }"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;/style&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/head&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;body&gt;"</span>
+
+<span class="hljs-comment" style="color: rgb(88, 110, 117);"># RAM Usage</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;div class='section'&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;h2&gt;RAM Usage:&lt;/h2&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;pre&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$(awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {usage=((total-available)</span>/total)*100; printf "</span>Percent: %.2f%%\n<span class="hljs-string" style="color: rgb(42, 161, 152);">", usage}' /proc/meminfo)"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$(awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {printf "MiB: %d / %d MiB\n", (total-available)</span>/1024, total/1024}' /proc/meminfo)"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/pre&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/div&gt;"</span>
+
+<span class="hljs-comment" style="color: rgb(88, 110, 117);"># Uptime</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;div class='section'&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;h2&gt;Uptime:&lt;/h2&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;pre&gt;<span class="hljs-variable" style="color: rgb(181, 137, 0);">$(uptime -p | sed 's/up //')</span>&lt;/pre&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/div&gt;"</span>
+
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/body&gt;"</span>
+<span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/html&gt;"</span>
+
+<span class="hljs-comment" style="color: rgb(88, 110, 117);"># Removing temporary files.</span>
+rm /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>1 /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>2</pre></code></pre>
+</div>
+
+<br>
+
+<p>
+  This script monitors the uptime and RAM usage of the server.
+</p>
+
+<p>
+  Step 4: Start & enable the fastcgi system service:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # systemctl start fcgiwrap && systemctl enable fcgiwrap
+    </code></pre>
+</div>
+
+<p>
+  Step 5: Testing: If you now enter the IPv4 address of your webserver into 
+  your webbrowser and add "/script.sh" to the end, you should get an output.
+</p>
+
+<br>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Automating live updates with HTMX</h1>
+</span>
+
+<p>
+  Now we will edit our "/var/www/html/index.html". This requires you having a basic 
+  HTML file set up. Add these lines to your index.html:
+</p>
+
+<div class="code-box">
+  <pre><code><pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-tag">&lt;<span class="hljs-name" style="color: rgb(38, 139, 210);">script</span> <span class="hljs-attr" style="color: rgb(181, 137, 0);">src</span>=<span class="hljs-string" style="color: rgb(42, 161, 152);">"https://unpkg.com/htmx.org@2.0.1"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name" style="color: rgb(38, 139, 210);">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name" style="color: rgb(38, 139, 210);">div</span> <span class="hljs-attr" style="color: rgb(181, 137, 0);">hx-get</span>=<span class="hljs-string" style="color: rgb(42, 161, 152);">"/cgi-bin/monitoring.sh"</span> <span class="hljs-attr" style="color: rgb(181, 137, 0);">hx-swap</span>=<span class="hljs-string" style="color: rgb(42, 161, 152);">"innerHTML"</span> <span class="hljs-attr" style="color: rgb(181, 137, 0);">hx-trigger</span>=<span class="hljs-string" style="color: rgb(42, 161, 152);">"every 1s"</span>&gt;</span>
+        <span class="hljs-comment" style="color: rgb(88, 110, 117);">&lt;!-- Script Content --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name" style="color: rgb(38, 139, 210);">div</span>&gt;</span>
+</pre></code></pre>
+</div>
+
+<br>
+
+<p>
+  This will create a div and swap its content to the content of the CGI-script 
+  every one second via HTMX. You can, of course, change this time.
+</p>
+
+<p>
+  Info on CSS, title, etc: I figured out, to change the title, favicon and CSS 
+  of your index.html, you might have to change it in the CGI-script instead of your 
+  HTML style tag or external stylesheet.
+</p>
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<br>
+<hr>
+<br>
+<a href="/wiki/tutorials/nginx-tutorials/nginx-tutorials.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
