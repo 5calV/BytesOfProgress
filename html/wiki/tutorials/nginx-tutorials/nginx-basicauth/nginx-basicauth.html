@@ -1,0 +1,155 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: Password protect website (basic auth)</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+  <button class="toggle-btn-navbar" id="navbarOpenButton">☰</button>
+  <div id="navbarContainer" class="navbar-container">
+      <iframe class="navbar-iframe" src="/assets/navbar/main-navbar.html" frameBorder= "0"></iframe>
+  </div>
+
+  <script src="/assets/navbar/navbar.js"></script>
+
+    <br>
+
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">Password protect website (basic auth)</h1>
+</span>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<p>
+  Have simple password protection for your nginx website by using basic_auth.
+</p>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:25px">Setting it up</h1>
+</span>
+
+<p>
+  This method is tested on Debian 12.
+</p>
+
+<p>
+  Step 1: Install nginx and apache2-utils
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # apt install nginx apache2-utils -y
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  Step 2: Set up the password and user: Replace "username" with the name you 
+  want to use for the login.
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # htpasswd -c /etc/nginx/.htpasswd username
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  The -c parameter creates the file. If you want to add more users, remove the "c-".
+</p>
+
+<p>
+  Step 3: Edit the server config file, located at "/etc/nginx/sites-available/default".
+</p>
+
+<div class="code-box">
+    <pre><code>  server {
+    listen 80;
+    server_name WEBSERVER;
+
+    root /var/www/html;
+    index index.html;
+
+    location / {
+        auth_basic "Restricted Content";
+        auth_basic_user_file /etc/nginx/.htpasswd;
+    }
+  }</code></pre>
+</div>
+
+<br>
+
+<p>
+  Step 4: Testing the configuration:
+</p>
+
+<div class="code-box">
+    <pre><code>
+  # nginx -t
+    </code></pre>
+</div>
+
+<br>
+
+<p>
+  If the test was successful, open the IPv4 address in your browser. 
+  There should pop up a prompt for your specified user and password. 
+  We will only be able to see the websites content after a successful login.
+</p>
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<br>
+<hr>
+<br>
+<a href="/wiki/tutorials/nginx-tutorials/nginx-tutorials.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
