@@ -1,0 +1,109 @@
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ╭∩╮     ╭∩╮ -->
+<!--  \(͡⚈ᴗ͡⚈)/  - -->
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOP Wiki: ESP32 I2C LCD Display (16x2 / 20x4)</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/stylesheet.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+
+
+</head>
+
+
+<body>
+
+  <button class="toggle-btn-navbar" id="navbarOpenButton">☰</button>
+  <div id="navbarContainer" class="navbar-container">
+      <iframe class="navbar-iframe" src="/assets/navbar/main-navbar.html" frameBorder= "0"></iframe>
+  </div>
+
+  <script src="/assets/navbar/navbar.js"></script>
+
+    <br>
+
+    <center>
+    <br>
+        <a href="/"><img src="/assets/logo.png" class="homelogo"></img></a>
+
+        <span style="color:#ff6600">
+            <h1 style="font-size:50px">BytesOfProgress</h1>
+        </span>
+
+
+    <span style="color:#ff6600">
+        <h1 style="font-size:30px">Wiki</h1>
+    </span>
+
+
+    <hr>
+
+<span style="color:#ff6600">
+    <h1 style="font-size:30px">ESP32 I2C LCD Display (16x2 / 20x4)</h1>
+</span>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<p>
+  Generally, the coordinate you want to speak to, in its code form, is always n-1. 
+  That means if you want to display something on the 3rd cell of the second row, 
+  you use cell 2 of row 1 in the code.
+</p>
+
+<p>
+  This example uses a 20x4 display.
+</p>
+
+<br>
+
+<div class="code-box">
+  <pre><code><pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);">  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Libraries</span>
+  <span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;Wire.h&gt;</span></span>
+  <span class="hljs-meta" style="color: rgb(203, 75, 22);">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string" style="color: rgb(42, 161, 152);">&lt;LiquidCrystal_I2C.h&gt;</span></span>
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);">// Display data</span>
+  LiquidCrystal_I2C lcd(<span class="hljs-number" style="color: rgb(42, 161, 152);">0x27</span>,<span class="hljs-number" style="color: rgb(42, 161, 152);">20</span>,<span class="hljs-number" style="color: rgb(42, 161, 152);">4</span>);
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>() {
+    lcd.init();
+    lcd.backlight();
+    lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">clear</span>();
+  }
+
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">loop</span>() {
+    lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">setCursor</span>(<span class="hljs-number" style="color: rgb(42, 161, 152);">4</span>, <span class="hljs-number" style="color: rgb(42, 161, 152);">1</span>);
+    lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"Hello World!"</span>);
+  }</pre></code></pre>
+</div>
+
+<br>
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+<br>
+<hr>
+<br>
+<a href="/wiki/microcontroller/codesnippets/codesnippets.html" button class="button1" role="button">back</a>
+<br>
+<br>
+</center>
+<hr>
+<br>
+
+
+</body>
+</html>
