@@ -75,8 +75,8 @@
   LiquidCrystal_I2C lcd(<span class="hljs-number" style="color: rgb(42, 161, 152);">0x27</span>,<span class="hljs-number" style="color: rgb(42, 161, 152);">20</span>,<span class="hljs-number" style="color: rgb(42, 161, 152);">4</span>);
 
   <span class="hljs-keyword" style="color: rgb(133, 153, 0);">void</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">setup</span>() {
-    lcd.init();
-    lcd.backlight();
+    lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">init</span>();
+    lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">backlight</span>();
     lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">clear</span>();
   }
 
@@ -85,6 +85,7 @@
     lcd.<span class="hljs-built_in" style="color: rgb(220, 50, 47);">print</span>(<span class="hljs-string" style="color: rgb(42, 161, 152);">"Hello World!"</span>);
   }</pre></code></pre>
 </div>
+
 
 <br>
 
