@@ -57,27 +57,194 @@
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
 <p>
-  Requirements: A <a class="text-link" href="/wiki/TOR/hiddenservice-host/hiddenservice-host.html" target="_blank">hosted hidden service</a>.
-</p>
-
-<p>
   This method is tested on Debian and EndeavourOS. The Debian method will be
   shown here. The only major difference is the package manager.
   Doing this on the server that hosts the hidden service is NOT needed.
   You can just transfer over the key in the end.
 </p>
 
+<p>
+  Requirements: A <a class="text-link" href="/wiki/TOR/hiddenservice-host/hiddenservice-host.html" target="_blank">hosted hidden service</a>,
+  build packages installed:
+</p>
 
+<div class="code-box">
+<pre><code>
+  # apt install gcc libc6-dev libsodium-dev make autoconf git -y
+</code>
+</pre>
+</div>
 
+<br>
 
+<p>
+  Step 1: Clone the mkp224o GitHub repository.
+</p>
 
+<div class="code-box">
+<pre><code>
+  # git clone https://github.com/cathugger/mkp224o.git
+</code>
+</pre>
+</div>
 
+<br>
 
+<p>
+  Step 2: Navigate into the directory of the repository with "cd".
+</p>
 
+<p>
+  Step 3: Build from source.
+</p>
 
+<div class="code-box">
+<pre><code>
+  # ./autogen.sh
+</code>
+</pre>
+</div>
 
+<br>
 
+<div class="code-box">
+<pre><code>
+  # ./configure
+</code>
+</pre>
+</div>
 
+<br>
+
+<div class="code-box">
+<pre><code>
+  # make
+</code>
+</pre>
+</div>
+
+<br>
+
+<p>
+  Step 4: Generate the keys and vanity addess:
+</p>
+
+<div class="code-box">
+<pre><code>
+  # ./mkp224o test -v -n 1 -d ~/ONION -t 4
+</code>
+</pre>
+</div>
+
+<br>
+
+<p>
+  What does this command do exactly? Parameter explanation:
+</p>
+
+<p>
+  test: This is the string you are trying to include at the beginning of
+  your .onion address.
+</p>
+
+<p>
+  -v: This flag is for verbose output, which provides you with more details
+  during the generation process.
+</p>
+
+<p>
+  -n 1: This option specifies that you only want to generate 1 matching address.
+</p>
+
+<p>
+  -d ~/ONION: This parameter specifies the directory where the generated
+  keys should be saved. In this case, it is "~/ONION".
+</p>
+
+<p>
+-t 4: This specifies the number of CPU threads to use for the generation.
+</p>
+
+<p>
+  Make sure to change these options to your situation.
+</p>
+
+<br>
+
+<p>
+  How long will it take?
+</p>
+
+<p>
+  For a v3 onion address, each character is part of a 32-character
+  Base32-encoded string.
+</p>
+
+<p>
+  These are estimated times for an 8th gen Intel Core i5, using 4 threads:
+</p>
+
+<p>
+  1-3 characters: Almost instant to a few seconds.
+</p>
+
+<p>
+  4 characters: Up to a few minutes.
+</p>
+
+<p>
+  5 characters: Up a few minutes.
+</p>
+
+<p>
+  6 characters: 10 hours to 3 days.
+</p>
+
+<p>
+  7 characters: Several weeks to months.
+</p>
+
+<p>
+  8 characters or more: Don't.
+</p>
+
+<p>
+  Due to the random nature of the process, matches may sometimes be
+  found faster or slower than expected.
+</p>
+
+<br>
+
+<p>
+  Step 5: Use your onion address and its keys:
+</p>
+
+<p>
+  To do that, you should first remove your old host and key files
+  from "/var/lib/tor/hidden_service".
+</p>
+
+<p>
+  After that copy your new host file and keys to "/var/lib/tor/hidden_service".
+</p>
+
+<p>
+  Then, restart TOR:
+</p>
+
+<div class="code-box">
+<pre><code>
+  # systemctl restart tor
+</code>
+</pre>
+</div>
+
+<br>
+
+<p>
+  You should now be able to access your hidden service with your newly
+  generated onion address.
+</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
