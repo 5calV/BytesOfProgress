@@ -52,9 +52,151 @@
   for the statistics to refresh automatically.
 </p>
 
+<p>
+  When looking for an admin interface to use, I noticed that every single one
+  I was able to find, had way too much stuff going on for my use case
+  (too many features i would never use), or they are not FOSS, which I didn't
+  want for my server. This is when I decided that it would make sense to
+  build my own!
+</p>
+
+<p>
+  So I started researching on how I could get some system statistics and
+  a shell on a website. Then I discovered CGI scripts (Common Gateway Interface):
+  A way to write shell commands inside HTML tags and then let it display with
+  a webserver. This is quite an old technique, introduced, as of my research
+  in the early 1990s, but still enough for my usecase.
+</p>
+
+<p>
+  The information I found on the use of CGI scripts was mainly focused on the
+  Apache2 webserver, so I had to find a way to use them with Nginx.
+  This took some more research and tinkering but I eventually got it
+  working after some difficulties.
+</p>
+
+<p>
+  To get it working, I used fastcgi (in debian the package is called "fcgiwrap ")
+  and some changes in my Nginx configuration (/etc/nginx/sites-available/default):
+</p>
+
+<div class="code-box">
+    <pre><code>  server {
+      listen PORT;
+      server_name NAME;
+
+      root /var/www/html;
+      index index.html;
+
+      location /cgi-bin/ {
+          alias /usr/lib/cgi-bin/; # Default path for cgi scripts.
+          fastcgi_pass unix:/var/run/fcgiwrap.socket;
+          include fastcgi_params;
+          fastcgi_param SCRIPT_FILENAME /usr/lib$fastcgi_script_name;
+      }
+  }</code></pre>
+</div>
+
+<br>
+
+<p>
+  Particularly I had to add the lines in the "location" block.
+</p>
+
+<p>
+  Then I had to write the CGI script itself. This is what I wrote:
+</p>
+
+<div class="code-box">
+    <pre><code>  <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-meta" style="color: rgb(203, 75, 22);">#!/bin/sh
+</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"Content-Type: text/html"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">""</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;!DOCTYPE html&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;html lang=\"de\"&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;head&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;meta charset=\"UTF-8\"&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;title&gt;BOP Admin Panel&lt;/title&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;link rel=\"icon\" type=\"image/x-icon\" href=\"/assets/favicon.png\"&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;style&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"    body { font-family: Arial, sans-serif; color: #ffffff; background-color: #000000; }"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"    .section { margin-bottom: 20px; }"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"    .section h2 { margin: 0; }"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"    pre { color: #ffffff; font-size: 14px; white-space: pre-wrap; }"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"  &lt;/style&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/head&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;body&gt;"</span>
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);"># CPU Temperature</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;div class='section'&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;h2&gt;CPU Temperature:&lt;/h2&gt;"</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">if</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">command</span> -v sensors &gt;/dev/null 2&gt;&amp;1; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
+    <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;pre&gt;<span class="hljs-variable" style="color: rgb(181, 137, 0);">$(sensors | grep Core | awk '{print $1, $2, $3}')</span>&lt;/pre&gt;"</span>
+    <span class="hljs-keyword" style="color: rgb(133, 153, 0);">else</span>
+    <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;p&gt;Command 'sensors' not available.&lt;/p&gt;"</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">fi</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/div&gt;"</span>
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);"># CPU Usage</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;div class='section'&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;h2&gt;CPU Usage:&lt;/h2&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;pre&gt;"</span>
+  (
+    <span class="hljs-comment" style="color: rgb(88, 110, 117);"># First measurement</span>
+    awk <span class="hljs-string" style="color: rgb(42, 161, 152);">'/^cpu[0-9]+/ {print $1, $2+$3+$4+$5+$6, $5}'</span> /proc/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span> &gt; /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>1
+    sleep 1
+    <span class="hljs-comment" style="color: rgb(88, 110, 117);"># Second measurement</span>
+    awk <span class="hljs-string" style="color: rgb(42, 161, 152);">'/^cpu[0-9]+/ {print $1, $2+$3+$4+$5+$6, $5}'</span> /proc/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span> &gt; /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>2
+
+    <span class="hljs-comment" style="color: rgb(88, 110, 117);"># Calculation &amp; Output</span>
+    awk <span class="hljs-string" style="color: rgb(42, 161, 152);">'
+      NR==FNR {
+        idle_before[$1]=$3
+        total_before[$1]=$2
+        next
+      }
+      /^cpu[0-9]+/ {
+        idle[$1]=$3
+        total[$1]=$2
+        if (length(idle_before[$1])) {
+          idle_diff = idle[$1] - idle_before[$1]
+          total_diff = total[$1] - total_before[$1]
+          usage = (total_diff &gt; 0) ? (100 * (1 - (idle_diff / total_diff))) : 0
+          core = substr($1, 4)
+          printf "Core %d: %.1f%%\n", core, usage
+        }
+      }'</span> /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>1 /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>2
+  )
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/pre&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/div&gt;"</span>
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);"># RAM Usage</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;div class='section'&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;h2&gt;RAM Usage:&lt;/h2&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;pre&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$(awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {usage=((total-available)</span>/total)*100; printf "</span>Percent: %.2f%%\n<span class="hljs-string" style="color: rgb(42, 161, 152);">", usage}' /proc/meminfo)"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"<span class="hljs-variable" style="color: rgb(181, 137, 0);">$(awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {printf "MiB: %d / %d MiB\n", (total-available)</span>/1024, total/1024}' /proc/meminfo)"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/pre&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/div&gt;"</span>
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);"># Uptime</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;div class='section'&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;h2&gt;Uptime:&lt;/h2&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;pre&gt;<span class="hljs-variable" style="color: rgb(181, 137, 0);">$(uptime -p | sed 's/up //')</span>&lt;/pre&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/div&gt;"</span>
+
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/body&gt;"</span>
+  <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/html&gt;"</span>
+
+  <span class="hljs-comment" style="color: rgb(88, 110, 117);"># Removing temporary files.</span>
+  rm /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>1 /tmp/<span class="hljs-built_in" style="color: rgb(220, 50, 47);">stat</span>2</pre>
 
 
 
+    </code></pre>
+</div>
+
+<br>
 
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
