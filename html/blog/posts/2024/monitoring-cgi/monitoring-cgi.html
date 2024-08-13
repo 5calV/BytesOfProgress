@@ -194,6 +194,47 @@
 
 <br>
 
+<p>
+  It displays the CPU Temperature, CPU Usage, RAM Usage in MiB and percentage
+  and the uptime.
+</p>
+
+<p>
+  I them edited my index.html: I inserted HTMX into it, so that the
+  statistics get refreshed once a second. To do this, I added these few lines:
+</p>
+
+<div class="code-box">
+  <pre><code><pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(131, 148, 150);"><span class="hljs-tag">&lt;<span class="hljs-name" style="color: rgb(38, 139, 210);">script</span> <span class="hljs-attr" style="color: rgb(181, 137, 0);">src</span>=<span class="hljs-string" style="color: rgb(42, 161, 152);">"https://unpkg.com/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e48c90899cca8b9683a4d6cad4cad5">[email&#160;protected]</a>"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name" style="color: rgb(38, 139, 210);">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name" style="color: rgb(38, 139, 210);">div</span> <span class="hljs-attr" style="color: rgb(181, 137, 0);">hx-get</span>=<span class="hljs-string" style="color: rgb(42, 161, 152);">"/cgi-bin/script.sh"</span> <span class="hljs-attr" style="color: rgb(181, 137, 0);">hx-swap</span>=<span class="hljs-string" style="color: rgb(42, 161, 152);">"innerHTML"</span> <span class="hljs-attr" style="color: rgb(181, 137, 0);">hx-trigger</span>=<span class="hljs-string" style="color: rgb(42, 161, 152);">"every 1s"</span>&gt;</span>
+        <span class="hljs-comment" style="color: rgb(88, 110, 117);">&lt;!-- Script Content --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name" style="color: rgb(38, 139, 210);">div</span>&gt;</span>
+</pre></code></pre>
+</div>
+
+<br>
+
+<p>
+  This creates a div and swaps its content to the content of the CGI-script
+  every one second via HTMX.
+</p>
+
+<p>
+  Info on CSS, title, etc: I figured out, to change the title, favicon and CSS
+  of your index.html, you might have to change it in the CGI-script instead of your
+  HTML style tag or external stylesheet if you plan on doing something similar.
+</p>
+
+<p>
+  To have shell access in my small "admin panel", I installed ShellInABox and
+  created an iframe that contains it into my HTML. This is what it looks like
+  in the end:
+</p>
+
+<img src="adminpanel.png" style="height: ; max-height: 90%; max-width: 95%; width: 1200px">
+
+<br>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
