@@ -132,7 +132,7 @@
   <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;h2&gt;CPU Temperature:&lt;/h2&gt;"</span>
   <span class="hljs-keyword" style="color: rgb(133, 153, 0);">if</span> <span class="hljs-built_in" style="color: rgb(220, 50, 47);">command</span> -v sensors &gt;/dev/null 2&gt;&amp;1; <span class="hljs-keyword" style="color: rgb(133, 153, 0);">then</span>
     <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;pre&gt;<span class="hljs-variable" style="color: rgb(181, 137, 0);">$(sensors | grep Core | awk '{print $1, $2, $3}')</span>&lt;/pre&gt;"</span>
-    <span class="hljs-keyword" style="color: rgb(133, 153, 0);">else</span>
+  <span class="hljs-keyword" style="color: rgb(133, 153, 0);">else</span>
     <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;p&gt;Command 'sensors' not available.&lt;/p&gt;"</span>
   <span class="hljs-keyword" style="color: rgb(133, 153, 0);">fi</span>
   <span class="hljs-built_in" style="color: rgb(220, 50, 47);">echo</span> <span class="hljs-string" style="color: rgb(42, 161, 152);">"&lt;/div&gt;"</span>
