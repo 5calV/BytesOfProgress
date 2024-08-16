@@ -144,7 +144,7 @@ elif [ "$action" = 10 ]; then
     iftop && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 11 ]; then
-    systemctl restart tor && bash /var/www/maintenance/BOP-system-util.sh
+    systemctl restart tor | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 12 ]; then
     nyx && bash /var/www/maintenance/BOP-system-util.sh
