@@ -84,13 +84,13 @@ systemctl enable fcgiwrap
 
 mkdir /usr/lib/cgi-bin
 
-cp /var/www/installation/management-panel/monitoring.sh /usr/lib/cgi-bin/monitoring.sh
+cp /var/www/maintenance/management-panel/monitoring.sh /usr/lib/cgi-bin/monitoring.sh
 
 chmod +x /usr/lib/cgi-bin/monitoring.sh
 
 mkdir /var/www/management
 
-cp /var/www/installation/management-panel/* /var/www/management/
+cp /var/www/maintenance/management-panel/* /var/www/management/
 
 chmod +x /usr/lib/cgi-bin/monitoring.sh
 
