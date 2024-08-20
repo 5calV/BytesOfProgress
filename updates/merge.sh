@@ -13,6 +13,9 @@ mv /var/temp/BytesOfProgress/* /var/www/
 
 echo "Replacing the old website files..."
 
+# Permission for CPU calculation (CGI).
+chmod 1777 /tmp
+
 echo "Removing repository"
 rm -rf /var/temp
 
