@@ -88,12 +88,6 @@ cp /var/www/maintenance/management-panel/monitoring.sh /usr/lib/cgi-bin/monitori
 
 chmod +x /usr/lib/cgi-bin/monitoring.sh
 
-mkdir /var/www/management
-
-cp /var/www/maintenance/management-panel/* /var/www/management/
-
-chmod +x /usr/lib/cgi-bin/monitoring.sh
-
 read -p "Enter username for web admin panel: " username
 
 sudo htpasswd -c /etc/nginx/.htpasswd $username
@@ -136,4 +130,3 @@ echo "DONE!"
 
 echo "It is recommended to perform a reboot!"
 echo "After rebooting you will be able to use the BytesOfProgress System Utility by executing the command: bop, or use the admin panel on 8088."
-

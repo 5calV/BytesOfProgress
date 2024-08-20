@@ -18,21 +18,19 @@ server {
     listen 8088;
     server_name admin-panel;
 
-    root /var/www/management;
+    root /var/www/maintenance/management-panel;
     index panel.html;
 
     location / {
         auth_basic "Restricted Content";
         auth_basic_user_file /etc/nginx/.htpasswd;
     }
-    
+
     location /cgi-bin/ {
         alias /usr/lib/cgi-bin/; # Default path for cgi scripts.
         fastcgi_pass unix:/var/run/fcgiwrap.socket;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME /usr/lib$fastcgi_script_name;
-        
-        auth_basic "Restricted Content";
-        auth_basic_user_file /etc/nginx/.htpasswd;
+
     }
 }
