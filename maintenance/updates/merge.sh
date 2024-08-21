@@ -18,4 +18,8 @@ rm -rf /var/temp
 
 chmod +x /var/www/maintenance/BOP-system-util.sh
 
+rm /usr/lib/cgi-bin/monitoring.sh
+
+cp /var/www/maintenance/management-panel/monitoring.sh /usr/lib/cgi-bin/monitoring.sh
+
 echo "DONE!"
