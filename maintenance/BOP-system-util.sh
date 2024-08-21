@@ -120,7 +120,7 @@ read -r action
 #------------------------------------------------------------------------------
 
 if [ "$action" = 1 ]; then
-    bash /var/www/updates/merge.sh && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
+    bash /var/www/maintenance/updates/git-update.sh && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
 
 elif [ "$action" = 2 ]; then
     systemctl restart nginx | echo 'DONE' && sleep 3 && bash /var/www/maintenance/BOP-system-util.sh
