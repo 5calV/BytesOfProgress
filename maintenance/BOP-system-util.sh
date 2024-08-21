@@ -70,8 +70,7 @@ echo
 
 echo 'Disk Usage:'
 
-df -BG --total | grep 'total' | awk '{gsub("G", " GiB", $3); gsub("G", " GiB", $2); print "Percent: "$5"\nGiB: "$3" / "$2}'
-
+df -h --total | grep 'total' | awk '{used=$3; total=$2; percent=(used/total)*100; gsub("G", " GiB", $2); printf "Percent: %.1f%%\nGiB: %s / %s\n", percent, $3, $2}'
 
 echo
 
