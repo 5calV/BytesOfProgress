@@ -22,4 +22,6 @@ rm /usr/lib/cgi-bin/monitoring.sh
 
 cp /var/www/maintenance/management-panel/monitoring.sh /usr/lib/cgi-bin/monitoring.sh
 
+chmod +x /usr/lib/cgi-bin/monitoring.sh
+
 echo "DONE!"
