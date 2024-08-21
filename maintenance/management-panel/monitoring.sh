@@ -69,6 +69,14 @@ echo "$(awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {printf "Mi
 echo "</pre>"
 echo "</div>"
 
+# Disk Usage
+echo "<div class='section'>"
+echo "<h2>Disk Usage:</h2>"
+echo "<pre>"
+df -h --total | grep 'total' | awk '{used=$3; total=$2; sub(/G/, "", used); sub(/G/, " GiB", total); percent=(used/total)*100; printf "Percent: %.1f%%\nGiB: %.1f / %s\n", percent, used, total}'
+echo "</pre>"
+echo "</div>"
+
 # Uptime
 echo "<div class='section'>"
 echo "<h2>Uptime:</h2>"
