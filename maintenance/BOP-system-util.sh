@@ -68,6 +68,12 @@ awk '/MemTotal/ {total=$2} /MemAvailable/ {available=$2} END {printf "MiB: %d / 
 
 echo
 
+echo 'Disk Usage:'
+
+df -h --total | grep 'total' | awk '{print "Percent: "$5"\nGiB: "$3" / "$2}'
+
+echo
+
 #------------------------------------------------------------------------------
 
 echo "You are logged in as: $(whoami)"
