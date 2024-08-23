@@ -1,7 +1,7 @@
 
 #------------------------------------------------------------------------------
 
-1. Create sudo user named "bop-admin"
+1. Create user named "bop-admin"
 2. Give the server a static IPv4 or use DHCP address reservation with MAC-address.
 3. Install git (apt install git -y)
 4. Create folder "/var/www", Clone Repo in /var/www
@@ -16,6 +16,6 @@
 13. Reboot
 14. You can now use the BytesOfProgress System Utility to manage this server by typing "bop", 
     or use the webinterface on 8088.
-15. Perform an update using the System Utility
+15. Perform an update using the System Utility (option 1)
 
 #------------------------------------------------------------------------------
