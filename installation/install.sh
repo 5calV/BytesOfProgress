@@ -51,6 +51,10 @@ ufw allow 8080
 ufw allow 8088
 ufw allow 4200
 
+systemctl enable ufw --now
+
+ufw enable
+
 #------------------------------------------------------------------------------
 
 rm /etc/nginx/sites-available/default
