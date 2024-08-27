@@ -86,7 +86,7 @@ echo "</div>"
 # Uptime
 echo "<div class='box'>"
 echo "<pre>Uptime:</pre>"
-echo "<pre>$(uptime -p | sed 's/up //' | sed 's/[^0-9]*day[^0-9]*[0-9]*min[^0-9]*/ /' | sed 's/[^0-9]*week[^0-9]*[0-9]*day[^0-9]*/ /' | sed 's/[^0-9]*week[^0-9]*/ /' | sed 's/[^0-9]*month[^0-9]*[0-9]*day[^0-9]*/ /' | sed 's/[^0-9]*month[^0-9]*/ /')</pre>"
+echo "<pre>$(uptime -p | sed 's/up //' | sed 's/[^0-9]*week[^0-9]*//g' | sed 's/[^0-9]*month[^0-9]*//g' | sed 's/[^0-9]*year[^0-9]*//g')</pre>"
 echo "</div>"
 
 echo "</div>"
