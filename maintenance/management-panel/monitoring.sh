@@ -86,7 +86,7 @@ echo "</div>"
 # Uptime
 echo "<div class='box'>"
 echo "<pre>Uptime:</pre>"
-echo "<pre>$(awk -v t=$(cut -d. -f1 /proc/uptime) 'BEGIN {d=int(t/86400); t=t%86400; h=int(t/3600); t=t%3600; m=int(t/60); printf "%d Tage, %d Stunden, %d Minuten\n", d, h, m}')</pre>"
+echo "<pre>$(awk -v t=$(cut -d. -f1 /proc/uptime) 'BEGIN {d=int(t/86400); t=t%86400; h=int(t/3600); t=t%3600; m=int(t/60); printf "%d days, %d hours, %d minutes\n", d, h, m}')</pre>"
 </pre>"
 echo "</div>"
 
