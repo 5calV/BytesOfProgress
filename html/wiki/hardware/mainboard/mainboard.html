@@ -95,14 +95,14 @@
 </p>
 
 <p>
-    6: Chipset: The chipset on a motherboard is a component
+    6: Chipset: The chipset on a mainboard is a component
     that helps different parts of the computer, like the CPU and peripherals,
     to communicate effectively. It manages data flow, ensuring
     everything works together smoothly for your computer to function properly.
 </p>
 
 <p>
-    7: BIOS battery: BIOS battery or CMOS battery, is a small, coin-shaped battery on the motherboard.
+    7: BIOS battery: BIOS battery or CMOS battery, is a small, coin-shaped battery on the mainboard.
     It provides power to the CMOS memory, preserving critical system information
     such as date, time, and BIOS settings when the computer is powered off. If
     this battery weakens or fails, you may experience issues with system
@@ -116,36 +116,46 @@
 <br>
 
 <span style="color:#ff6600">
-    <h1 style="font-size:30px">RAM support</h1>
+    <h1 style="font-size:25px">RAM support</h1>
 </span>
 
 <p>
-    The motherboard's memory slots are specifically designed to support a certain type 
-    of RAM (e.g., DDR3, DDR4, DDR5). The chipset on the motherboard defines the 
+    The mainboard's memory slots are specifically designed to support a certain type 
+    of RAM (e.g., DDR3, DDR4, DDR5). The chipset on the mainboard defines the 
     maximum supported memory speed and capacity. The CPU must also support the 
     type of RAM used. Modern CPUs are built to support specific memory types and 
     speeds. For instance, some CPUs might support DDR4, but not DDR5, even if 
-    the motherboard has slots for both. The memory controller is built into 
-    modern CPUs, and it must match the type of RAM the motherboard is using.
+    the mainboard has slots for both. The memory controller is built into 
+    modern CPUs, and it must match the type of RAM the mainboard is using.
 </p>
 
 <p>
-    For full compatibility, the motherboard, chipset and CPU need to align with the RAM type.
+    For full compatibility, the mainboard, chipset and CPU need to align with the RAM type.
 </p>
 
+<!----------------------------------------------------------------------------->
 
+<span style="color:#ff6600"></span>
+    <h1 style="font-size:25px">RAM channels</h1>
+</span>
 
+<p>
+    Dual-channel and quad-channel are memory configurations that enhance RAM performance 
+    by allowing multiple modules to work in parallel. Dual-channel uses two identical 
+    RAM sticks installed in matching slots, effectively x2 the data transfer rate. 
+    Quad-channel, on the other hand, requires four identical RAM sticks, 
+    increasing bandwidth and improving performance in memory-intensive tasks even further. 
+</p>
 
-
-
-
-
-
-
-
-
-
-
+<p>
+    The CPU and mainboard work together to determine if a system can run in dual-channel 
+    or quad-channel memory configurations. While the mainboard chipset provides the necessary 
+    slots and support for these configurations, the CPU's memory controller controls 
+    how many channels it can support. Most mainstream CPUs (like Intel Core i5/i7 or AMD Ryzen) 
+    support dual-channel. High-end CPUs (like Intel Core i9 or AMD Threadripper) 
+    may support quad-channel or even octa-channel memory. 
+    In short: The CPU limits the number of channels, while the motherboard determines how they are physically configured.
+</p>
 
 <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
