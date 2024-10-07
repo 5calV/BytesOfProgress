@@ -1,5 +1,6 @@
 # BytesOfProgress
-The repository for the BytesOfProgress Website
+The repository for the BytesOfProgress Website.
+THIS REPO IS NOT BEING MAINTAINED ANYMORE. It is being maintained on my Gitea server.
 
 ## What is BytesOfProgress?
 
