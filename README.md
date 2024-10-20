@@ -4,7 +4,7 @@ THIS REPO IS NOT BEING MAINTAINED ANYMORE. It is being maintained on my Gitea se
 
 ## What is BytesOfProgress?
 
-https://bytesofprogress.io/
+https://bytesofprogress.net/
 
 BytesOfProgress is a website, in which I showcase my projects related to computers in the "blog"-section.
 
